@@ -4,7 +4,11 @@ let action = {
     type: 'ADD_GOOD'
 };
 
-switch (action.type) {
-    case 'ADD_GOOD':
-        console.log('ADD GOODIE !!!');
-}
+export const ChangeText = (state, action) => {
+    switch (action.type) {
+        case 'ADD_GOOD':
+            console.log('ADD GOODIE !!!');
+        default:
+            return state;
+    }
+};
