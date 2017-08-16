@@ -4,7 +4,7 @@ let action = {
     type: 'ADD_GOOD'
 };
 
-export const ChangeText = (state, action) => {
+const reducer = (state = [], action) => {
     switch (action.type) {
         case 'ADD_GOOD':
             console.log('ADD GOODIE !!!');
@@ -12,3 +12,5 @@ export const ChangeText = (state, action) => {
             return state;
     }
 };
+
+export default reducer;
