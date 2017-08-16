@@ -22,3 +22,14 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+.product {
+    max-width: 320px;
+    display: flex;
+    flex-direction: column;
+}
+
+.product img {
+    height: auto;
+    max-width: 300px;
+}
