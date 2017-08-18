@@ -1,19 +1,17 @@
 import React from 'react'
-import PropTypes from 'prop-types'
+import {connect} from 'react-redux';
 import styles from './style.css'
 
-const Product = () => {
+let Product = ({img, name, dispatch}) => {
     return (
-      <div className="product">
-          <img src="https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646" alt=""/>
-          <span>Phanteks Enthoo Pro Chassis White</span>
-          <button>Add to Cart</button>
+      <div className={styles.product}>
+          <img src={img}/>
+          <span>{name}</span>
+          <button onClick={() => dispatch({type: 'ADD_GOOD', name})}>
+              Add to Cart
+          </button>
       </div>
     )
 };
 
-// TextArea.propTypes = {
-//
-// }
-
-export default Product
+export default connect()(Product)

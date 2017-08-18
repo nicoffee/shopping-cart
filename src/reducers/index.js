@@ -1,16 +1,9 @@
-// import { addGood } from "../actions/index"
+import {combineReducers} from 'redux';
+import {goods, filter} from './reducers';
 
-let action = {
-    type: 'ADD_GOOD'
-};
+const rootReducer = combineReducers({
+    goods,
+    filter
+});
 
-const reducer = (state = [], action) => {
-    switch (action.type) {
-        case 'ADD_GOOD':
-            console.log('ADD GOODIE !!!');
-        default:
-            return state;
-    }
-};
-
-export default reducer;
+export default rootReducer;

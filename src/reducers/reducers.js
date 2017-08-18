@@ -1,0 +1,37 @@
+export const good = (state, action) => {
+    switch (action.type) {
+        case 'ADD_GOOD':
+            return {
+                name: action.name
+            };
+        case 'REMOVE_GOOD':
+            return state;
+        default:
+            return state;
+    }
+};
+
+export const goods = (state = [], action) => {
+    switch (action.type) {
+        case 'ADD_GOOD':
+            return [
+                ...state,
+                good(undefined, action)
+            ];
+        case 'REMOVE_GOOD':
+            return state;
+        case 'FILTER_GOODS':
+            return state;
+        default:
+            return state;
+    }
+};
+
+export const filter = (state = 'SHOW_ALL', action) => {
+    switch (action.type) {
+        case 'FILTER_GOODS':
+            return state;
+        default:
+            return state;
+    }
+};

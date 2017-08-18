@@ -5,9 +5,7 @@ import { addGood } from './../../actions'
 let ShoppingCart = ({dispatch}) => {
     return (
       <div>
-          <button onClick={() => dispatch(addGood())}>
-              Add Goodie
-          </button>
+
       </div>
     )
 };
