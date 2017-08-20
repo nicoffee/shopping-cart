@@ -18,7 +18,6 @@ class App extends Component {
 
         return (
             <div className="App">
-                <ShoppingCart/>
                 <ProductList />
             </div>
         )

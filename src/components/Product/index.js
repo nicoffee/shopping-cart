@@ -1,7 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import styles from './style.css'
-import addGood from './../../actions'
+import {addGood} from './../../actions'
 
 let Product = ({img, name, dispatch}) => (
         <div className={styles.product}>
