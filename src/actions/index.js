@@ -1,3 +1,4 @@
-export const addGood = (good) => ({
-    type: 'ADD_TO_CART'
-});
+export const addGood = (name) => ({
+    type: 'ADD_GOOD',
+    name
+})
