@@ -5,8 +5,12 @@ import App from './App'
 import registerServiceWorker from './registerServiceWorker'
 import configureStore from './store/configureStore'
 import './index.css'
+import { loadState, saveState } from './localStorage'
+const store = configureStore();
 
-const store = configureStore()
+store.subscribe(() => {
+   saveState(store.getState())
+});
 
 render(
   <Provider store={store}>
@@ -14,4 +18,4 @@ render(
   </Provider>,
   document.getElementById('root')
 );
-registerServiceWorker()
+registerServiceWorker();

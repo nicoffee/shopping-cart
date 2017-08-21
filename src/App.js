@@ -5,23 +5,36 @@ import rootReducer from './reducers'
 import ProductList from './containers/ProductList'
 import './App.css'
 
-const store = createStore(rootReducer);
-
 class App extends Component {
-    constructor() {
-        super();
-        this.state = {date: new Date()};
-    }
-
     render() {
-        const {dispatch} = this.props;
+        const {dispatch, state} = this.props;
+
+        console.log('THISS', state.goods);
+
+        const goodsList = state.goods.map((item, idx) => {
+            return (
+                <li key={idx}>
+                    {item.name}
+                </li>
+            )
+        })
 
         return (
             <div className="App">
+                <div>
+                    Товаров в корзине: {state.goods.length}
+                    <br />
+                    Товары:
+                    <ul>
+                        {goodsList}
+                    </ul>
+                </div>
                 <ProductList />
             </div>
         )
     }
 }
 
-export default connect()(App)
+const mapStateToProps = (state) => ({ state });
+
+export default connect(mapStateToProps)(App);
