@@ -2,7 +2,8 @@ export const good = (state, action) => {
     switch (action.type) {
         case 'ADD_GOOD':
             return {
-                name: action.name
+                name: action.name,
+                id: action.id
             };
         case 'REMOVE_GOOD':
             return state;

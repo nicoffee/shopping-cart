@@ -9,15 +9,13 @@ class App extends Component {
     render() {
         const {dispatch, state} = this.props;
 
-        console.log('THISS', state.goods);
-
         const goodsList = state.goods.map((item, idx) => {
             return (
                 <li key={idx}>
                     {item.name}
                 </li>
             )
-        })
+        });
 
         return (
             <div className="App">

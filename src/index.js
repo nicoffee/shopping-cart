@@ -6,11 +6,16 @@ import registerServiceWorker from './registerServiceWorker'
 import configureStore from './store/configureStore'
 import './index.css'
 import { loadState, saveState } from './localStorage'
-const store = configureStore();
+import throttle from 'lodash/throttle'
 
-store.subscribe(() => {
-   saveState(store.getState())
-});
+const persistedState = loadState();
+const store = configureStore(persistedState);
+
+store.subscribe(throttle(() => {
+   saveState({
+       goods: store.getState().goods
+   });
+}, 1000));
 
 render(
   <Provider store={store}>
