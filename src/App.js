@@ -4,35 +4,24 @@ import {createStore} from 'redux'
 import rootReducer from './reducers'
 import ProductList from './containers/ProductList'
 import './App.css'
+import CartPreview from './components/CartPreview'
 
 class App extends Component {
     render() {
         const {dispatch, state} = this.props;
 
-        const goodsList = state.goods.map((item, idx) => {
-            return (
-                <li key={idx}>
-                    {item.name}
-                </li>
-            )
-        });
-
         return (
             <div className="App">
-                <div>
-                    Товаров в корзине: {state.goods.length}
-                    <br />
-                    Товары:
-                    <ul>
-                        {goodsList}
-                    </ul>
-                </div>
-                <ProductList />
+                <CartPreview
+                    count={state.goods.length}
+                    goods={state.goods}
+                />
+                <ProductList/>
             </div>
         )
     }
 }
 
-const mapStateToProps = (state) => ({ state });
+const mapStateToProps = (state) => ({state});
 
 export default connect(mapStateToProps)(App);
