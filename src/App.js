@@ -1,22 +1,27 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {createStore} from 'redux'
-import rootReducer from './reducers'
+import DevTools from './containers/DevTools'
 import ProductList from './containers/ProductList'
 import './App.css'
+import axios from 'axios';
 import CartPreview from './components/CartPreview'
 
+let arr = [];
+
 class App extends Component {
+
+
     render() {
-        const {dispatch, state} = this.props;
+        const {state} = this.props;
 
         return (
             <div className="App">
                 <CartPreview
                     count={state.goods.length}
-                    goods={state.goods}
+                    goods={state.goods.arr}
                 />
-                <ProductList/>
+                <ProductList />
+                <DevTools />
             </div>
         )
     }

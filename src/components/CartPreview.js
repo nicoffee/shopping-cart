@@ -10,7 +10,9 @@ const goodsList = (goods) => goods.map((item, idx) => {
     )
 });
 
-const CartPreview = ({count, goods}) => (
+const CartPreview = ({count, goods}) => {
+    console.log('goods', goods);
+    return (
     <div>
         Товаров в корзине: {count}
         <br/>
@@ -20,6 +22,7 @@ const CartPreview = ({count, goods}) => (
         </ul>
         <Link to="/cart">View Cart</Link>
     </div>
-);
+    )
+};
 
 export default CartPreview;
