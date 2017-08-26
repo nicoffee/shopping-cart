@@ -8,7 +8,7 @@ import './index.css'
 const store = configureStore();
 
 render(
-  <Root store={store} />,
-  document.getElementById('root')
+    <Root store={store}/>,
+    document.getElementById('root')
 );
 registerServiceWorker();

@@ -1,8 +1,7 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import axios from 'axios';
-
-import Product from '../../components/Product'
+import React, {Component} from 'react'
+import {connect} from 'react-redux'
+import axios from 'axios'
+import Product from '../components/Product/index'
 
 const mapStateToProps = ({goods}) => ({goods});
 
@@ -11,33 +10,24 @@ class ProductList extends Component {
         super(props);
         this.state = {
             goods: []
-            // img: "",
-            // name: "",
-            // vendor: "",
-            // price: 0,
-            // rating: 0,
-            // vendor_code: ""
         };
     }
 
     componentDidMount() {
         axios.get('http://localhost:3000/cases')
             .then((res) => {
-                console.log('res', res);
                 this.setState({
                     goods: res.data
                 });
             })
-            .catch(function (error) {
-                console.log('err', error);
+            .catch(() => {
             });
     }
 
     render() {
-        let prods = [];
+        let goods = [];
         this.state.goods.map((item, idx) => {
-            console.log('item:', item);
-            let g = <Product
+            const good = <Product
                 img={item.img}
                 name={item.name}
                 vendor={item.vendor}
@@ -46,17 +36,16 @@ class ProductList extends Component {
                 vendor_code={item.vendor_code}
                 key={idx}
             />;
-            prods.push(g);
+            goods.push(good);
         });
 
         return (
             <div>
-                {prods}
+                {goods}
             </div>
-
         )
     }
-};
+}
 
 const FilteredProductList = connect(mapStateToProps)(ProductList);
 

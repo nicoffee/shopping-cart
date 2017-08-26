@@ -1,9 +1,13 @@
-import { v4 } from 'node-uuid';
-
-let nextGoodId = 0;
+import {v4} from 'node-uuid'
 
 export const addGood = (name) => ({
     type: 'ADD_GOOD',
-    name,
-    id: v4()
+    id: v4(),
+    name
+});
+
+
+export const setCategoryFilter = (filter) => ({
+    type: 'SET_CATEGORY_FILTER',
+    filter
 });
