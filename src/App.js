@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import DevTools from './containers/DevTools'
 import ProductList from './containers/ProductList'
 import CartPreview from './components/CartPreview'
+import Button from 'material-ui/Button'
 import {setCategoryFilter} from './actions'
-import './App.css'
 
 class App extends Component {
     constructor() {
@@ -22,12 +22,12 @@ class App extends Component {
                     goods={state.goods.arr}
                 />
                 <ProductList/>
-                <button onClick={() => this.props.dispatch(setCategoryFilter('ALL'))}>
+                <Button onClick={() => this.props.dispatch(setCategoryFilter('ALL'))}>
                     Show All
-                </button>
-                <button onClick={() => this.props.dispatch(setCategoryFilter('CASES'))}>
+                </Button>
+                <Button onClick={() => this.props.dispatch(setCategoryFilter('CASES'))}>
                     Show Cases
-                </button>
+                </Button>
                 <DevTools/>
             </div>
         )

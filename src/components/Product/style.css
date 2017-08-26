@@ -1,9 +1,0 @@
-.product {
-    display: flex;
-    flex-direction: column;
-    max-width: 320px;
-}
-
-.product img {
-    max-width: 300px;
-}

@@ -1,7 +1,9 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import axios from 'axios'
-import Product from '../components/Product/index'
+import PropTypes from 'prop-types'
+import Product from '../components/Product'
+import styles from './ProductList.css'
 
 const mapStateToProps = ({goods}) => ({goods});
 
@@ -19,8 +21,17 @@ class ProductList extends Component {
                 this.setState({
                     goods: res.data
                 });
+
+                this.props.dispatch({
+                    type: 'SUCCESS_REQUEST',
+                    data: res.data
+                });
             })
-            .catch(() => {
+            .catch((err) => {
+                this.props.dispatch({
+                    type: 'ERROR_REQUEST',
+                    error: err
+                });
             });
     }
 
@@ -40,12 +51,16 @@ class ProductList extends Component {
         });
 
         return (
-            <div>
+            <div className={styles.goodsContainer}>
                 {goods}
             </div>
         )
     }
 }
+
+ProductList.propTypes = {
+    dispatch: PropTypes.func.isRequired
+};
 
 const FilteredProductList = connect(mapStateToProps)(ProductList);
 
