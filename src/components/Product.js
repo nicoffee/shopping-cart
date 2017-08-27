@@ -2,7 +2,7 @@ import React from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {withStyles} from 'material-ui/styles'
-import {addGood} from '../actions/index'
+import {addGood} from './../actions'
 import Button from 'material-ui/Button'
 import Card, {CardActions, CardContent, CardMedia} from 'material-ui/Card'
 

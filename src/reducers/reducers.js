@@ -15,12 +15,10 @@ export const good = (state, action) => {
 export const goods = (state = [], action) => {
     switch (action.type) {
         case 'ADD_GOOD':
-            return {
-                arr: [
-                    ...state,
-                    good(undefined, action),
-                ], sum: action.sum
-            };
+            return ([
+                ...state,
+                good(undefined, action),
+            ]);
         case 'REMOVE_GOOD':
             return state;
         default:

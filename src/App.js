@@ -8,10 +8,6 @@ import Button from 'material-ui/Button'
 import {setCategoryFilter} from './actions'
 
 class App extends Component {
-    constructor() {
-        super();
-    }
-
     render() {
         const {state} = this.props;
 
@@ -19,7 +15,7 @@ class App extends Component {
             <div className="App">
                 <CartPreview
                     count={state.goods.length}
-                    goods={state.goods.arr}
+                    goods={state.goods}
                 />
                 <ProductList/>
                 <Button onClick={() => this.props.dispatch(setCategoryFilter('ALL'))}>

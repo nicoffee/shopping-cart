@@ -1,9 +1,13 @@
 import {v4} from 'node-uuid'
 
-export const addGood = (name) => ({
+export const addGood = (img, name, vendor, price, rating) => ({
     type: 'ADD_GOOD',
     id: v4(),
-    name
+    img,
+    name,
+    vendor,
+    price,
+    rating
 });
 
 

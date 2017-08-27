@@ -26,7 +26,7 @@ const CartPreview = ({count, goods}) => {
 
 CartPreview.propTypes = {
     count: PropTypes.number,
-    goods: PropTypes.array.isRequired,
+    goods: PropTypes.array,
 };
 
 export default CartPreview;
