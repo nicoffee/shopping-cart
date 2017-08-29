@@ -1,20 +1,32 @@
 {
-  "cases": [
-    {
-      "img": "https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646",
-      "name": "Phanteks Enthoo Pro Chassis White",
-      "vendor": "Phanteks",
-      "price": 99.99,
-      "rating": 4.5,
-      "vendor_code": "90222793"
-    },
-    {
-      "img": "http://corsair.com/~/media/E09D7B8EFCE0461FAA13133F2D312EE7.ashx",
-      "name": "Corsair Crystal 570x RGB-Edition",
-      "vendor": "Corsair",
-      "price": 142.85,
-      "rating": 5,
-      "vendor_code": 90669793
-    }
-  ]
+  "goods": {
+    "cases": [
+      {
+        "img": "https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646",
+        "name": "Phanteks Enthoo Pro Chassis White",
+        "vendor": "Phanteks",
+        "price": 99.99,
+        "rating": 4.5,
+        "vendor_code": "90222793"
+      },
+      {
+        "img": "http://corsair.com/~/media/E09D7B8EFCE0461FAA13133F2D312EE7.ashx",
+        "name": "Corsair Crystal 570x RGB-Edition",
+        "vendor": "Corsair",
+        "price": 142.85,
+        "rating": 5,
+        "vendor_code": 90669793
+      }
+    ],
+    "monitors": [
+      {
+        "img": "https://images-na.ssl-images-amazon.com/images/I/71BuhRkFsYL._SL1500_.jpg",
+        "name": "Dell Ultrasharp U2515H",
+        "vendor": "Dell",
+        "price": 259.66,
+        "rating": 4.5,
+        "vendor_code": 90580806
+      }
+    ]
+  }
 }
