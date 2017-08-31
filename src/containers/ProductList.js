@@ -19,7 +19,7 @@ class ProductList extends Component {
         axios.get('http://localhost:3000/goods')
             .then((res) => {
                 this.setState({
-                    goods: res.data
+                    goods: res.data.cases
                 });
 
                 this.props.dispatch({
