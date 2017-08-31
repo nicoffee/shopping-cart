@@ -15,3 +15,8 @@ export const setCategoryFilter = (filter) => ({
     type: 'SET_CATEGORY_FILTER',
     filter
 });
+
+export const successGoodsRequest = (data) => ({
+    type: 'SUCCESS_REQUEST',
+    data
+});
