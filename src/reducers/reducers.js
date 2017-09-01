@@ -13,6 +13,7 @@ export const good = (state, action) => {
 };
 
 export const goods = (state = [], action) => {
+    console.log('ACTION', action);
     switch (action.type) {
         case 'ADD_GOOD':
             return ([
@@ -21,16 +22,28 @@ export const goods = (state = [], action) => {
             ]);
         case 'REMOVE_GOOD':
             return state;
+        case 'SUCCESS_REQUEST':
+            return action.goods;
         default:
             return state;
     }
 };
 
-export const filter = (state = 'SHOW_ALL', action) => {
+export const filter = (state = 'ALL', action) => {
+    console.log('STATE', state);
     switch (action.filter) {
         case 'CASES':
-            return state;
+            return action.filter;
         default:
             return state;
     }
 };
+
+// export const successGoodsRequest = (state = [], action) => {
+//     switch (action.type) {
+//         case 'SUCCESS_REQUEST':
+//             return state;
+//         default:
+//             return state;
+//     }
+// };

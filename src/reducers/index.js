@@ -1,9 +1,10 @@
 import {combineReducers} from 'redux'
-import {goods, filter} from './reducers'
+import {goods, filter, } from './reducers'
 
 const rootReducer = combineReducers({
     goods,
-    filter
+    filter,
+
 });
 
 export default rootReducer;

@@ -18,5 +18,5 @@ export const setCategoryFilter = (filter) => ({
 
 export const successGoodsRequest = (data) => ({
     type: 'SUCCESS_REQUEST',
-    data
+    goods: data
 });

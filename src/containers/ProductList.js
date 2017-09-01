@@ -4,17 +4,15 @@ import axios from 'axios'
 import PropTypes from 'prop-types'
 import Product from '../components/Product'
 import styles from './ProductList.css'
+import {successGoodsRequest} from './../actions'
 
-const mapStateToProps = (data) => (data);
+const mapStateToProps = ({goods}) => ({ goods: goods });
 
 class ProductList extends Component {
     componentDidMount() {
         axios.get('http://localhost:3000/goods')
             .then((res) => {
-                this.props.dispatch({
-                    type: 'SUCCESS_REQUEST',
-                    data: res.data
-                });
+                this.props.dispatch(successGoodsRequest(res.data));
             })
             .catch((err) => {
                 this.props.dispatch({
@@ -25,25 +23,24 @@ class ProductList extends Component {
     }
 
     render() {
-        console.log('this.props', this.props);
-        // let goods = [];
-        // const products = this.state.goods;
-        // const categories = Object.keys(products);
-        // categories.map((itm) => { products[itm].map((item, idx) => {
-        //     const good = <Product
-        //         img={item.img}
-        //         name={item.name}
-        //         vendor={item.vendor}
-        //         price={item.price}
-        //         rating={item.rating}
-        //         vendor_code={item.vendor_code}
-        //     />;
-        //     goods.push(good);
-        // }); } );
+        const goods = this.props.goods;
+
+        let goodsToRender = Object.keys(goods).map((good, idx) => {
+            return goods[good].map((i) => (
+                    <Product
+                        img={i.img}
+                        name={i.name}
+                        vendor={i.vendor}
+                        price={i.price}
+                        rating={i.rating}
+                        vendor_code={i.vendor_code}
+                    />
+                ))
+        })
 
         return (
             <div className={styles.goodsContainer}>
-                {/*{goods}*/}
+                {goodsToRender}
             </div>
         )
     }
