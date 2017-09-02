@@ -13,20 +13,20 @@ const goodsList = (goods) => goods.map((item, idx) => {
 const CartPreview = (/*{count, goods}*/) => {
     return (
         <div>
-            {/* Товаров в корзине: {count}
+            Товаров в корзине: {count}
             <br/>
             Товары:
             <ul>
                 {goodsList(goods)}
             </ul>
-            <Link to="/cart">View Cart</Link> */}
+            <Link to="/cart">View Cart</Link>
         </div>
     )
 };
 
-// CartPreview.propTypes = {
-//     count: PropTypes.number,
-//     goods: PropTypes.array,
-// };
+CartPreview.propTypes = {
+     count: PropTypes.number,
+     goods: PropTypes.array,
+};
 
 export default CartPreview;
