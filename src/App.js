@@ -13,10 +13,10 @@ class App extends Component {
 
         return (
             <div className="App">
-                <CartPreview
-                    count={state.goods.length}
-                    goods={state.goods}
-                />
+                {/*<CartPreview*/}
+                    {/*count={state.goods.length}*/}
+                    {/*goods={state.goods}*/}
+                {/*/>*/}
                 <ProductList/>
                 <Button onClick={() => this.props.dispatch(setCategoryFilter('ALL'))}>
                     Show All

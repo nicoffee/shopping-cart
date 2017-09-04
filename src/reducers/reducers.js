@@ -13,7 +13,6 @@ export const good = (state, action) => {
 };
 
 export const goods = (state = [], action) => {
-    console.log('ACTION', action);
     switch (action.type) {
         case 'ADD_GOOD':
             return ([
@@ -38,12 +37,3 @@ export const filter = (state = 'ALL', action) => {
             return state;
     }
 };
-
-// export const successGoodsRequest = (state = [], action) => {
-//     switch (action.type) {
-//         case 'SUCCESS_REQUEST':
-//             return state;
-//         default:
-//             return state;
-//     }
-// };

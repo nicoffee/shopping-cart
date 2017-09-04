@@ -10,23 +10,21 @@ const goodsList = (goods) => goods.map((item, idx) => {
     )
 });
 
-const CartPreview = (/*{count, goods}*/) => {
-    return (
-        <div>
-            Товаров в корзине: {count}
-            <br/>
-            Товары:
-            <ul>
-                {goodsList(goods)}
-            </ul>
-            <Link to="/cart">View Cart</Link>
-        </div>
-    )
-};
+const CartPreview = ({count, goods}) => (
+    <div>
+        Товаров в корзине: {count}
+        <br/>
+        Товары:
+        <ul>
+            {goodsList(goods)}
+        </ul>
+        <Link to="/cart">View Cart</Link>
+    </div>
+);
 
 CartPreview.propTypes = {
-     count: PropTypes.number,
-     goods: PropTypes.array,
+    count: PropTypes.number,
+    goods: PropTypes.array,
 };
 
 export default CartPreview;

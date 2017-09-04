@@ -1,12 +1,13 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import axios from 'axios'
 import PropTypes from 'prop-types'
+import axios from 'axios'
+import {setCategoryFilter} from './../actions'
 import Product from '../components/Product'
 import styles from './ProductList.css'
 import {successGoodsRequest} from './../actions'
 
-const mapStateToProps = ({goods}) => ({ goods: goods });
+const mapStateToProps = ({goods}) => ({goods});
 
 class ProductList extends Component {
     componentDidMount() {
@@ -23,30 +24,30 @@ class ProductList extends Component {
     }
 
     render() {
-        const goods = this.props.goods;
-
-        let goodsToRender = Object.keys(goods).map((good, idx) => {
-            return goods[good].map((i) => (
-                    <Product
-                        img={i.img}
-                        name={i.name}
-                        vendor={i.vendor}
-                        price={i.price}
-                        rating={i.rating}
-                        vendor_code={i.vendor_code}
-                    />
-                ))
-        })
+        const {goods} = this.props;
 
         return (
             <div className={styles.goodsContainer}>
-                {goodsToRender}
+                {Object.keys(goods).map((key) => (
+                    goods[key].map((good, idx) => (
+                        <Product
+                            img={good.img}
+                            name={good.name}
+                            vendor={good.vendor}
+                            price={good.price}
+                            rating={good.rating}
+                            vendor_code={good.vendor_code}
+                            key={idx}
+                        />
+                    ))
+                ))};
             </div>
         )
     }
 }
 
 ProductList.propTypes = {
+    goods: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired
 };
 
