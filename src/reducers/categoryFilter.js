@@ -1,14 +1,12 @@
 import {SET_CATEGORY_FILTER} from './../actions'
-import {VisibilityFilters} from './../actions'
+import {CategoryFilters} from './../actions'
 
-const SHOW_ALL = VisibilityFilters;
+const {SHOW_ALL} = CategoryFilters;
 
-export const filter = (state = SHOW_ALL, action) => {
+export const categoryFilter = (state = SHOW_ALL, action) => {
     switch (action.type) {
         case SET_CATEGORY_FILTER:
-            return ({
-                filter: action.filter
-            });
+            return action.filter;
         default:
             return state;
     }

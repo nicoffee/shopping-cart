@@ -1,8 +1,6 @@
 import React from 'react'
-import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import {withStyles} from 'material-ui/styles'
-import {addGood} from './../actions'
 import Button from 'material-ui/Button'
 import Card, {CardActions, CardContent, CardMedia} from 'material-ui/Card'
 
@@ -26,7 +24,7 @@ const style = {
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)',
 };
 
-const Product = ({dispatch, img, name, vendor, price, rating, classes}) => {
+const Product = ({onClick, img, name, vendor, price, rating, classes }) => {
     return (
         <div>
             <Card className={classes.card}>
@@ -47,7 +45,7 @@ const Product = ({dispatch, img, name, vendor, price, rating, classes}) => {
                         raised={true}
                         style={style}
                         color={'contrast'}
-                        onClick={() => dispatch(addGood(img, name, vendor, price, rating))}>
+                        onClick={onClick}>
                         Add to Cart
                     </Button>
                 </CardActions>
@@ -57,7 +55,7 @@ const Product = ({dispatch, img, name, vendor, price, rating, classes}) => {
 };
 
 Product.propTypes = {
-    dispatch: PropTypes.func.isRequired,
+    onClick: PropTypes.func.isRequired,
     img: PropTypes.string,
     name: PropTypes.string,
     vendor: PropTypes.string,
@@ -66,4 +64,4 @@ Product.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default connect()(withStyles(styleCard)(Product));
+export default withStyles(styleCard)(Product);
