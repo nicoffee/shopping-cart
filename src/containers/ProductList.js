@@ -2,23 +2,43 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import axios from 'axios'
-import {setCategoryFilter} from './../actions'
 import Product from '../components/Product'
-import styles from './ProductList.css'
 import {successGoodsRequest} from './../actions'
 
-const mapStateToProps = ({goods}) => ({goods});
+const mapStateToProps = ({goods, filter}) => ({goods, filter});
 
 const getCategoryGoods = (goods, filter) => {
-    switch (filter) {
-        case 'SHOW_ALL':
-            return todos
-        case 'SHOW_COMPLETED':
-            return todos.filter(t => t.completed)
-        case 'SHOW_ACTIVE':
-            return todos.filter(t => !t.completed)
+    console.log('goods', goods);
+    console.log('filter', filter.filter);
+    switch (filter.filter) {
+        case 'CASES':
+            return (
+                goods.cases.map((good, idx) => (
+                    <Product
+                        img={good.img}
+                        name={good.name}
+                        vendor={good.vendor}
+                        price={good.price}
+                        rating={good.rating}
+                        vendor_code={good.vendor_code}
+                        key={idx}
+                    />)
+                ));
+        default: return (Object.keys(goods).map((key) => (
+            goods[key].map((good, idx) => (
+                <Product
+                    img={good.img}
+                    name={good.name}
+                    vendor={good.vendor}
+                    price={good.price}
+                    rating={good.rating}
+                    vendor_code={good.vendor_code}
+                    key={idx}
+                />
+            ))
+        )))
     }
-}
+};
 
 
 class ProductList extends Component {
@@ -36,24 +56,11 @@ class ProductList extends Component {
     }
 
     render() {
-        const {goods} = this.props;
+        const {goods, filter} = this.props;
 
         return (
-            <div className={styles.goodsContainer}>
-                {getCategoryGoods}
-                {Object.keys(goods).map((key) => (
-                    goods[key].map((good, idx) => (
-                        <Product
-                            img={good.img}
-                            name={good.name}
-                            vendor={good.vendor}
-                            price={good.price}
-                            rating={good.rating}
-                            vendor_code={good.vendor_code}
-                            key={idx}
-                        />
-                    ))
-                ))};
+            <div>
+                {getCategoryGoods(goods, filter)}
             </div>
         )
     }
@@ -61,6 +68,7 @@ class ProductList extends Component {
 
 ProductList.propTypes = {
     goods: PropTypes.object.isRequired,
+    filter: PropTypes.object.isRequired,
     dispatch: PropTypes.func.isRequired
 };
 

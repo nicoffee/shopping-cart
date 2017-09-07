@@ -9,7 +9,7 @@ export const VisibilityFilters = {
     SHOW_ALL: 'SHOW_ALL',
     SHOW_CASES: 'SHOW_CASES',
     SHOW_MONITORS: 'SHOW_MONITORS'
-}
+};
 
 export const addGood = (img, name, vendor, price, rating) => ({
     type: 'ADD_GOOD',

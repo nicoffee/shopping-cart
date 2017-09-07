@@ -4,8 +4,7 @@ import {filter} from './categoryFilter'
 
 const rootReducer = combineReducers({
     goods,
-    filter,
-
+    filter
 });
 
 export default rootReducer;

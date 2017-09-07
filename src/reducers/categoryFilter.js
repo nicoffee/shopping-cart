@@ -6,7 +6,9 @@ const SHOW_ALL = VisibilityFilters;
 export const filter = (state = SHOW_ALL, action) => {
     switch (action.type) {
         case SET_CATEGORY_FILTER:
-            return action.filter;
+            return ({
+                filter: action.filter
+            });
         default:
             return state;
     }
