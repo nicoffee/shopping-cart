@@ -22,12 +22,12 @@ export const addGood = (img, name, vendor, price, rating) => ({
 });
 
 
-export const setCategoryFilter = (filter) => ({
+export const setCategoryFilter = filter => ({
     type: 'SET_CATEGORY_FILTER',
     filter
 });
 
-export const successGoodsRequest = (data) => ({
+export const successGoodsRequest = data => ({
     type: 'SUCCESS_REQUEST',
     goods: data
 });

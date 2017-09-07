@@ -1,8 +1,4 @@
-import {ADD_GOOD, REMOVE_GOOD, SUCCESS_REQUEST, SET_CATEGORY_FILTER} from './../actions'
-import {VisibilityFilters} from './../actions'
-
-const SHOW_ALL = VisibilityFilters;
-
+import {ADD_GOOD, REMOVE_GOOD, SUCCESS_REQUEST} from './../actions'
 
 export const good = (state, action) => {
     switch (action.type) {
@@ -29,15 +25,6 @@ export const goods = (state = [], action) => {
             return state;
         case SUCCESS_REQUEST:
             return action.goods;
-        default:
-            return state;
-    }
-};
-
-export const filter = (state = SHOW_ALL, action) => {
-    switch (action.type) {
-        case SET_CATEGORY_FILTER:
-            return action.filter;
         default:
             return state;
     }

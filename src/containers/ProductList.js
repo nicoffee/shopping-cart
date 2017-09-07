@@ -9,6 +9,18 @@ import {successGoodsRequest} from './../actions'
 
 const mapStateToProps = ({goods}) => ({goods});
 
+const getCategoryGoods = (goods, filter) => {
+    switch (filter) {
+        case 'SHOW_ALL':
+            return todos
+        case 'SHOW_COMPLETED':
+            return todos.filter(t => t.completed)
+        case 'SHOW_ACTIVE':
+            return todos.filter(t => !t.completed)
+    }
+}
+
+
 class ProductList extends Component {
     componentDidMount() {
         axios.get('http://localhost:3000/goods')
@@ -28,6 +40,7 @@ class ProductList extends Component {
 
         return (
             <div className={styles.goodsContainer}>
+                {getCategoryGoods}
                 {Object.keys(goods).map((key) => (
                     goods[key].map((good, idx) => (
                         <Product
