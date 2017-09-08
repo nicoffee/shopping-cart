@@ -2,7 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import PropTypes from 'prop-types'
 import DevTools from './../containers/DevTools'
-import VisibleProductList from './../containers/VisibleGoodsList'
+import VisibleGoodsList from './../containers/VisibleGoodsList'
 import Button from 'material-ui/Button'
 import {setCategoryFilter} from './../actions'
 
@@ -10,7 +10,7 @@ class App extends Component {
     render() {
         return (
             <div className="App">
-                <VisibleProductList/>
+                <VisibleGoodsList/>
                 <Button onClick={() => this.props.dispatch(setCategoryFilter('ALL'))}>
                     Show All
                 </Button>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Good from './Good'
 
 
-const ProductList = ({goods}) => (
+const GoodsList = ({goods}) => (
     <div>
         {goods.map((good, idx) => (
             <Good
@@ -19,10 +19,9 @@ const ProductList = ({goods}) => (
     </div>
 );
 
-ProductList.propTypes = {
-    goods: PropTypes.object.isRequired,
-    filter: PropTypes.object.isRequired,
+GoodsList.propTypes = {
+    goods: PropTypes.array.isRequired,
     dispatch: PropTypes.func.isRequired
 };
 
-export default ProductList;
+export default GoodsList;

@@ -3,7 +3,7 @@ import {Provider} from 'react-redux'
 import {BrowserRouter, Route} from 'react-router-dom'
 import PropTypes from 'prop-types'
 import CartPage from './CartPage'
-import App from './../App'
+import App from './App'
 
 const Root = ({store}) => (
     <Provider store={store}>

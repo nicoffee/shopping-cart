@@ -1,6 +1,9 @@
 import {connect} from 'react-redux'
 import {addGoodInCart} from '../actions'
 import GoodsList from '../components/GoodsList'
+import goods from './../../db.json'
+
+console.log('goods', goods);
 
 const getVisibleGoods = (goods, filter) => {
     switch (filter) {
@@ -20,7 +23,11 @@ const mapDispatchToProps = dispatch => ({
     }
 );
 
-const mapStateToProps = (state) => ({goods: getVisibleGoods(state.goods, state.visibilityFilter)});
+const mapStateToProps = state => { console.log('state', state); return (
+    {
+        goods: getVisibleGoods(state.goods, state.visibilityFilter)
+    }
+)};
 
 const VisibleGoodsList = connect(
     mapStateToProps,
