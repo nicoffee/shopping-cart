@@ -24,7 +24,7 @@ const style = {
     boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)',
 };
 
-const Product = ({onClick, img, name, vendor, price, rating, classes }) => {
+const Good = ({onClick, img, name, vendor, price, rating, classes }) => {
     return (
         <div>
             <Card className={classes.card}>
@@ -54,7 +54,7 @@ const Product = ({onClick, img, name, vendor, price, rating, classes }) => {
     )
 };
 
-Product.propTypes = {
+Good.propTypes = {
     onClick: PropTypes.func.isRequired,
     img: PropTypes.string,
     name: PropTypes.string,
@@ -64,4 +64,4 @@ Product.propTypes = {
     classes: PropTypes.object.isRequired
 };
 
-export default withStyles(styleCard)(Product);
+export default withStyles(styleCard)(Good);

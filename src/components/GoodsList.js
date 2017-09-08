@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Good from './Good'
 
 
-const GoodsList = ({goods}) => (
+const GoodsList = ({goods, onAddGoodClick}) => (
     <div>
         {goods.map((good, idx) => (
             <Good
@@ -14,14 +14,14 @@ const GoodsList = ({goods}) => (
                 rating={good.rating}
                 vendor_code={good.vendor_code}
                 key={idx}
+                onClick={() => onAddGoodClick(good)}
             />
         ))}
     </div>
 );
 
 GoodsList.propTypes = {
-    goods: PropTypes.array.isRequired,
-    dispatch: PropTypes.func.isRequired
+    goods: PropTypes.array.isRequired
 };
 
 export default GoodsList;

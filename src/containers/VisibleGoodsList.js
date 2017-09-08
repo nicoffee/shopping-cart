@@ -3,7 +3,6 @@ import {addGoodInCart} from '../actions'
 import GoodsList from '../components/GoodsList'
 import goods from './../../db.json'
 
-console.log('goods', goods);
 
 const getVisibleGoods = (goods, filter) => {
     switch (filter) {
@@ -23,11 +22,11 @@ const mapDispatchToProps = dispatch => ({
     }
 );
 
-const mapStateToProps = state => { console.log('state', state); return (
+const mapStateToProps = state => (
     {
-        goods: getVisibleGoods(state.goods, state.visibilityFilter)
+        goods: getVisibleGoods(state.goods, state.categoryFilter)
     }
-)};
+);
 
 const VisibleGoodsList = connect(
     mapStateToProps,
