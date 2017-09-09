@@ -27,7 +27,22 @@ export const setCategoryFilter = filter => ({
     filter
 });
 
-export const successGoodsRequest = data => ({
-    type: 'SUCCESS_REQUEST',
+export const GOODS_REQUEST = 'GOODS_REQUEST'
+export const GOODS_SUCCESS = 'GOODS_SUCCESS'
+export const GOODS_FAILURE = 'GOODS_FAILURE'
+
+
+export const goodsRequest = data => ({
+    type: GOODS_REQUEST,
     goods: data
+});
+
+export const successGoodsRequest = data => ({
+    type: GOODS_SUCCESS,
+    goods: data
+});
+
+export const errorGoodsRequest = error => ({
+    type: GOODS_FAILURE,
+    goods: error
 });

@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import {Link} from 'react-router-dom'
 
 const goodsList = goods => goods.map((item, idx) => {
     return (
@@ -9,8 +10,7 @@ const goodsList = goods => goods.map((item, idx) => {
     )
 });
 
-const CartPreview = (props) => {console.log('props', props); return (
-
+const CartPreview = (props) => (
     <div>
         Товаров в корзине: {props.goodsInCart.length}
         <br/>
@@ -18,13 +18,12 @@ const CartPreview = (props) => {console.log('props', props); return (
         <ul>
             {goodsList(props.goodsInCart)}
         </ul>
-        {/*<Link to="/cart">View Cart</Link>*/}
+        <Link to="/cart">View Cart</Link>
     </div>
-)};
+);
 
 CartPreview.propTypes = {
-    // count: PropTypes.number,
-    // goods: PropTypes.array,
+    goodsInCart: PropTypes.array
 };
 
 export default CartPreview;
