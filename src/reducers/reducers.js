@@ -29,3 +29,20 @@ export const goods = (state = [], action) => {
             return state;
     }
 };
+
+export const goodsInCart = (state = [], action) => {
+    switch (action.type) {
+        case ADD_GOOD:
+            return [
+                ...state,
+                {
+                    name: action.name,
+                    price: action.price
+                }
+            ];
+        case REMOVE_GOOD:
+            return state;
+        default:
+            return state;
+    }
+};

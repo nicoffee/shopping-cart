@@ -11,7 +11,7 @@ export const CategoryFilters = {
     SHOW_MONITORS: 'SHOW_MONITORS'
 };
 
-export const addGoodInCart = (img, name, vendor, price, rating) => ({
+export const addGoodInCart = ({img, name, vendor, price, rating}) => ({
     type: 'ADD_GOOD',
     id: v4(),
     img,

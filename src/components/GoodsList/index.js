@@ -1,10 +1,10 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import Good from './Good'
-
+import Good from './../Good'
+import styles from './style.css'
 
 const GoodsList = ({goods, onAddGoodClick}) => (
-    <div>
+    <div className={styles.container}>
         {goods.map((good, idx) => (
             <Good
                 img={good.img}
@@ -21,7 +21,8 @@ const GoodsList = ({goods, onAddGoodClick}) => (
 );
 
 GoodsList.propTypes = {
-    goods: PropTypes.array.isRequired
+    goods: PropTypes.array.isRequired,
+    onAddGoodClick: PropTypes.func.isRequired
 };
 
 export default GoodsList;

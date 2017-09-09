@@ -6,11 +6,11 @@ import Card, {CardActions, CardContent, CardMedia} from 'material-ui/Card'
 
 const styleCard = {
     card: {
-        width: 345,
+        width: 300,
         marginRight: 20
     },
     media: {
-        height: 450,
+        height: 300,
     },
 };
 

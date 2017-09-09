@@ -2,7 +2,7 @@ import React from 'react'
 import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 
-const goodsList = (goods) => goods.map((item, idx) => {
+const goodsList = goods => goods.map((item, idx) => {
     return (
         <li key={idx}>
             {item.name}
