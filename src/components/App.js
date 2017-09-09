@@ -1,15 +1,15 @@
 import React, {Component} from 'react'
-import DevTools from './../containers/DevTools'
 import VisibleGoodsList from './../containers/VisibleGoodsList'
+import CartContent from './../containers/CartContent'
 import Sidebar from './Sidebar'
 
 class App extends Component {
     render() {
         return (
             <div>
+                <CartContent/>
                 <VisibleGoodsList/>
                 <Sidebar/>
-                <DevTools/>
             </div>
         )
     }

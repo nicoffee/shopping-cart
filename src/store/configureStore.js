@@ -1,18 +1,20 @@
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from '../reducers';
-import DevTools from '../containers/DevTools';
 import { loadState, saveState } from './../localStorage'
 import throttle from 'lodash/throttle'
 
 const enhancer = compose(
-    applyMiddleware(),
-    DevTools.instrument()
+    applyMiddleware()
 );
 
 const configureStore = () => {
     const persistedState = loadState();
 
-    const store = createStore(rootReducer, persistedState, enhancer);
+    const store = createStore(
+        rootReducer,
+        persistedState,
+        window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
+    );
 
     if (module.hot) {
         module.hot.accept('../reducers', () =>

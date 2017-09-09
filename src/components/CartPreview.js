@@ -1,5 +1,4 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
 import PropTypes from 'prop-types'
 
 const goodsList = goods => goods.map((item, idx) => {
@@ -10,21 +9,22 @@ const goodsList = goods => goods.map((item, idx) => {
     )
 });
 
-const CartPreview = ({count, goods}) => (
+const CartPreview = (props) => {console.log('props', props); return (
+
     <div>
-        Товаров в корзине: {count}
+        Товаров в корзине: {props.goodsInCart.length}
         <br/>
         Товары:
         <ul>
-            {goodsList(goods)}
+            {goodsList(props.goodsInCart)}
         </ul>
-        <Link to="/cart">View Cart</Link>
+        {/*<Link to="/cart">View Cart</Link>*/}
     </div>
-);
+)};
 
 CartPreview.propTypes = {
-    count: PropTypes.number,
-    goods: PropTypes.array,
+    // count: PropTypes.number,
+    // goods: PropTypes.array,
 };
 
 export default CartPreview;
