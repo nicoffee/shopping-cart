@@ -46,3 +46,12 @@ export const errorGoodsRequest = error => ({
     type: GOODS_FAILURE,
     goods: error
 });
+
+export function fetchGoods() {
+    return function (dispatch) {
+        dispatch(requestGoods());
+
+        return fetch(`http://localhost:3000/goods/`).then().then();
+    }
+
+}

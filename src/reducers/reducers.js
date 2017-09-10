@@ -1,4 +1,5 @@
-import {ADD_GOOD, REMOVE_GOOD, SUCCESS_REQUEST} from './../actions'
+import {ADD_GOOD, REMOVE_GOOD, GOODS_REQUEST, GOODS_SUCCESS, GOODS_FAILURE} from './../actions'
+
 
 export const good = (state, action) => {
     switch (action.type) {
@@ -14,17 +15,25 @@ export const good = (state, action) => {
     }
 };
 
-export const goods = (state = [], action) => {
+export const goods = (state = {
+    isFetching: false,
+    goods: []
+}, action) => {
     switch (action.type) {
-        case ADD_GOOD:
-            return ([
-                ...state,
-                good(undefined, action),
-            ]);
-        case REMOVE_GOOD:
-            return state;
-        case SUCCESS_REQUEST:
-            return action.goods;
+        case GOODS_REQUEST:
+            return {
+                isFetching: true
+            };
+        case GOODS_SUCCESS:
+            return {
+                goods: action.goods,
+                isFetching: false
+            };
+        case GOODS_FAILURE:
+            return {
+                error: actions.error,
+                isFetching: false
+            };
         default:
             return state;
     }
