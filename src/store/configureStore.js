@@ -1,10 +1,12 @@
+import { createLogger } from 'redux-logger'
 import { createStore, applyMiddleware, compose } from 'redux';
 import rootReducer from '../reducers';
 import { loadState, saveState } from './../localStorage'
 import throttle from 'lodash/throttle'
+import thunkMiddleware from 'redux-thunk'
 
 const enhancer = compose(
-    applyMiddleware()
+    applyMiddleware(thunkMiddleware, createLogger)
 );
 
 const configureStore = () => {
@@ -13,6 +15,7 @@ const configureStore = () => {
     const store = createStore(
         rootReducer,
         persistedState,
+        enhancer,
         window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     );
 
