@@ -24,11 +24,11 @@ const mapDispatchToProps = dispatch => ({
     }
 );
 
-const mapStateToProps = state => (
+const mapStateToProps = (state, ownProps) => {console.log('ownProps', ownProps); return (
     {
-        goods: getVisibleGoods(goods, state.categoryFilter)
+        goods: getVisibleGoods(goods, ownProps.filter)
     }
-);
+)};
 
 const VisibleGoodsList = connect(
     mapStateToProps,

@@ -1,18 +1,14 @@
-import React, {Component} from 'react'
+import React from 'react'
 import VisibleGoodsList from './../containers/VisibleGoodsList'
 import CartContent from './../containers/CartContent'
 import Sidebar from './Sidebar'
 
-class App extends Component {
-    render() {
-        return (
-            <div>
-                <CartContent/>
-                <VisibleGoodsList/>
-                <Sidebar/>
-            </div>
-        )
-    }
-}
+const App = ({match}) => (
+    <div>
+        <CartContent/>
+        <VisibleGoodsList filter={match.params.filter || 'SHOW_ALL'}/>
+        <Sidebar/>
+    </div>
+);
 
 export default App
