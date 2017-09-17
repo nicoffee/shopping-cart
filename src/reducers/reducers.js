@@ -31,7 +31,7 @@ export const goods = (state = {
             };
         case GOODS_FAILURE:
             return {
-                error: actions.error,
+                error: action.error,
                 isFetching: false
             };
         default:

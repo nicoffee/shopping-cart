@@ -1,12 +1,10 @@
-export const ADD_GOOD = 'ADD_GOOD';
-
-export const SET_CATEGORY_FILTER = 'SET_CATEGORY_FILTER';
-
-export const CategoryFilters = {
-    SHOW_ALL: 'SHOW_ALL',
-    SHOW_CASES: 'SHOW_CASES',
-    SHOW_MONITORS: 'SHOW_MONITORS'
-};
+import {
+  ADD_GOOD,
+  SET_CATEGORY_FILTER,
+  GOODS_REQUEST,
+  GOODS_SUCCESS,
+  GOODS_FAILURE
+} from './../types';
 
 export const addGoodInCart = ({img, name, price, rating}) => ({
     type: ADD_GOOD,
@@ -20,10 +18,6 @@ export const setCategoryFilter = filter => ({
     type: SET_CATEGORY_FILTER,
     filter
 });
-
-export const GOODS_REQUEST = 'GOODS_REQUEST';
-export const GOODS_SUCCESS = 'GOODS_SUCCESS';
-export const GOODS_FAILURE = 'GOODS_FAILURE';
 
 export const goodsRequest = data => ({
     type: GOODS_REQUEST,

@@ -1,7 +1,5 @@
 import {SET_CATEGORY_FILTER} from './../actions'
-import {CategoryFilters} from './../actions'
-
-const {SHOW_ALL} = CategoryFilters;
+import {SHOW_ALL} from './../types'
 
 export const categoryFilter = (state = SHOW_ALL, action) => {
     switch (action.type) {
