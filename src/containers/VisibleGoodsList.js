@@ -19,7 +19,6 @@ const getVisibleGoods = (goods, filter) => {
 
 const mapDispatchToProps = dispatch => ({
         onAddGoodClick: good => {
-            console.log('good', good);
             dispatch(addGoodInCart(good))
         }
     }
