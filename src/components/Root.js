@@ -9,7 +9,7 @@ const Root = ({store}) => (
     <Provider store={store}>
         <Router>
             <div>
-                <Route exact path="/" component={App}/>
+                <Route exact path="/:filter?" component={App}/>
                 <Route path="/cart" component={CartPage}/>
             </div>
         </Router>

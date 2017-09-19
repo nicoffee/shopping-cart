@@ -40,6 +40,8 @@ export const goods = (state = {
 };
 
 export const goodsInCart = (state = [], action) => {
+    console.log('state', state);
+    console.log('action', action);
     switch (action.type) {
         case ADD_GOOD:
             return [

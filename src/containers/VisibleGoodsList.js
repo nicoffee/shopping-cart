@@ -19,16 +19,17 @@ const getVisibleGoods = (goods, filter) => {
 
 const mapDispatchToProps = dispatch => ({
         onAddGoodClick: good => {
+            console.log('good', good);
             dispatch(addGoodInCart(good))
         }
     }
 );
 
-const mapStateToProps = (state, ownProps) => {console.log('ownProps', ownProps); return (
+const mapStateToProps = (state, ownProps) => (
     {
         goods: getVisibleGoods(goods, ownProps.filter)
     }
-)};
+);
 
 const VisibleGoodsList = connect(
     mapStateToProps,
