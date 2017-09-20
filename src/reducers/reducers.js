@@ -45,16 +45,23 @@ export const goods = (state = {
     }
 };
 
-export const goodsInCart = (state = [], action) => {
+export const goodsInCart = (state = {
+    array: [], 
+    totalPrice: 0
+}, action) => {
+    const totalPrice = (+action.price + +state.totalPrice).toFixed(2);
     switch (action.type) {
         case ADD_GOOD:
-            return [
-                ...state,
-                {
-                    name: action.name,
-                    price: action.price
-                }
-            ];
+            return ({
+                array: [
+                    ...state.array,
+                    {
+                        name: action.name,
+                        price: action.price
+                    },
+                ], 
+                totalPrice: totalPrice
+            })
         case REMOVE_GOOD:
             return state;
         default:

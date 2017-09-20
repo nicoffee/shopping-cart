@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import {Link} from 'react-router-dom'
 
-const goodsList = goods => goods.map((item, idx) => {
+const goodsList = goods => goods.array.map((item, idx) => {
     return (
         <li key={idx}>
             {item.name}
@@ -18,12 +18,13 @@ const CartPreview = (props) => (
         <ul>
             {goodsList(props.goodsInCart)}
         </ul>
+        Сумма: {props.goodsInCart.totalPrice}
         <Link to="/cart">View Cart</Link>
     </div>
 );
 
 CartPreview.propTypes = {
-    goodsInCart: PropTypes.array
+    goodsInCart: PropTypes.object
 };
 
 export default CartPreview;
