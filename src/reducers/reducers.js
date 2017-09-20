@@ -1,4 +1,10 @@
-import {ADD_GOOD, REMOVE_GOOD, GOODS_REQUEST, GOODS_SUCCESS, GOODS_FAILURE} from './../actions'
+import {
+    ADD_GOOD, 
+    REMOVE_GOOD, 
+    GOODS_REQUEST, 
+    GOODS_SUCCESS, 
+    GOODS_FAILURE
+} from './../types'
 
 
 export const good = (state, action) => {
@@ -40,8 +46,6 @@ export const goods = (state = {
 };
 
 export const goodsInCart = (state = [], action) => {
-    console.log('state', state);
-    console.log('action', action);
     switch (action.type) {
         case ADD_GOOD:
             return [
