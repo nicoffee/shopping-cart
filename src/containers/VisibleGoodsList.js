@@ -1,4 +1,5 @@
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router'
 import {addGoodInCart} from '../actions'
 import GoodsList from '../components/GoodsList'
 import {goods} from './../../db.json'
@@ -17,22 +18,18 @@ const getVisibleGoods = (goods, filter) => {
     }
 };
 
-const mapDispatchToProps = dispatch => ({
-        onAddGoodClick: good => {
-            dispatch(addGoodInCart(good))
-        }
-    }
-);
-
-const mapStateToProps = (state, ownProps) => (
+const mapStateToProps = (state, {match}) => (
     {
-        goods: getVisibleGoods(goods, ownProps.filter)
+        goods: getVisibleGoods(
+            goods, 
+            match.params.filter || 'SHOW_ALL'
+        )
     }
 );
 
-const VisibleGoodsList = connect(
+const VisibleGoodsList = withRouter(connect(
     mapStateToProps,
-    mapDispatchToProps
-)(GoodsList);
+    {onAddGoodClick: addGoodInCart}
+)(GoodsList));
 
 export default VisibleGoodsList;

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Provider } from 'react-redux'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import CartPage from './CartPage'
 import App from './App'
@@ -8,10 +8,11 @@ import App from './App'
 const Root = ({store}) => (
     <Provider store={store}>
         <Router>
-            <div>
-                <Route exact path="/:filter?" component={App}/>
+            <Switch>
+                <Route exact path="/" component={App}/>
+                <Route path="/filter/:filter?" component={App}/>
                 <Route path="/cart" component={CartPage}/>
-            </div>
+            </Switch>
         </Router>
     </Provider>
 );

@@ -3,10 +3,10 @@ import VisibleGoodsList from './../containers/VisibleGoodsList'
 import CartContent from './../containers/CartContent'
 import Sidebar from './Sidebar'
 
-const App = ({match}) => (
+const App = () => (
     <div>
         <CartContent/>
-        <VisibleGoodsList filter={match.params.filter || 'SHOW_ALL'}/>
+        <VisibleGoodsList/>
         <Sidebar/>
     </div>
 );
