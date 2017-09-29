@@ -21,42 +21,41 @@ export const good = (state, action) => {
     }
 };
 
-const goods = (state = {
+import {goodsFromDb} from './../../db.json'
+
+const byId = (state = {
     isFetching: false,
     goods: []
 }, action) => {
     switch (action.type) {
-        case GOODS_REQUEST:
+        case ADD_GOOD:
+        case REMOVE_GOOD:
             return {
-                isFetching: true
-            };
-        case GOODS_SUCCESS:
-            return {
-                goods: action.goods,
-                isFetching: false
-            };
-        case GOODS_FAILURE:
-            return {
-                error: action.error,
-                isFetching: false
+                ...state,
+                [action.id]: good(state[action.id], action),
             };
         default:
             return state;
     }
 };
 
+const allIds = (state = [], action) => {
+
+    }   
+};
+
 export default goods;
 
-export const getVisibleGoods = (goods, filter) => {
+export const getVisibleGoods = (state, filter) => {
     let allGoods = [];
-    Object.keys(goods).map(key => allGoods = allGoods.concat(goods[key]));
+    Object.keys(state).map(key => allGoods = allGoods.concat(state[key]));
 
     switch (filter) {
-        case 'SHOW_ALL':
+        case 'all':
             return allGoods;
-        case 'SHOW_CASES':
-            return goods.cases;
-        case 'SHOW_MONITORS':
-            return goods.monitors
+        case 'cases':
+            return state.cases;
+        case 'monitors':
+            return state.monitors
     }
 };

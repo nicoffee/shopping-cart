@@ -1,5 +1,6 @@
 import {
   ADD_GOOD,
+  REMOVE_GOOD,
   SET_CATEGORY_FILTER,
   GOODS_REQUEST,
   GOODS_SUCCESS,
@@ -13,6 +14,12 @@ export const addGoodInCart = ({img, name, price, rating}) => ({
     price,
     rating
 });
+
+export const removeGoodFromCart = (id) => ({
+    type: REMOVE_GOOD,
+    id
+});
+
 
 export const setCategoryFilter = filter => ({
     type: SET_CATEGORY_FILTER,

@@ -1,24 +1,24 @@
-import {connect} from 'react-redux'
-import {withRouter} from 'react-router'
-import {addGoodInCart} from '../actions'
+import { connect } from 'react-redux'
+import { withRouter } from 'react-router'
+import { addGoodInCart, removeGoodFromCart } from '../actions'
+import { getVisibleGoods } from '../reducers'
 import GoodsList from '../components/GoodsList'
-import {getVisibleGoods} from '../reducers'
-import {goods} from './../../db.json'
-
-
 
 const mapStateToProps = (state, {match}) => (
     {
         goods: getVisibleGoods(
-            state, 
-            match.params.filter || 'SHOW_ALL'
+            state,
+            match.params.filter || 'all'
         )
     }
 );
 
 const VisibleGoodsList = withRouter(connect(
     mapStateToProps,
-    {onAddGoodClick: addGoodInCart}
+    {
+        onAddGoodClick: addGoodInCart,
+        onRemoveGoodClick: removeGoodFromCart
+    }
 )(GoodsList));
 
 export default VisibleGoodsList;
