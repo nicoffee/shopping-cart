@@ -22,7 +22,7 @@ export const good = (state, action) => {
 
 import { goodsFromDb } from './../../db.json'
 
-const byId = (
+const goods = (
   state = {
     isFetching: false,
     goods: []
@@ -30,20 +30,49 @@ const byId = (
   action
 ) => {
   switch (action.type) {
-    case ADD_GOOD:
-    case REMOVE_GOOD:
+    case GOODS_REQUEST:
       return {
-        ...state,
-        [action.id]: good(state[action.id], action)
+        isFetching: true
+      }
+    case GOODS_SUCCESS:
+      return {
+        goods: action.goods,
+        isFetching: false
+      }
+    case GOODS_FAILURE:
+      return {
+        error: action.error,
+        isFetching: false
       }
     default:
       return state
   }
 }
 
-const allIds = (state = [], action) => {}
+export default goods
 
-export default allIds
+// const byId = (
+//   state = {
+//     isFetching: false,
+//     goods: []
+//   },
+//   action
+// ) => {
+//   switch (action.type) {
+//     case ADD_GOOD:
+//     case REMOVE_GOOD:
+//       return {
+//         ...state,
+//         [action.id]: good(state[action.id], action)
+//       }
+//     default:
+//       return state
+//   }
+// }
+
+// const allIds = (state = [], action) => {}
+
+// export default allIds
 
 export const getVisibleGoods = (state, filter) => {
   let allGoods = []
