@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import Button from 'material-ui/Button'
+
 import FilterLink from './../../containers/FilterLink'
 
 const Sidebar = () => (

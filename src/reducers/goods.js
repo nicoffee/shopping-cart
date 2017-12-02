@@ -54,9 +54,9 @@ export const getVisibleGoods = (state, filter) => {
   axios
     .get('http://localhost:3000/goods')
     .then(response => {
-      let allGoods = []
       switch (filter) {
         case 'ALL':
+          let allGoods = []
           Object.keys(response.data).map(key => {
             allGoods = allGoods.concat(response.data[key])
           })
