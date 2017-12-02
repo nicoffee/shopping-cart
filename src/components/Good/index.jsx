@@ -39,7 +39,8 @@ const Good = ({ onClick, img, name, vendor, price, rating, classes }) => {
             raised={true}
             style={style}
             color={'contrast'}
-            onClick={onClick}>
+            onClick={onClick}
+          >
             Add to Cart
           </Button>
         </CardActions>

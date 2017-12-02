@@ -1,3 +1,3 @@
-## npm start
+# To developr:
 
-## npm start
+## yarn start
