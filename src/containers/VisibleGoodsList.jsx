@@ -20,12 +20,13 @@ class VisibleGoodsList extends Component {
   }
 
   fetchData() {
+    console.log('this.props', this.props)
     const { filter, receiveGoods } = this.props
     axios
       .get('http://localhost:3000/goods')
       .then(response => {
         console.log('response', response)
-        receiveGoods(filter, response.data)
+        receiveGoods(filter, response)
       })
       .catch(error => console.log(error))
   }

@@ -3,7 +3,8 @@ import {
   // REMOVE_GOOD,
   GOODS_REQUEST,
   GOODS_SUCCESS,
-  GOODS_FAILURE
+  GOODS_FAILURE,
+  RECEIVE_GOODS
 } from './../types'
 // import axios from 'axios'
 
@@ -33,9 +34,11 @@ const goods = (
       return {
         isFetching: true
       }
-    case GOODS_SUCCESS:
+    case RECEIVE_GOODS:
+      console.log('RECEIVE_GOODS', state)
+      console.log('RECEIVE_GOODS action', action)
       return {
-        goods: action.goods,
+        goods: action.response.data,
         isFetching: false
       }
     case GOODS_FAILURE:

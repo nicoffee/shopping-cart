@@ -6,23 +6,24 @@ import styles from './style.css'
 
 const GoodsList = ({ goods, onAddGoodClick }) => {
   console.log('***goods***', goods)
-  if (goods.goods.isFetching) return <div>...isLoadein</div>
-  return (
-    <div className={styles.container}>
-      {goods.goods.map((good, idx) => (
-        <Good
-          img={good.img}
-          name={good.name}
-          vendor={good.vendor}
-          price={good.price}
-          rating={good.rating}
-          vendor_code={good.vendor_code}
-          key={idx}
-          onClick={() => onAddGoodClick(good)}
-        />
-      ))}
-    </div>
-  )
+  // if (goods.goods.isFetching) return <div>...isLoadein</div>
+  if (goods.goods)
+    return (
+      <div className={styles.container}>
+        {goods.goods.cases.map((good, idx) => (
+          <Good
+            img={good.img}
+            name={good.name}
+            vendor={good.vendor}
+            price={good.price}
+            rating={good.rating}
+            vendor_code={good.vendor_code}
+            key={idx}
+            onClick={() => onAddGoodClick(good)}
+          />
+        ))}
+      </div>
+    )
 }
 
 // GoodsList.propTypes = {
