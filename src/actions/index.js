@@ -3,9 +3,7 @@ import {
   REMOVE_GOOD,
   SET_CATEGORY_FILTER,
   REQUEST_GOODS,
-  RECEIVE_GOODS,
-  GOODS_SUCCESS,
-  GOODS_FAILURE
+  RECEIVE_GOODS
 } from './../types'
 
 export const addGoodInCart = ({ img, name, price, rating }) => ({
@@ -36,43 +34,3 @@ export const receiveGoods = (filter, response) => ({
   filter,
   response
 })
-
-export const successGoodsRequest = data => ({
-  type: GOODS_SUCCESS,
-  goods: data
-})
-
-export const errorGoodsRequest = error => ({
-  type: GOODS_FAILURE,
-  goods: error
-})
-
-export function fetchGoods() {
-  return function(dispatch) {
-    dispatch(requestGoods())
-
-    return fetch(`http://localhost:3000/goods/`)
-      .then(
-        response => response.json(),
-        error => console.log('An error occured.', error)
-      )
-      .then(json => dispatch(successGoodsRequest(json)))
-  }
-}
-
-// axios
-// .get('http://localhost:3000/goods')
-// .then(response => {
-//   switch (filter) {
-//     case 'ALL':
-//       let allGoods = []
-//       Object.keys(response.data).map(key => {
-//         allGoods = allGoods.concat(response.data[key])
-//       })
-//       console.log('allGoods', )
-//       return allGoods
-//   }
-// })
-// .catch(function(error) {
-//   console.log(error)
-// })

@@ -1,26 +1,4 @@
-import {
-  // ADD_GOOD,
-  // REMOVE_GOOD,
-  GOODS_REQUEST,
-  GOODS_SUCCESS,
-  GOODS_FAILURE,
-  RECEIVE_GOODS
-} from './../types'
-// import axios from 'axios'
-
-// export const good = (state, action) => {
-//   switch (action.type) {
-//     case ADD_GOOD:
-//       return {
-//         name: action.name,
-//         id: action.id
-//       }
-//     case REMOVE_GOOD:
-//       return state
-//     default:
-//       return state
-//   }
-// }
+import { GOODS_REQUEST, GOODS_FAILURE, RECEIVE_GOODS } from './../types'
 
 const goods = (
   state = {
@@ -35,8 +13,6 @@ const goods = (
         isFetching: true
       }
     case RECEIVE_GOODS:
-      console.log('RECEIVE_GOODS', state)
-      console.log('RECEIVE_GOODS action', action)
       return {
         goods: action.response.data,
         isFetching: false
@@ -53,15 +29,9 @@ const goods = (
 
 export default goods
 
-// let allGoods = []
-// Object.keys(response.data).map(key => {
-//   allGoods = allGoods.concat(response.data[key])
-// })
-
 export const getVisibleGoods = (state, filter) => {
   switch (filter) {
     case 'all':
-      console.log('state', state)
       return state.goods
   }
 }

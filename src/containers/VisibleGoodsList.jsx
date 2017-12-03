@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
+import PropTypes from 'prop-types'
 import axios from 'axios'
 
 import { addGoodInCart, removeGoodFromCart } from '../actions'
@@ -9,6 +10,13 @@ import { receiveGoods } from './../actions'
 import GoodsList from '../components/GoodsList'
 
 class VisibleGoodsList extends Component {
+  static get propTypes() {
+    return {
+      filter: PropTypes.string,
+      receiveGoods: PropTypes.func
+    }
+  }
+
   componentDidMount() {
     this.fetchData()
   }
@@ -20,12 +28,10 @@ class VisibleGoodsList extends Component {
   }
 
   fetchData() {
-    console.log('this.props', this.props)
     const { filter, receiveGoods } = this.props
     axios
       .get('http://localhost:3000/goods')
       .then(response => {
-        console.log('response', response)
         receiveGoods(filter, response)
       })
       .catch(error => console.log(error))
