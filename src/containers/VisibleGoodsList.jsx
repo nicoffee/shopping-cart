@@ -2,12 +2,15 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 
 import { addGoodInCart, removeGoodFromCart } from '../actions'
-import { getVisibleGoods } from '../reducers'
+import { getVisibleGoods } from '../reducers/goods'
 import GoodsList from '../components/GoodsList'
 
-const mapStateToProps = (state, { match }) => ({
-  goods: getVisibleGoods(state, match.params.filter || 'ALL')
-})
+const mapStateToProps = (state, { match }) => {
+  console.log('state', state)
+  return {
+    goods: getVisibleGoods(state, match.params.filter || 'all')
+  }
+}
 
 const VisibleGoodsList = withRouter(
   connect(mapStateToProps, {

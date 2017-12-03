@@ -1,30 +1,25 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
-const goodsList = goods => goods.array.map((item, idx) => {
-    return (
-        <li key={idx}>
-            {item.name}
-        </li>
-    )
-});
+const goodsList = goods =>
+  goods.array.map((item, idx) => {
+    return <li key={idx}>{item.name}</li>
+  })
 
-const CartPreview = (props) => (
-    <div>
-        Товаров в корзине: {props.goodsInCart.length}
-        <br/>
-        Товары:
-        <ul>
-            {goodsList(props.goodsInCart)}
-        </ul>
-        Сумма: {props.goodsInCart.totalPrice}
-        <Link to="/cart">View Cart</Link>
-    </div>
-);
+const CartPreview = props => (
+  <div>
+    Товаров в корзине: {props.goodsInCart.length}
+    <br />
+    Товары:
+    <ul>{goodsList(props.goodsInCart)}</ul>
+    Сумма: {props.goodsInCart.totalPrice}
+    <Link to="/cart">View Cart</Link>
+  </div>
+)
 
 CartPreview.propTypes = {
-    goodsInCart: PropTypes.object
-};
+  goodsInCart: PropTypes.object
+}
 
-export default CartPreview;
+export default CartPreview

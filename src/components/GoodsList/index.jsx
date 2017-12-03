@@ -6,23 +6,24 @@ import styles from './style.css'
 
 const GoodsList = ({ goods, onAddGoodClick }) => (
   <div className={styles.container}>
-    {goods.goods.map((good, idx) => (
-      <Good
-        img={good.img}
-        name={good.name}
-        vendor={good.vendor}
-        price={good.price}
-        rating={good.rating}
-        vendor_code={good.vendor_code}
-        key={idx}
-        onClick={() => onAddGoodClick(good)}
-      />
-    ))}
+    {goods.goods &&
+      goods.map((good, idx) => (
+        <Good
+          img={good.img}
+          name={good.name}
+          vendor={good.vendor}
+          price={good.price}
+          rating={good.rating}
+          vendor_code={good.vendor_code}
+          key={idx}
+          onClick={() => onAddGoodClick(good)}
+        />
+      ))}
   </div>
 )
 
 GoodsList.propTypes = {
-  goods: PropTypes.object.isRequired,
+  goods: PropTypes.array.isRequired,
   onAddGoodClick: PropTypes.func.isRequired
 }
 

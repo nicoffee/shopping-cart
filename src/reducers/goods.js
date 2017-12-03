@@ -1,25 +1,25 @@
 import {
-  ADD_GOOD,
-  REMOVE_GOOD,
+  // ADD_GOOD,
+  // REMOVE_GOOD,
   GOODS_REQUEST,
   GOODS_SUCCESS,
   GOODS_FAILURE
 } from './../types'
-import axios from 'axios'
+// import axios from 'axios'
 
-export const good = (state, action) => {
-  switch (action.type) {
-    case ADD_GOOD:
-      return {
-        name: action.name,
-        id: action.id
-      }
-    case REMOVE_GOOD:
-      return state
-    default:
-      return state
-  }
-}
+// export const good = (state, action) => {
+//   switch (action.type) {
+//     case ADD_GOOD:
+//       return {
+//         name: action.name,
+//         id: action.id
+//       }
+//     case REMOVE_GOOD:
+//       return state
+//     default:
+//       return state
+//   }
+// }
 
 const goods = (
   state = {
@@ -50,22 +50,14 @@ const goods = (
 
 export default goods
 
-export const getVisibleGoods = (state, filter) => {
-  axios
-    .get('http://localhost:3000/goods')
-    .then(response => {
-      switch (filter) {
-        case 'ALL':
-          let allGoods = []
-          Object.keys(response.data).map(key => {
-            allGoods = allGoods.concat(response.data[key])
-          })
-          return allGoods
-      }
-    })
-    .catch(function(error) {
-      console.log(error)
-    })
+// let allGoods = []
+// Object.keys(response.data).map(key => {
+//   allGoods = allGoods.concat(response.data[key])
+// })
 
-  return state
+export const getVisibleGoods = (state, filter) => {
+  switch (filter) {
+    case 'all':
+      return allGoods
+  }
 }

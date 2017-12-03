@@ -6,6 +6,6 @@ export const SHOW_ALL = 'ALL'
 export const SHOW_CASES = 'CASES'
 export const SHOW_MONITORS = 'MONITORS'
 
-export const GOODS_REQUEST = 'GOODS_REQUEST'
+export const REQUEST_GOODS = 'REQUEST_GOODS'
 export const GOODS_SUCCESS = 'GOODS_SUCCESS'
 export const GOODS_FAILURE = 'GOODS_FAILURE'
