@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux'
 import { goodsInCart } from './goodsInCart'
-import { goods } from './goods'
+import goods, * as fromGoods from './goods'
 
 const rootReducer = combineReducers({
   goodsInCart,
@@ -9,4 +9,5 @@ const rootReducer = combineReducers({
 
 export default rootReducer
 
-export const getVisibleGoods = (state, filter) => {}
+export const getVisibleGoods = (state, filter) =>
+  fromGoods.getVisibleGoods(state.goods, filter)

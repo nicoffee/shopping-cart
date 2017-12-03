@@ -3,6 +3,7 @@ import {
   REMOVE_GOOD,
   SET_CATEGORY_FILTER,
   REQUEST_GOODS,
+  RECEIVE_GOODS,
   GOODS_SUCCESS,
   GOODS_FAILURE
 } from './../types'
@@ -28,6 +29,12 @@ export const setCategoryFilter = filter => ({
 export const requestGoods = data => ({
   type: REQUEST_GOODS,
   goods: data
+})
+
+export const receiveGoods = (filter, response) => ({
+  type: RECEIVE_GOODS,
+  filter,
+  response
 })
 
 export const successGoodsRequest = data => ({

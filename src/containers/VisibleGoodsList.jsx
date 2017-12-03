@@ -1,22 +1,54 @@
+import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
+import axios from 'axios'
 
 import { addGoodInCart, removeGoodFromCart } from '../actions'
 import { getVisibleGoods } from '../reducers/goods'
+import { receiveGoods } from './../actions'
 import GoodsList from '../components/GoodsList'
 
-const mapStateToProps = (state, { match }) => {
-  console.log('state', state)
-  return {
-    goods: getVisibleGoods(state, match.params.filter || 'all')
+class VisibleGoodsList extends Component {
+  componentDidMount() {
+    this.fetchData()
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.filter !== prevProps.filter) {
+      this.fetchData()
+    }
+  }
+
+  fetchData() {
+    const { filter, receiveGoods } = this.props
+    axios
+      .get('http://localhost:3000/goods')
+      .then(response => {
+        console.log('response', response)
+        receiveGoods(filter, response.data)
+      })
+      .catch(error => console.log(error))
+  }
+
+  render() {
+    return <GoodsList {...this.props} />
   }
 }
 
-const VisibleGoodsList = withRouter(
+const mapStateToProps = (state, { match }) => {
+  const filter = match.params.filter || 'all'
+  return {
+    goods: getVisibleGoods(state, filter),
+    filter
+  }
+}
+
+VisibleGoodsList = withRouter(
   connect(mapStateToProps, {
     onAddGoodClick: addGoodInCart,
-    onRemoveGoodClick: removeGoodFromCart
-  })(GoodsList)
+    onRemoveGoodClick: removeGoodFromCart,
+    receiveGoods
+  })(VisibleGoodsList)
 )
 
 export default VisibleGoodsList

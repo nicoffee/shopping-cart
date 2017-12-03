@@ -58,6 +58,7 @@ export default goods
 export const getVisibleGoods = (state, filter) => {
   switch (filter) {
     case 'all':
-      return allGoods
+      console.log('state', state)
+      return state.goods
   }
 }

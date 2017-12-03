@@ -4,10 +4,12 @@ import PropTypes from 'prop-types'
 import Good from './../Good'
 import styles from './style.css'
 
-const GoodsList = ({ goods, onAddGoodClick }) => (
-  <div className={styles.container}>
-    {goods.goods &&
-      goods.map((good, idx) => (
+const GoodsList = ({ goods, onAddGoodClick }) => {
+  console.log('***goods***', goods)
+  if (goods.goods.isFetching) return <div>...isLoadein</div>
+  return (
+    <div className={styles.container}>
+      {goods.goods.map((good, idx) => (
         <Good
           img={good.img}
           name={good.name}
@@ -19,12 +21,13 @@ const GoodsList = ({ goods, onAddGoodClick }) => (
           onClick={() => onAddGoodClick(good)}
         />
       ))}
-  </div>
-)
-
-GoodsList.propTypes = {
-  goods: PropTypes.array.isRequired,
-  onAddGoodClick: PropTypes.func.isRequired
+    </div>
+  )
 }
+
+// GoodsList.propTypes = {
+//   goods: PropTypes.array.isRequired,
+//   onAddGoodClick: PropTypes.func.isRequired
+// }
 
 export default GoodsList
