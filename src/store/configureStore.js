@@ -5,17 +5,13 @@ import { loadState, saveState } from './../localStorage'
 import throttle from 'lodash/throttle'
 import thunkMiddleware from 'redux-thunk'
 
-const enhancer = compose(applyMiddleware(thunkMiddleware, logger))
+let composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+composeEnhancers = compose(applyMiddleware(thunkMiddleware, logger))
 
 const configureStore = () => {
   const persistedState = loadState()
 
-  const store = createStore(
-    rootReducer,
-    persistedState,
-    enhancer,
-    window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
-  )
+  const store = createStore(rootReducer, persistedState, composeEnhancers)
 
   if (module.hot) {
     module.hot.accept('../reducers', () =>
