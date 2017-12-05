@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import { goodsInCart } from './goodsInCart'
+import goodsInCart from './goodsInCart'
 import goods, * as fromGoods from './goods'
 
 const rootReducer = combineReducers({

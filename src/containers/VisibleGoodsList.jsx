@@ -6,14 +6,14 @@ import axios from 'axios'
 
 import { addGoodInCart, removeGoodFromCart } from '../actions'
 import { getVisibleGoods } from '../reducers/goods'
-import { receiveGoods } from './../actions'
+import { fetchGoods } from './../actions'
 import GoodsList from '../components/GoodsList'
 
 class VisibleGoodsList extends Component {
   static get propTypes() {
     return {
       filter: PropTypes.string,
-      receiveGoods: PropTypes.func
+      fetchGoods: PropTypes.func
     }
   }
 
@@ -28,13 +28,8 @@ class VisibleGoodsList extends Component {
   }
 
   fetchData() {
-    const { filter, receiveGoods } = this.props
-    axios
-      .get('http://localhost:3000/goods')
-      .then(response => {
-        receiveGoods(filter, response)
-      })
-      .catch(error => console.log(error))
+    const { filter, fetchGoods } = this.props
+    fetchGoods(filter)
   }
 
   render() {
@@ -54,7 +49,7 @@ VisibleGoodsList = withRouter(
   connect(mapStateToProps, {
     onAddGoodClick: addGoodInCart,
     onRemoveGoodClick: removeGoodFromCart,
-    receiveGoods
+    fetchGoods
   })(VisibleGoodsList)
 )
 

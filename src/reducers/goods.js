@@ -1,9 +1,9 @@
 import { GOODS_REQUEST, GOODS_FAILURE, RECEIVE_GOODS } from './../types'
 
-const byId = (
+const goods = (
   state = {
     isFetching: false,
-    goods: {}
+    goods: []
   },
   action
 ) => {
@@ -27,7 +27,7 @@ const byId = (
   }
 }
 
-export default byId
+export default goods
 
 export const getVisibleGoods = (state, filter) => {
   switch (filter) {

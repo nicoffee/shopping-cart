@@ -1,8 +1,10 @@
+import { combineReducers } from 'redux'
+
 import { ADD_GOOD, REMOVE_GOOD } from './../types'
 
-export const goodsInCart = (
+const byId = (
   state = {
-    array: [],
+    goods: {},
     totalPrice: 0
   },
   action
@@ -11,13 +13,13 @@ export const goodsInCart = (
   switch (action.type) {
     case ADD_GOOD:
       return {
-        array: [
-          ...state.array,
-          {
+        goods: {
+          ...state.goods,
+          [action.id]: {
             name: action.name,
             price: action.price
           }
-        ],
+        },
         totalPrice
       }
     case REMOVE_GOOD:
@@ -26,3 +28,19 @@ export const goodsInCart = (
       return state
   }
 }
+
+const allIds = (state = [], action) => {
+  switch (action.type) {
+    case ADD_GOOD:
+      return [...state, action.id]
+    default:
+      return state
+  }
+}
+
+const goodsInCart = combineReducers({
+  byId,
+  allIds
+})
+
+export default goodsInCart

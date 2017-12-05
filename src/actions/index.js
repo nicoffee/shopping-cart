@@ -1,3 +1,5 @@
+import axios from 'axios'
+
 import {
   ADD_GOOD,
   REMOVE_GOOD,
@@ -29,8 +31,14 @@ export const requestGoods = data => ({
   goods: data
 })
 
-export const receiveGoods = (filter, response) => ({
+const receiveGoods = (filter, response) => ({
   type: RECEIVE_GOODS,
   filter,
   response
 })
+
+export const fetchGoods = filter => dispatch =>
+  axios
+    .get('http://localhost:3000/goods')
+    .then(response => dispatch(receiveGoods(filter, response)))
+    .catch(error => console.log(error))
