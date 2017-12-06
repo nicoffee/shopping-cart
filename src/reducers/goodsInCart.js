@@ -1,5 +1,4 @@
 import { combineReducers } from 'redux'
-
 import { ADD_GOOD, REMOVE_GOOD } from './../types'
 
 const byId = (
