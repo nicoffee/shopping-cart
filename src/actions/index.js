@@ -41,4 +41,4 @@ export const fetchGoods = filter => dispatch =>
   axios
     .get('http://localhost:3000/goods')
     .then(response => dispatch(receiveGoods(filter, response)))
-    .catch(error => console.log(error))
+    .catch(error => {})

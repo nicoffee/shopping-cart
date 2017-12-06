@@ -4,8 +4,8 @@ import PropTypes from 'prop-types'
 import Good from './Good'
 
 const GoodsList = ({ goods, onAddGoodClick }) =>
-  goods.goods &&
-  Object.keys(goods.goods).map(category => (
+  goods &&
+  Object.keys(goods).map(category => (
     <div style={{ display: 'flex' }} key={category}>
       <h1>{category}</h1>
       {goods.goods[category].map((good, idx) => (
@@ -24,7 +24,7 @@ const GoodsList = ({ goods, onAddGoodClick }) =>
   ))
 
 GoodsList.propTypes = {
-  goods: PropTypes.object.isRequired,
+  goods: PropTypes.array.isRequired,
   onAddGoodClick: PropTypes.func.isRequired
 }
 

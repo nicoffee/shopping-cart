@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 
 const goodsList = goods => {
-  console.log('goods', goods)
   return <div>test</div>
   // goods.array.map((item, idx) => {
   //   return <li key={idx}>{item.name}</li>

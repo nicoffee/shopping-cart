@@ -13,31 +13,13 @@ const byId = (state = {}, action) => {
   }
 }
 
-const allIds = (
-  state = {
-    isFetching: false,
-    goods: []
-  },
-  action
-) => {
+const allIds = (state = [], action) => {
   if (action.filter !== 'all') {
     return state
   }
   switch (action.type) {
-    case GOODS_REQUEST:
-      return {
-        isFetching: true
-      }
     case RECEIVE_GOODS:
-      return {
-        goods: action.response.data.map(good => good.id),
-        isFetching: false
-      }
-    case GOODS_FAILURE:
-      return {
-        error: action.error,
-        isFetching: false
-      }
+      return action.response.data.map(good => good.id)
     default:
       return state
   }
@@ -81,8 +63,6 @@ const goods = combineReducers({
 export default goods
 
 export const getVisibleGoods = (state, filter) => {
-  console.log('state', state)
-  console.log('idsByFilter', idsByFilter)
-  const ids = state.idsByFilter[filter]
+  const ids = state.goods.idsByFilter[filter]
   return ids.map(id => state.byId[id])
 }

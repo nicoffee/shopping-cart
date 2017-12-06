@@ -3,18 +3,13 @@ import { createStore, applyMiddleware, compose } from 'redux'
 import ReduxThunk from 'redux-thunk'
 import rootReducer from '../reducers'
 
-let composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
-composeEnhancers = compose(applyMiddleware(ReduxThunk, logger))
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 const configureStore = () => {
-  const store = createStore(rootReducer, composeEnhancers)
-
-  if (module.hot) {
-    module.hot.accept('../reducers', () =>
-      store.replaceReducer(require('../reducers'))
-    )
-  }
-
+  const store = createStore(
+    rootReducer,
+    composeEnhancers(applyMiddleware(ReduxThunk, logger))
+  )
   return store
 }
 
