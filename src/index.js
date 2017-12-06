@@ -6,6 +6,4 @@ import './index.css'
 
 const store = configureStore()
 
-console.log('store', store)
-
 render(<Root store={store} />, document.getElementById('root'))
