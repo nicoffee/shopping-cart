@@ -6,13 +6,10 @@ import FilterLink from './../containers/FilterLink'
 
 const Sidebar = () => (
   <div>
-    <FilterLink filter="SHOW_ALL">
-      <Button>Show All</Button>
-    </FilterLink>
-    <FilterLink filter="SHOW_MONITORS">
+    <FilterLink filter="monitors">
       <Button>Show Monitors</Button>
     </FilterLink>
-    <FilterLink filter="SHOW_CASES">
+    <FilterLink filter="cases">
       <Button>Show Cases</Button>
     </FilterLink>
   </div>

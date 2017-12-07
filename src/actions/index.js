@@ -37,8 +37,12 @@ const receiveGoods = (filter, response) => ({
   response
 })
 
-export const fetchGoods = filter => dispatch =>
+export const fetchGoods = filter => dispatch => {
   axios
+    .get('http://localhost:3000/goods/cases')
+    .then(response => console.log('response', response))
+  return axios
     .get('http://localhost:3000/goods')
     .then(response => dispatch(receiveGoods(filter, response)))
     .catch(error => {})
+}
