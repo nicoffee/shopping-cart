@@ -5,9 +5,10 @@ const byId = (state = {}, action) => {
   switch (action.type) {
     case RECEIVE_GOODS:
       const nextState = { ...state }
-      action.response.data.forEach(good => {
-        nextState[good.id] = good
-      })
+      Object.keys(action.response.data).map(good =>
+        action.response.data[good].map(good => (nextState[good.id] = good))
+      )
+      return nextState
     default:
       return state
   }
@@ -19,7 +20,13 @@ const allIds = (state = [], action) => {
   }
   switch (action.type) {
     case RECEIVE_GOODS:
-      return action.response.data.map(good => good.id)
+      let goods = []
+      Object.keys(action.response.data).forEach(good =>
+        action.response.data[good].forEach(good => {
+          goods.push(good.id)
+        })
+      )
+      return goods
     default:
       return state
   }
@@ -31,7 +38,11 @@ const monitorsIds = (state = [], action) => {
   }
   switch (action.type) {
     case RECEIVE_GOODS:
-      return action.response.map(goods => good.id)
+      let goods = []
+      Object.keys(action.response.data).forEach(good =>
+        action.response.data[good].forEach(good => goods.push(good.id))
+      )
+      return goods
     default:
       return state
   }
@@ -43,7 +54,11 @@ const casesIds = (state = [], action) => {
   }
   switch (action.type) {
     case RECEIVE_GOODS:
-      return action.response.map(goods => good.id)
+      let goods = []
+      Object.keys(action.response.data).forEach(good =>
+        action.response.data[good].forEach(good => goods.push(good.id))
+      )
+      return goods
     default:
       return state
   }
@@ -64,5 +79,6 @@ export default goods
 
 export const getVisibleGoods = (state, filter) => {
   const ids = state.goods.idsByFilter[filter]
-  return ids.map(id => state.byId[id])
+  console.log('state', ids.map(id => state.goods.byId[id]))
+  return ids.map(id => state.goods.byId[id])
 }

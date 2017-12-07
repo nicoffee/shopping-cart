@@ -4,23 +4,17 @@ import PropTypes from 'prop-types'
 import Good from './Good'
 
 const GoodsList = ({ goods, onAddGoodClick }) =>
-  goods &&
-  Object.keys(goods).map(category => (
-    <div style={{ display: 'flex' }} key={category}>
-      <h1>{category}</h1>
-      {goods.goods[category].map((good, idx) => (
-        <Good
-          img={good.img}
-          name={good.name}
-          vendor={good.vendor}
-          price={good.price}
-          rating={good.rating}
-          vendor_code={good.vendor_code}
-          key={idx}
-          onClick={() => onAddGoodClick(good)}
-        />
-      ))}
-    </div>
+  Object.keys(goods).map(id => (
+    <Good
+      img={goods[id].img}
+      name={goods[id].name}
+      vendor={goods[id].vendor}
+      price={goods[id].price}
+      rating={goods[id].rating}
+      vendor_code={goods[id].vendor_code}
+      key={id}
+      onClick={() => onAddGoodClick(goods[id])}
+    />
   ))
 
 GoodsList.propTypes = {
