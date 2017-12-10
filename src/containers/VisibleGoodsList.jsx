@@ -5,7 +5,7 @@ import PropTypes from 'prop-types'
 
 import { addGoodInCart, removeGoodFromCart } from '../actions'
 import { getVisibleGoods, getIsFetching } from '../reducers/goods'
-import { fetchGoods, requestGoods } from './../actions'
+import { fetchGoods } from './../actions'
 import GoodsList from '../components/GoodsList'
 
 class VisibleGoodsList extends Component {
@@ -27,8 +27,7 @@ class VisibleGoodsList extends Component {
   }
 
   fetchData() {
-    const { filter, requestGoods, fetchGoods } = this.props
-    requestGoods(filter)
+    const { filter, fetchGoods } = this.props
     fetchGoods(filter)
   }
 
@@ -56,8 +55,7 @@ VisibleGoodsList = withRouter(
   connect(mapStateToProps, {
     onAddGoodClick: addGoodInCart,
     onRemoveGoodClick: removeGoodFromCart,
-    fetchGoods,
-    requestGoods
+    fetchGoods
   })(VisibleGoodsList)
 )
 

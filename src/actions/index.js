@@ -26,7 +26,7 @@ export const setCategoryFilter = filter => ({
   filter
 })
 
-export const requestGoods = filter => ({
+const requestGoods = filter => ({
   type: REQUEST_GOODS,
   filter
 })
@@ -37,7 +37,10 @@ const receiveGoods = (filter, response) => ({
   response
 })
 
-export const fetchGoods = filter => dispatch =>
-  axios
+export const fetchGoods = filter => dispatch => {
+  dispatch(requestGoods(filter))
+
+  return axios
     .get(`http://localhost:3000/${filter}`)
     .then(response => dispatch(receiveGoods(filter, response)))
+}
