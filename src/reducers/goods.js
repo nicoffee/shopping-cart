@@ -19,3 +19,6 @@ export const getVisibleGoods = (state, filter) => {
   const ids = fromList.getIds(state.goods.listByFilter[filter])
   return ids.map(id => fromById.getGood(state.goods.byId, id))
 }
+getIsFetching
+export const getIsFetching = (state, filter) =>
+  fromList.getIsFetching(state.goods.listByFilter[filter])

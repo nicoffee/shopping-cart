@@ -26,9 +26,9 @@ export const setCategoryFilter = filter => ({
   filter
 })
 
-export const requestGoods = data => ({
+export const requestGoods = filter => ({
   type: REQUEST_GOODS,
-  goods: data
+  filter
 })
 
 const receiveGoods = (filter, response) => ({
