@@ -1,12 +1,6 @@
 import axios from 'axios'
 
-import {
-  ADD_GOOD,
-  REMOVE_GOOD,
-  SET_CATEGORY_FILTER,
-  REQUEST_GOODS,
-  RECEIVE_GOODS
-} from './../types'
+import { ADD_GOOD, REMOVE_GOOD, REQUEST_GOODS, RECEIVE_GOODS } from './../types'
 import { getIsFetching } from '../reducers/goods'
 
 export const addGoodInCart = ({ img, name, price, rating }) => ({
@@ -22,30 +16,21 @@ export const removeGoodFromCart = id => ({
   id
 })
 
-export const setCategoryFilter = filter => ({
-  type: SET_CATEGORY_FILTER,
-  filter
-})
-
-const requestGoods = filter => ({
-  type: REQUEST_GOODS,
-  filter
-})
-
-const receiveGoods = (filter, response) => ({
-  type: RECEIVE_GOODS,
-  filter,
-  response
-})
-
 export const fetchGoods = filter => (dispatch, getState) => {
   if (getIsFetching(getState(), filter)) {
     return Promise.resolve()
   }
 
-  dispatch(requestGoods(filter))
+  dispatch({
+    type: REQUEST_GOODS,
+    filter
+  })
 
-  return axios
-    .get(`http://localhost:3000/${filter}`)
-    .then(response => dispatch(receiveGoods(filter, response)))
+  return axios.get(`http://localhost:3001/${filter}`).then(response =>
+    dispatch({
+      type: RECEIVE_GOODS,
+      filter,
+      response
+    })
+  )
 }
