@@ -3,10 +3,15 @@ import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
 import PropTypes from 'prop-types'
 
-import { addGoodInCart, removeGoodFromCart } from '../actions'
-import { getVisibleGoods, getIsFetching } from '../reducers/goods'
+import { addGoodInCart, removeGoodFromCart } from './../actions'
+import {
+  getVisibleGoods,
+  getErrorMessage,
+  getIsFetching
+} from './../reducers/goods'
 import { fetchGoods } from './../actions'
-import GoodsList from '../components/GoodsList'
+import GoodsList from './../components/GoodsList'
+import FetchError from './../components/FetchError'
 
 class VisibleGoodsList extends Component {
   static get propTypes() {
@@ -32,10 +37,16 @@ class VisibleGoodsList extends Component {
   }
 
   render() {
-    const { goods, isFetching } = this.props
+    const { isFetching, errorMessage, goods } = this.props
 
     if (isFetching && !goods.length) {
       return <p>Loading...</p>
+    }
+
+    if (errorMessage && !goods.length) {
+      return (
+        <FetchError message={errorMessage} onRetry={() => this.fetchData()} />
+      )
     }
 
     return <GoodsList goods={goods} {...this.props} />
@@ -45,8 +56,9 @@ class VisibleGoodsList extends Component {
 const mapStateToProps = (state, { match }) => {
   const filter = match.params.filter || 'all'
   return {
-    goods: getVisibleGoods(state, filter),
     isFetching: getIsFetching(state, filter),
+    errorMessage: getErrorMessage(state, filter),
+    goods: getVisibleGoods(state, filter),
     filter
   }
 }

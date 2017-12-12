@@ -1,6 +1,12 @@
 import axios from 'axios'
 
-import { ADD_GOOD, REMOVE_GOOD, REQUEST_GOODS, RECEIVE_GOODS } from './../types'
+import {
+  ADD_GOOD,
+  REMOVE_GOOD,
+  FETCH_GOODS_REQUEST,
+  FETCH_GOODS_SUCCESS,
+  FETCH_GOODS_FAILURE
+} from './../types'
 import { getIsFetching } from '../reducers/goods'
 
 export const addGoodInCart = ({ img, name, price, rating }) => ({
@@ -22,15 +28,22 @@ export const fetchGoods = filter => (dispatch, getState) => {
   }
 
   dispatch({
-    type: REQUEST_GOODS,
+    type: FETCH_GOODS_REQUEST,
     filter
   })
 
-  return axios.get(`http://localhost:3001/${filter}`).then(response =>
-    dispatch({
-      type: RECEIVE_GOODS,
-      filter,
-      response
-    })
+  return axios.get(`http://localhost:3000/${filter}`).then(
+    response =>
+      dispatch({
+        type: FETCH_GOODS_SUCCESS,
+        filter,
+        response
+      }),
+    error =>
+      dispatch({
+        type: FETCH_GOODS_FAILURE,
+        filter,
+        message: error.message || 'Something went wrong'
+      })
   )
 }
