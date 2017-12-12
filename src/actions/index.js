@@ -7,6 +7,7 @@ import {
   REQUEST_GOODS,
   RECEIVE_GOODS
 } from './../types'
+import { getIsFetching } from '../reducers/goods'
 
 export const addGoodInCart = ({ img, name, price, rating }) => ({
   type: ADD_GOOD,
@@ -37,7 +38,11 @@ const receiveGoods = (filter, response) => ({
   response
 })
 
-export const fetchGoods = filter => dispatch => {
+export const fetchGoods = filter => (dispatch, getState) => {
+  if (getIsFetching(getState(), filter)) {
+    return Promise.resolve()
+  }
+
   dispatch(requestGoods(filter))
 
   return axios
