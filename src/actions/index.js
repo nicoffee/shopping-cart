@@ -9,13 +9,14 @@ import {
 } from './../types'
 import { getIsFetching } from '../reducers/goods'
 
-export const addGoodInCart = ({ img, name, price, rating }) => ({
-  type: ADD_GOOD,
-  img,
-  name,
-  price,
-  rating
-})
+export const addGoodInCart = good => dispatch => {
+  axios.post('http://localhost:3000/goodsInCart', good).then(response =>
+    dispatch({
+      type: ADD_GOOD,
+      response
+    })
+  )
+}
 
 export const removeGoodFromCart = id => ({
   type: REMOVE_GOOD,

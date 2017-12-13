@@ -8,18 +8,17 @@ const byId = (
   },
   action
 ) => {
-  const totalPrice = (+action.price + +state.totalPrice).toFixed(2)
   switch (action.type) {
     case ADD_GOOD:
       return {
         goods: {
           ...state.goods,
-          [action.id]: {
-            name: action.name,
-            price: action.price
+          [action.response.data.id]: {
+            name: action.response.data.name,
+            price: action.response.data.price
           }
         },
-        totalPrice
+        totalPrice: (+action.response.data.price + +state.totalPrice).toFixed(2)
       }
     case REMOVE_GOOD:
       return state
@@ -31,7 +30,7 @@ const byId = (
 const allIds = (state = [], action) => {
   switch (action.type) {
     case ADD_GOOD:
-      return [...state, action.id]
+      return [...state, action.response.data.id]
     default:
       return state
   }
