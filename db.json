@@ -2,7 +2,8 @@
   "all": [
     {
       "id": 1,
-      "img": "https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646",
+      "img":
+        "https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646",
       "name": "Phanteks Enthoo Pro Chassis White",
       "vendor": "Phanteks",
       "price": 99.99,
@@ -20,7 +21,8 @@
     },
     {
       "id": 3,
-      "img": "https://images-na.ssl-images-amazon.com/images/I/71BuhRkFsYL._SL1500_.jpg",
+      "img":
+        "https://images-na.ssl-images-amazon.com/images/I/71BuhRkFsYL._SL1500_.jpg",
       "name": "Dell Ultrasharp U2515H",
       "vendor": "Dell",
       "price": 259.66,
@@ -31,7 +33,8 @@
   "cases": [
     {
       "id": 1,
-      "img": "https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646",
+      "img":
+        "https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646",
       "name": "Phanteks Enthoo Pro Chassis White",
       "vendor": "Phanteks",
       "price": 99.99,
@@ -51,7 +54,8 @@
   "monitors": [
     {
       "id": 3,
-      "img": "https://images-na.ssl-images-amazon.com/images/I/71BuhRkFsYL._SL1500_.jpg",
+      "img":
+        "https://images-na.ssl-images-amazon.com/images/I/71BuhRkFsYL._SL1500_.jpg",
       "name": "Dell Ultrasharp U2515H",
       "vendor": "Dell",
       "price": 259.66,
@@ -59,15 +63,5 @@
       "vendor_code": 90580806
     }
   ],
-  "goodsInCart": [
-    {
-      "id": 1,
-      "img": "https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646",
-      "name": "Phanteks Enthoo Pro Chassis White",
-      "vendor": "Phanteks",
-      "price": 99.99,
-      "rating": 4.5,
-      "vendor_code": "90222793"
-    }
-  ]
+  "goodsInCart": []
 }

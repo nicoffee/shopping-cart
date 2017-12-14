@@ -12,7 +12,7 @@ const createList = filter => {
     }
     switch (action.type) {
       case FETCH_GOODS_SUCCESS:
-        return action.response.data.map(good => good.id)
+        return action.response.result
       default:
         return state
     }

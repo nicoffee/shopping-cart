@@ -13,12 +13,12 @@ const byId = (
       return {
         goods: {
           ...state.goods,
-          [action.response.data.id]: {
-            name: action.response.data.name,
-            price: action.response.data.price
+          [action.good.id]: {
+            name: action.good.name,
+            price: action.good.price
           }
         },
-        totalPrice: (+action.response.data.price + +state.totalPrice).toFixed(2)
+        totalPrice: (+action.good.price + +state.totalPrice).toFixed(2)
       }
     case REMOVE_GOOD:
       return state
@@ -30,7 +30,7 @@ const byId = (
 const allIds = (state = [], action) => {
   switch (action.type) {
     case ADD_GOOD:
-      return [...state, action.response.data.id]
+      return [...state, action.good.id]
     default:
       return state
   }

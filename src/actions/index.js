@@ -1,4 +1,6 @@
 import axios from 'axios'
+import { normalize } from 'normalizr'
+import * as schema from './schema'
 
 import {
   ADD_GOOD,
@@ -9,14 +11,14 @@ import {
 } from './../types'
 import { getIsFetching } from '../reducers/goods'
 
-export const addGoodInCart = good => dispatch => {
-  axios.post('http://localhost:3000/goodsInCart', good).then(response =>
-    dispatch({
-      type: ADD_GOOD,
-      response
-    })
-  )
-}
+export const addGoodInCart = good => ({
+  // axios.post('http://localhost:3000/goodsInCart', good).then(response =>
+  // dispatch({
+  type: ADD_GOOD,
+  good
+  // })
+  // )
+})
 
 export const removeGoodFromCart = id => ({
   type: REMOVE_GOOD,
@@ -34,12 +36,13 @@ export const fetchGoods = filter => (dispatch, getState) => {
   })
 
   return axios.get(`http://localhost:3000/${filter}`).then(
-    response =>
+    response => {
       dispatch({
         type: FETCH_GOODS_SUCCESS,
         filter,
-        response
-      }),
+        response: normalize(response.data, schema.arrayOfGoods)
+      })
+    },
     error =>
       dispatch({
         type: FETCH_GOODS_FAILURE,

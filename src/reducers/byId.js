@@ -1,16 +1,13 @@
 import { FETCH_GOODS_SUCCESS } from './../types'
 
 const byId = (state = {}, action) => {
-  switch (action.type) {
-    case FETCH_GOODS_SUCCESS:
-      const nextState = { ...state }
-      action.response.data.forEach(good => {
-        nextState[good.id] = good
-      })
-      return nextState
-    default:
-      return state
+  if (action.response) {
+    return {
+      ...state,
+      ...action.response.entities.goods
+    }
   }
+  return state
 }
 
 export default byId
