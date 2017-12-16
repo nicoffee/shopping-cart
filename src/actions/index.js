@@ -12,12 +12,8 @@ import {
 import { getIsFetching } from '../reducers/goods'
 
 export const addGoodInCart = good => ({
-  // axios.post('http://localhost:3000/goodsInCart', good).then(response =>
-  // dispatch({
   type: ADD_GOOD,
   good
-  // })
-  // )
 })
 
 export const removeGoodFromCart = id => ({
