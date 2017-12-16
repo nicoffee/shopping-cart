@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-
 import Good from './Good'
 
 const GoodsList = ({ goods, onAddGoodClick }) =>

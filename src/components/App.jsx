@@ -1,16 +1,13 @@
 import React from 'react'
-import AppBar from 'material-ui/AppBar'
-
-import VisibleGoodsList from './../containers/VisibleGoodsList'
+import GoodsContainer from './../components/GoodsContainer'
 import CartContent from './../containers/CartContent'
+import MenuAppBar from './MenuAppBar'
 import Sidebar from './Sidebar'
 
 const App = () => [
-  <AppBar key="AppBar">
-    <h1>Shop</h1>
-  </AppBar>,
+  <MenuAppBar key="MenuAppBar" />,
   <CartContent key="CartContent" />,
-  <VisibleGoodsList key="VisibleGoodsList" />,
+  <GoodsContainer key="GoodsContainer" />,
   <Sidebar key="Sidebar" />
 ]
 
