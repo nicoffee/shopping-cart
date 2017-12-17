@@ -20,9 +20,21 @@ const styles = {
 }
 
 const MenuAppBar = ({ classes }) => (
-  <AppBar>
-    <Toolbar>
-      <Typography type="title" color="inherit" className={classes.flex}>
+  <AppBar
+    style={{
+      display: 'flex',
+      alignItems: 'center'
+    }}
+  >
+    <div
+      style={{
+        maxWidth: '1100px',
+        width: '100%',
+        display: 'flex',
+        justifyContent: 'space-between'
+      }}
+    >
+      <Typography type="title" color="inherit">
         Title
       </Typography>
       <IconButton color="contrast">
@@ -42,7 +54,7 @@ const MenuAppBar = ({ classes }) => (
           />
         </svg>
       </IconButton>
-    </Toolbar>
+    </div>
   </AppBar>
 )
 
