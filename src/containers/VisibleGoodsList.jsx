@@ -56,17 +56,18 @@ const mapStateToProps = (state, { match }) => {
   }
 }
 
-VisibleGoodsList.PropTypes = {
+VisibleGoodsList.propTypes = {
   filter: PropTypes.string,
-  fetchGoods: PropTypes.func
+  fetchGoods: PropTypes.func,
+  isFetching: PropTypes.bool.isRequired,
+  errorMessage: PropTypes.string,
+  goods: PropTypes.array
 }
 
-VisibleGoodsList = withRouter(
+export default withRouter(
   connect(mapStateToProps, {
     onAddGoodClick: addGoodInCart,
     onRemoveGoodClick: removeGoodFromCart,
     fetchGoods
   })(VisibleGoodsList)
 )
-
-export default VisibleGoodsList

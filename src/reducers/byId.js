@@ -1,5 +1,3 @@
-import { FETCH_GOODS_SUCCESS } from './../types'
-
 const byId = (state = {}, action) => {
   if (action.response) {
     return {
