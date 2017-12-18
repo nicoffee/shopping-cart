@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { withStyles } from 'material-ui/styles'
-import Button from 'material-ui/Button'
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card'
+import Button from './../ui-components/Button'
 
 const styleCard = {
   card: {
@@ -12,16 +12,6 @@ const styleCard = {
   media: {
     height: 300
   }
-}
-
-const style = {
-  background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-  borderRadius: 3,
-  border: 0,
-  color: 'white',
-  height: 48,
-  padding: '0 30px',
-  boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .30)'
 }
 
 const Good = ({ onClick, img, name, vendor, price, rating, classes }) => {
@@ -35,12 +25,7 @@ const Good = ({ onClick, img, name, vendor, price, rating, classes }) => {
           <div className="rating">{rating}</div>
         </CardContent>
         <CardActions>
-          <Button
-            raised={true}
-            style={style}
-            color={'contrast'}
-            onClick={onClick}
-          >
+          <Button raised={true} color={'contrast'} onClick={onClick}>
             Add to Cart
           </Button>
         </CardActions>

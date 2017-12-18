@@ -6,7 +6,6 @@ import Sidebar from './Sidebar'
 
 const App = () => [
   <MenuAppBar key="MenuAppBar" />,
-  <CartContent key="CartContent" />,
   <GoodsContainer key="GoodsContainer" />,
   <Sidebar key="Sidebar" />
 ]

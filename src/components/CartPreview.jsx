@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom'
 
 const CartPreview = props => (
   <div>
-    Товаров в корзине: {props.goodsInCart.allIds.length}
+    Goods in cart: {props.goodsInCart.allIds.length}
     <br />
-    Товары:
+    Goods:
     <ul>
       {Object.keys(props.goodsInCart.byId.goods).map((key, index) => (
         <li key={index}>{props.goodsInCart.byId.goods[key].name}</li>
       ))}
     </ul>
-    Сумма: {props.goodsInCart.byId.totalPrice}
+    Total Product Value: {props.goodsInCart.byId.totalPrice}
     <Link to="/cart">View Cart</Link>
   </div>
 )
