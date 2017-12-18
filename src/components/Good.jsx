@@ -14,25 +14,23 @@ const styleCard = {
   }
 }
 
-const Good = ({ onClick, img, name, vendor, price, rating, classes }) => {
-  return (
-    <div>
-      <Card className={classes.card}>
-        <CardMedia className={classes.media} image={img} title={name} />
-        <CardContent>
-          <span>{vendor}</span>
-          <span>${price}</span>
-          <div className="rating">{rating}</div>
-        </CardContent>
-        <CardActions>
-          <Button raised={true} color={'contrast'} onClick={onClick}>
-            Add to Cart
-          </Button>
-        </CardActions>
-      </Card>
-    </div>
-  )
-}
+const Good = ({ onClick, img, name, vendor, price, rating, classes }) => (
+  <div>
+    <Card className={classes.card}>
+      <CardMedia className={classes.media} image={img} title={name} />
+      <CardContent>
+        <span>{vendor}</span>
+        <span>${price}</span>
+        <div className="rating">{rating}</div>
+      </CardContent>
+      <CardActions>
+        <Button raised={true} color={'contrast'} onClick={onClick}>
+          Add to Cart
+        </Button>
+      </CardActions>
+    </Card>
+  </div>
+)
 
 Good.propTypes = {
   onClick: PropTypes.func.isRequired,
