@@ -78,11 +78,10 @@
     "start": "npm run server & npm run client",
     "server": "json-server --watch db.json",
     "client": "webpack-dev-server --open",
+    "lint": "eslint --ext .jsx --ext .js src/",
     "test": "jest"
   },
   "babel": {
-    "presets": [
-      "react-app"
-    ]
+    "presets": ["react-app"]
   }
 }

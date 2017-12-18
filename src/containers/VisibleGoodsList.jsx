@@ -14,13 +14,6 @@ import GoodsList from './../components/GoodsList'
 import FetchError from './../components/FetchError'
 
 class VisibleGoodsList extends Component {
-  static get propTypes() {
-    return {
-      filter: PropTypes.string,
-      fetchGoods: PropTypes.func
-    }
-  }
-
   componentDidMount() {
     this.fetchData()
   }
@@ -61,6 +54,11 @@ const mapStateToProps = (state, { match }) => {
     goods: getVisibleGoods(state, filter),
     filter
   }
+}
+
+VisibleGoodsList.PropTypes = {
+  filter: PropTypes.string,
+  fetchGoods: PropTypes.func
 }
 
 VisibleGoodsList = withRouter(
