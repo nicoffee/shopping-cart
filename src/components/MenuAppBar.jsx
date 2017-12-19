@@ -7,15 +7,37 @@ import Typography from 'material-ui/Typography'
 import { withStyles } from 'material-ui/styles'
 
 const styles = {
-  root: {
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+    padding: '0 20px'
+  },
+  inner: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    maxWidth: '1000px',
     width: '100%'
   },
-  flex: {
-    flex: 1
+  cartIcon: {
+    position: 'relative'
   },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20
+  goodsCount: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'absolute',
+    right: '5px',
+    bottom: '5px',
+    fontSize: '14px',
+    fontWeight: 'bold',
+    backgroundColor: '#f1c40f',
+    borderRadius: '50%',
+    width: '20px',
+    height: '20px',
+    color: 'white'
   }
 }
 
@@ -25,13 +47,13 @@ class MenuAppBar extends Component {
     const { goodsInCart } = this.props
 
     return (
-      <AppBar>
-        <div className={this.props.classes.root}>
+      <AppBar className={this.props.classes.container}>
+        <div className={this.props.classes.inner}>
           <Typography type="title" color="inherit">
             Shop
           </Typography>
           <Link to="/cart">
-            <IconButton>
+            <IconButton className={this.props.classes.cartIcon}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 511.999 511.999"
@@ -46,8 +68,10 @@ class MenuAppBar extends Component {
                   fill="#FFF"
                 />
               </svg>
+              <div className={this.props.classes.goodsCount}>
+                <span>{goodsInCart.allIds.length}</span>
+              </div>
             </IconButton>
-            {goodsInCart.allIds.length}
           </Link>
         </div>
       </AppBar>
@@ -56,7 +80,8 @@ class MenuAppBar extends Component {
 }
 
 MenuAppBar.propTypes = {
-  goodsInCart: PropTypes.object.isRequired
+  goodsInCart: PropTypes.object.isRequired,
+  classes: PropTypes.string
 }
 
 export default MenuAppBar

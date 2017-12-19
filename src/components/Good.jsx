@@ -7,7 +7,10 @@ import Button from './../ui-components/Button'
 const styleCard = {
   card: {
     width: 300,
-    marginRight: 20
+    marginRight: 20,
+    '&:last-child': {
+      marginRight: 0
+    }
   },
   media: {
     height: 300
