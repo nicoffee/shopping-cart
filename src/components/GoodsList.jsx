@@ -4,12 +4,6 @@ import { withStyles } from 'material-ui/styles'
 import Good from './Good'
 
 const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'center',
-    padding: '0 20px'
-  },
   inner: {
     display: 'flex',
     flexDirection: 'row',
