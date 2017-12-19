@@ -5,8 +5,8 @@ import Sidebar from './Sidebar'
 
 const App = () => (
   <React.Fragment>
-    <Header />,
-    <Content />,
+    <Header />
+    <Content />
     <Sidebar />
   </React.Fragment>
 )

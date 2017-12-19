@@ -19,13 +19,14 @@ const styles = {
   }
 }
 
+@withStyles(styles)
 class MenuAppBar extends Component {
   render() {
     const { goodsInCart } = this.props
 
     return (
       <AppBar>
-        <div>
+        <div className={this.props.classes.root}>
           <Typography type="title" color="inherit">
             Shop
           </Typography>
@@ -55,7 +56,7 @@ class MenuAppBar extends Component {
 }
 
 MenuAppBar.propTypes = {
-  goodsInCart: PropTypes.number.isRequired
+  goodsInCart: PropTypes.object.isRequired
 }
 
-export default withStyles(styles)(MenuAppBar)
+export default MenuAppBar
