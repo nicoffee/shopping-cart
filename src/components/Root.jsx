@@ -11,7 +11,7 @@ const Root = ({ store }) => (
     <Router>
       <Switch>
         <Route exact path="/" component={App} />
-        <Route path="/:filter?" component={App} />
+        <Route path="filter/:filter?" component={App} />
         <Route path="/cart" component={CartPage} />
       </Switch>
     </Router>

@@ -5,10 +5,10 @@ const styles = {
   display: 'flex'
 }
 
-const GoodsListContainer = () => (
+const Content = () => (
   <div style={styles}>
     <VisibleGoodsList />
   </div>
 )
 
-export default GoodsListContainer
+export default Content

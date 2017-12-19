@@ -1,12 +1,14 @@
 import React from 'react'
-import GoodsContainer from './../components/GoodsContainer'
-import MenuAppBar from './MenuAppBar'
+import Header from './../containers/Header'
+import Content from './Content'
 import Sidebar from './Sidebar'
 
-const App = () => [
-  <MenuAppBar key="MenuAppBar" />,
-  <GoodsContainer key="GoodsContainer" />,
-  <Sidebar key="Sidebar" />
-]
+const App = () => (
+  <React.Fragment>
+    <Header />,
+    <Content />,
+    <Sidebar />
+  </React.Fragment>
+)
 
 export default App
