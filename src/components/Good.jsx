@@ -8,6 +8,7 @@ const styleCard = {
   card: {
     width: 300,
     marginRight: 20,
+    marginBottom: 20,
     '&:last-child': {
       marginRight: 0
     }
