@@ -3,6 +3,8 @@ import fetchMock from 'fetch-mock'
 import thunk from 'redux-thunk'
 import * as actions from './../actions'
 import * as types from './../types'
+import byId, * as fromById from './../reducers/byId'
+import createList, * as fromList from './../reducers/createList'
 
 const middlewares = [thunk]
 const mockStore = configureMockStore(middlewares)
