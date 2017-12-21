@@ -6,7 +6,8 @@ import Sidebar from './Sidebar'
 const styles = {
   inner: {
     display: 'flex',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    paddingTop: 20
   }
 }
 
