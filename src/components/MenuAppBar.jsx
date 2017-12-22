@@ -5,81 +5,20 @@ import AppBar from 'material-ui/AppBar'
 import Toolbar from 'material-ui/Toolbar'
 import IconButton from 'material-ui/IconButton'
 import Typography from 'material-ui/Typography'
-import { withStyles } from 'material-ui/styles'
+import Divider from 'material-ui/Divider'
 import FilterLink from './../containers/FilterLink'
+import styles from './../styles/components/menu-app-bar.css'
 
-const styles = {
-  container: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '0 20px'
-  },
-  inner: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    maxWidth: '1000px',
-    width: '100%'
-  },
-  categories: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-    maxWidth: '1000px',
-    width: '100%',
-    '& a': {
-      marginRight: 20,
-      color: 'white',
-      display: 'flex',
-      alignItems: 'center',
-      textDecoration: 'none'
-    }
-  },
-  cartIcon: {
-    position: 'relative'
-  },
-  icon: {
-    width: 20,
-    height: 20,
-    marginRight: 5,
-    '& svg': {
-      width: 20,
-      height: 20
-    }
-  },
-  goodsCount: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    position: 'absolute',
-    right: '5px',
-    bottom: '5px',
-    fontSize: '14px',
-    fontWeight: 'bold',
-    backgroundColor: '#f1c40f',
-    borderRadius: '50%',
-    width: '20px',
-    height: '20px',
-    color: 'white'
-  }
-}
-
-@withStyles(styles)
 class MenuAppBar extends Component {
   render() {
     const { goodsInCart } = this.props
 
     return (
-      <AppBar className={this.props.classes.container} position="static">
-        <Toolbar className={this.props.classes.inner}>
-          <Typography type="title" color="inherit">
-            Shop
-          </Typography>
+      <AppBar className={styles.container} position="static">
+        <Toolbar className={styles.inner}>
+          <Typography type="title">Shop</Typography>
           <Link to="/cart">
-            <IconButton className={this.props.classes.cartIcon}>
+            <IconButton className={styles.cartIcon}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 511.999 511.999"
@@ -94,25 +33,24 @@ class MenuAppBar extends Component {
                   fill="#FFF"
                 />
               </svg>
-              <div className={this.props.classes.goodsCount}>
+              <div className={styles.goodsCount}>
                 <span>{goodsInCart.allIds.length}</span>
               </div>
             </IconButton>
           </Link>
         </Toolbar>
-        <Toolbar className={this.props.classes.categories}>
-          <FilterLink
-            filter="monitors"
-            className={this.props.classes.filterLink}>
-            <IconButton className={this.props.classes.icon}>
+        <Divider className={styles.divider} />
+        <Toolbar className={styles.categories}>
+          <FilterLink filter="monitors">
+            <IconButton className={styles.icon}>
               <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
                 <path d="M23 30h-2a2 2 0 0 1-2-2v-3h-6v3a2 2 0 0 1-2 2H9a1 1 0 1 0 0 2h14a1 1 0 1 0 0-2zm7.25-30H1.75C.784 0 0 .84 0 1.875v19.25C0 22.16.784 23 1.75 23h28.5c.966 0 1.75-.84 1.75-1.875V1.875C32 .84 31.216 0 30.25 0zM30 21H2V2h28v19z" />
               </svg>
             </IconButton>
             Monitors
           </FilterLink>
-          <FilterLink filter="cases" className={this.props.classes.filterLink}>
-            <IconButton className={this.props.classes.icon}>
+          <FilterLink filter="cases">
+            <IconButton className={styles.icon}>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 21.924 21.924">
