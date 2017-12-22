@@ -1,27 +1,13 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { withStyles } from 'material-ui/styles'
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card'
 import Button from './../ui-components/Button'
+import styles from './../styles/components/good.css'
 
-const styleCard = {
-  card: {
-    width: 300,
-    marginRight: 20,
-    marginBottom: 20,
-    '&:last-child': {
-      marginRight: 0
-    }
-  },
-  media: {
-    height: 300
-  }
-}
-
-const Good = ({ onClick, img, name, vendor, price, rating, classes }) => (
+const Good = ({ onClick, img, name, vendor, price, rating }) => (
   <div>
-    <Card className={classes.card}>
-      <CardMedia className={classes.media} image={img} title={name} />
+    <Card className={styles.card}>
+      <CardMedia className={styles.media} image={img} title={name} />
       <CardContent>
         <span>{vendor}</span>
         <span>${price}</span>
@@ -44,8 +30,7 @@ Good.propTypes = {
   name: PropTypes.string,
   vendor: PropTypes.string,
   price: PropTypes.number,
-  rating: PropTypes.number,
-  classes: PropTypes.object.isRequired
+  rating: PropTypes.number
 }
 
-export default withStyles(styleCard)(Good)
+export default Good

@@ -1,21 +1,13 @@
 import React from 'react'
-import { withStyles } from 'material-ui/styles'
 import VisibleGoodsList from './../containers/VisibleGoodsList'
 import Sidebar from './Sidebar'
+import styles from './../styles/components/content.css'
 
-const styles = {
-  inner: {
-    display: 'flex',
-    flexDirection: 'row',
-    paddingTop: 20
-  }
-}
-
-const Content = ({ classes }) => (
-  <div className={classes.inner}>
+const Content = () => (
+  <div className={styles.inner}>
     <Sidebar />
     <VisibleGoodsList />
   </div>
 )
 
-export default withStyles(styles)(Content)
+export default Content

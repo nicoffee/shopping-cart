@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { withRouter } from 'react-router'
-import PropTypes from 'prop-types'
+import { string, func, bool, array } from 'prop-types'
 import { addGoodInCart, removeGoodFromCart } from './../actions'
 import {
   getVisibleGoods,
@@ -13,6 +13,14 @@ import GoodsList from './../components/GoodsList'
 import FetchError from './../components/FetchError'
 
 class VisibleGoodsList extends Component {
+  static propTypes = {
+    filter: string,
+    fetchGoods: func,
+    isFetching: bool.isRequired,
+    errorMessage: string,
+    goods: array
+  }
+
   componentDidMount() {
     this.fetchData()
   }
@@ -53,14 +61,6 @@ const mapStateToProps = (state, { match }) => {
     goods: getVisibleGoods(state, filter),
     filter
   }
-}
-
-VisibleGoodsList.propTypes = {
-  filter: PropTypes.string,
-  fetchGoods: PropTypes.func,
-  isFetching: PropTypes.bool.isRequired,
-  errorMessage: PropTypes.string,
-  goods: PropTypes.array
 }
 
 export default withRouter(

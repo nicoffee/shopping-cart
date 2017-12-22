@@ -2,7 +2,6 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import PropTypes from 'prop-types'
-
 import CartPage from './CartPage'
 import App from './App'
 

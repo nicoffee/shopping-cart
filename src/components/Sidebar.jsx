@@ -3,16 +3,10 @@ import { connect } from 'react-redux'
 import Drawer from 'material-ui/Drawer'
 import List from 'material-ui/List'
 import Divider from 'material-ui/Divider'
-import { withStyles } from 'material-ui/styles'
+import styles from './../styles/components/sidebar.css'
 
-const styles = {
-  sidebar: {
-    position: 'static'
-  }
-}
-
-const Sidebar = ({ classes }) => (
-  <Drawer type="permanent" classes={{ paper: classes.sidebar }}>
+const Sidebar = () => (
+  <Drawer type="permanent" className={styles.sidebar}>
     <Divider />
     <List />
   </Drawer>
@@ -20,4 +14,4 @@ const Sidebar = ({ classes }) => (
 
 const mapStateToProps = state => ({ state })
 
-export default connect(mapStateToProps)(withStyles(styles)(Sidebar))
+export default connect(mapStateToProps)(Sidebar)

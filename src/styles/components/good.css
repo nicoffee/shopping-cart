@@ -1,0 +1,13 @@
+.card {
+  width: 300px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+.card:last-child {
+  margin-right: 0;
+}
+
+.media {
+  height: 300px;
+}

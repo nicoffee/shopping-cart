@@ -1,27 +1,19 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
-import { withStyles } from 'material-ui/styles'
+import { array, func } from 'prop-types'
 import Good from './Good'
+import styles from './../styles/components/goods-list.css'
 
-const styles = {
-  inner: {
-    display: 'flex',
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    maxWidth: '1000px',
-    width: '100%'
-  }
-}
-
-@withStyles(styles)
 class GoodsList extends Component {
+  static propTypes = {
+    goods: array.isRequired,
+    onAddGoodClick: func.isRequired
+  }
+
   render() {
     const { goods, onAddGoodClick } = this.props
 
     return (
-      <div className={this.props.classes.inner}>
+      <div className={styles.inner}>
         {Object.keys(goods).map(id => (
           <Good
             img={goods[id].img}
@@ -37,12 +29,6 @@ class GoodsList extends Component {
       </div>
     )
   }
-}
-
-GoodsList.propTypes = {
-  goods: PropTypes.array.isRequired,
-  onAddGoodClick: PropTypes.func.isRequired,
-  classes: PropTypes.string
 }
 
 export default GoodsList
