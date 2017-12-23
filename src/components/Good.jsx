@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card'
+import Rating from './../components/Rating'
 import Button from './../ui-components/Button'
 import styles from './../styles/components/good.css'
 
@@ -11,7 +12,7 @@ const Good = ({ onClick, img, name, vendor, price, rating }) => (
       <CardContent>
         <span>{vendor}</span>
         <span>${price}</span>
-        <div className="rating">{rating}</div>
+        <Rating rating={rating} />
       </CardContent>
       <CardActions>
         <div onClick={onClick}>
