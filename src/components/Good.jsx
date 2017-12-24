@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card'
+import Button from 'material-ui/Button'
 import Rating from './../components/Rating'
-import Button from './../ui-components/Button'
 import styles from './../styles/components/good.css'
 
 const Good = ({ onClick, img, name, vendor, price, rating }) => (
