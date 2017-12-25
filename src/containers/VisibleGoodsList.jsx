@@ -54,6 +54,7 @@ class VisibleGoodsList extends Component {
 }
 
 const mapStateToProps = (state, { match }) => {
+  console.log('match', match)
   const filter = match.params.filter || 'all'
   return {
     isFetching: getIsFetching(state, filter),
