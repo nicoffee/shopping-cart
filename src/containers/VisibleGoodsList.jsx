@@ -32,8 +32,9 @@ class VisibleGoodsList extends Component {
   }
 
   fetchData() {
-    const { filter, fetchGoods } = this.props
-    fetchGoods(filter)
+    console.log('this.props', this.props)
+    const { fetchData, fetchGoods } = this.props
+    fetchGoods(fetchData)
   }
 
   render() {
@@ -54,8 +55,8 @@ class VisibleGoodsList extends Component {
 }
 
 const mapStateToProps = (state, { match }) => {
-  console.log('match', match)
   const filter = match.params.filter || 'all'
+  console.log('state', state)
   return {
     isFetching: getIsFetching(state, filter),
     errorMessage: getErrorMessage(state, filter),

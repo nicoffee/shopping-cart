@@ -1,11 +1,10 @@
 import React from 'react'
-import Header from './../containers/Header'
+import { withRouter } from 'react-router'
 import Content from './Content'
 
-const App = () => (
+const App = props => (
   <React.Fragment>
-    <Header />
-    <Content />
+    <Content {...props} />
   </React.Fragment>
 )
 

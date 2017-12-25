@@ -12,6 +12,8 @@ class GoodsList extends Component {
   render() {
     const { goods, onAddGoodClick } = this.props
 
+    console.log('goods', goods)
+
     return (
       <div className={styles.inner}>
         {Object.keys(goods).map(id => (

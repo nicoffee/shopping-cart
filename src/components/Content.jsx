@@ -3,11 +3,14 @@ import VisibleGoodsList from './../containers/VisibleGoodsList'
 import Sidebar from './Sidebar'
 import styles from './../styles/components/content.css'
 
-const Content = () => (
-  <div className={styles.inner}>
-    <Sidebar />
-    <VisibleGoodsList />
-  </div>
-)
+const Content = props => {
+  console.log('props s', props)
+  return (
+    <div className={styles.inner}>
+      <Sidebar />
+      <VisibleGoodsList {...props} />
+    </div>
+  )
+}
 
 export default Content
