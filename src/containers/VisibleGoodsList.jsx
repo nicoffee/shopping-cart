@@ -32,7 +32,6 @@ class VisibleGoodsList extends Component {
   }
 
   fetchData() {
-    console.log('this.props', this.props)
     const { filter, fetchGoods } = this.props
     fetchGoods(filter)
   }
@@ -54,15 +53,12 @@ class VisibleGoodsList extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => {
-  console.log('ownProps', ownProps)
-  return {
-    isFetching: getIsFetching(state, ownProps.filter),
-    errorMessage: getErrorMessage(state, ownProps.filter),
-    goods: getVisibleGoods(state, ownProps.filter),
-    filter: ownProps.filter
-  }
-}
+const mapStateToProps = (state, ownProps) => ({
+  isFetching: getIsFetching(state, ownProps.filter),
+  errorMessage: getErrorMessage(state, ownProps.filter),
+  goods: getVisibleGoods(state, ownProps.filter),
+  filter: ownProps.filter
+})
 
 export default withRouter(
   connect(mapStateToProps, {
