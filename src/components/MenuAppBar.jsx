@@ -40,11 +40,11 @@ const MenuAppBar = ({ goodsInCart }) => (
     <Divider className={styles.divider} />
     <Toolbar className={styles.categories}>
       <FilterLink filter="monitors">
-        <IconButton className={styles.monitorsIcon} />
+        <div className={styles.monitorsIcon} />
         Monitors
       </FilterLink>
       <FilterLink filter="cases">
-        <IconButton className={styles.casesIcon} />
+        <div className={styles.casesIcon} />
         Cases
       </FilterLink>
     </Toolbar>

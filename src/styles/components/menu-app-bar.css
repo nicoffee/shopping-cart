@@ -68,10 +68,17 @@
 
 .monitorsIcon,
 .casesIcon {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .monitorsIcon {
-  background: url('./../../images/001-screen.svg');
+  background-image: url('./../../images/001-screen.svg');
+}
+
+.casesIcon {
+  background-image: url('./../../images/005-null.svg');
 }
