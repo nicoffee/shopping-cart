@@ -9,15 +9,16 @@ import CartContent from './../containers/CartContent'
 const routes = [
   {
     path: '/',
-    exact: true
+    exact: true,
+    filter: 'all'
   },
   {
     path: '/monitors',
-    fetchData: 'monitors'
+    filter: 'monitors'
   },
   {
     path: '/cases',
-    fetchData: 'cases'
+    filter: 'cases'
   },
   {
     path: '/cart',
@@ -30,15 +31,26 @@ const Root = ({ store }) => (
     <Router>
       <React.Fragment>
         <Header />
-        {routes.map((route, index) => (
-          <Route
-            key={index}
-            path={route.path}
-            exact={route.exact}
-            fetchData={route.fetchData}
-            render={props => route.component || <App {...route} />}
-          />
-        ))}
+        {routes.map(
+          (route, index) =>
+            route.filter ? (
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                filter={route.filter}
+                render={() => <App {...route} />}
+              />
+            ) : (
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                filter={route.filter}
+                component={route.component}
+              />
+            )
+        )}
       </React.Fragment>
     </Router>
   </Provider>

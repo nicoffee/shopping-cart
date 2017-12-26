@@ -33,16 +33,12 @@ class VisibleGoodsList extends Component {
 
   fetchData() {
     console.log('this.props', this.props)
-    const { fetchData, fetchGoods } = this.props
-    fetchGoods(fetchData)
+    const { filter, fetchGoods } = this.props
+    fetchGoods(filter)
   }
 
   render() {
-    const { fetchData } = this.props
-    // const { isFetching, errorMessage, goods } = this.props
-    const isFetching = getIsFetching(state, fetchData)
-    const errorMessage = getErrorMessage(state, fetchData)
-    const goods = getVisibleGoods(state, fetchData)
+    const { isFetching, errorMessage, goods } = this.props
 
     if (isFetching && !goods.length) {
       return <p>Loading...</p>
@@ -58,17 +54,18 @@ class VisibleGoodsList extends Component {
   }
 }
 
-// const mapStateToProps = (state, { match }) => {
-//   return {
-//     isFetching: getIsFetching(state, filter),
-//     errorMessage: getErrorMessage(state, filter),
-//     goods: getVisibleGoods(state, filter),
-//     filter
-//   }
-// }
+const mapStateToProps = (state, ownProps) => {
+  console.log('ownProps', ownProps)
+  return {
+    isFetching: getIsFetching(state, ownProps.filter),
+    errorMessage: getErrorMessage(state, ownProps.filter),
+    goods: getVisibleGoods(state, ownProps.filter),
+    filter: ownProps.filter
+  }
+}
 
 export default withRouter(
-  connect({
+  connect(mapStateToProps, {
     onAddGoodClick: addGoodInCart,
     onRemoveGoodClick: removeGoodFromCart,
     fetchGoods

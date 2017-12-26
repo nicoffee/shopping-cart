@@ -12,7 +12,9 @@ import styles from './../styles/components/menu-app-bar.css'
 const MenuAppBar = ({ goodsInCart }) => (
   <AppBar className={styles.container} position="static">
     <Toolbar className={styles.inner}>
-      <Typography type="title">Shop</Typography>
+      <Typography type="title">
+        <Link to="/">Shop</Link>
+      </Typography>
       <Link to="/cart">
         <IconButton className={styles.cartIcon}>
           <svg
@@ -38,22 +40,11 @@ const MenuAppBar = ({ goodsInCart }) => (
     <Divider className={styles.divider} />
     <Toolbar className={styles.categories}>
       <FilterLink filter="monitors">
-        <IconButton className={styles.icon}>
-          <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32">
-            <path d="M23 30h-2a2 2 0 0 1-2-2v-3h-6v3a2 2 0 0 1-2 2H9a1 1 0 1 0 0 2h14a1 1 0 1 0 0-2zm7.25-30H1.75C.784 0 0 .84 0 1.875v19.25C0 22.16.784 23 1.75 23h28.5c.966 0 1.75-.84 1.75-1.875V1.875C32 .84 31.216 0 30.25 0zM30 21H2V2h28v19z" />
-          </svg>
-        </IconButton>
+        <IconButton className={styles.monitorsIcon} />
         Monitors
       </FilterLink>
       <FilterLink filter="cases">
-        <IconButton className={styles.icon}>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 21.924 21.924">
-            <path
-              d="M13.272 1.312v19.635l7.004-3.922V3.779l-7.004-2.467zm6.53 1.437L12.794.118s.412.261.412.717l7.004 2.554s-.029-.497-.408-.64zM11.79 0H2.921c-.703 0-1.273.571-1.273 1.273V20.65c0 .702.571 1.274 1.273 1.274h8.869c.702 0 1.272-.572 1.272-1.274V1.273A1.273 1.273 0 0 0 11.79 0zm.613 20.651a.613.613 0 0 1-.613.614H2.921a.614.614 0 0 1-.614-.614V1.273c0-.339.275-.614.614-.614h8.869c.34 0 .613.275.613.614v19.378zM3.946 4.935h6.866a.438.438 0 0 0 .438-.437V2.187a.439.439 0 0 0-.438-.438H3.946a.438.438 0 0 0-.437.438v2.311c0 .241.196.437.437.437zm5.549-.748h1.307v.304H9.495v-.304zM3.946 9.486h6.866a.438.438 0 0 0 .438-.437V6.738a.439.439 0 0 0-.438-.438H3.946a.438.438 0 0 0-.437.438v2.311c0 .242.196.437.437.437zm5.428-.618h1.307v.304H9.374v-.304zm-1.982 8.315A1.359 1.359 0 1 0 8.75 18.54a1.36 1.36 0 0 0-1.358-1.357zm0 2.057a.699.699 0 1 1 .002-1.398.699.699 0 0 1-.002 1.398zm-3.894-4.348h7.741v.668H3.498v-.668zm.024-1.684h7.74v.667h-7.74v-.667zm0-1.747h7.74v.667h-7.74v-.667z"
-              fill="#090609"
-            />
-          </svg>
-        </IconButton>
+        <IconButton className={styles.casesIcon} />
         Cases
       </FilterLink>
     </Toolbar>

@@ -45,6 +45,11 @@
   margin-right: 5px;
 }
 
+.icon svg {
+  width: 20px;
+  height: 20px;
+}
+
 .goodsCount {
   position: absolute;
   right: 5px;
@@ -59,4 +64,14 @@
   font-weight: bold;
   background-color: #f1c40f;
   border-radius: 50%;
+}
+
+.monitorsIcon,
+.casesIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.monitorsIcon {
+  background: url('./../../images/001-screen.svg');
 }
