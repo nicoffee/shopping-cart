@@ -49,8 +49,6 @@ class VisibleGoodsList extends Component {
       )
     }
 
-    console.log('goods', goods)
-
     return <GoodsList goods={goods} {...this.props} />
   }
 }
