@@ -44,6 +44,5 @@ const goodsInCart = combineReducers({
 export default goodsInCart
 
 export const getGoodsInCart = state => {
-  const ids = state => state.ids(state.goodsInCart)
-  return ids.map(id => (state, id) => state[id])
+  return state.goodsInCart.byId.goods
 }
