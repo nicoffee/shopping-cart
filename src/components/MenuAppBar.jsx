@@ -47,6 +47,10 @@ const MenuAppBar = ({ goodsInCart }) => (
         <div className={styles.casesIcon} />
         Cases
       </FilterLink>
+      <FilterLink filter="videocards">
+        <div className={styles.videocardsIcon} />
+        Videocards
+      </FilterLink>
     </Toolbar>
   </AppBar>
 )

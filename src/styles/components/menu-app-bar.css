@@ -67,7 +67,8 @@
 }
 
 .monitorsIcon,
-.casesIcon {
+.casesIcon,
+.videocardsIcon {
   width: 30px;
   height: 30px;
   margin-right: 10px;
@@ -81,4 +82,8 @@
 
 .casesIcon {
   background-image: url('./../../images/005-null.svg');
+}
+
+.videocardsIcon {
+  background-image: url('./../../images/003-graphics-card.svg');
 }

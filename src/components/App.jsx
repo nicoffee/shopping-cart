@@ -1,11 +1,13 @@
 import React from 'react'
-import { withRouter } from 'react-router'
-import Content from './Content'
+import VisibleGoodsList from './../containers/VisibleGoodsList'
+import Sidebar from './Sidebar'
+import styles from './../styles/components/content.css'
 
 const App = props => (
-  <React.Fragment>
-    <Content {...props} />
-  </React.Fragment>
+  <div className={styles.inner}>
+    <Sidebar />
+    <VisibleGoodsList {...props} />
+  </div>
 )
 
 export default App

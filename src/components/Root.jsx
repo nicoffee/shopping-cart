@@ -21,6 +21,10 @@ const routes = [
     filter: 'cases'
   },
   {
+    path: '/videocards',
+    filter: 'videocards'
+  },
+  {
     path: '/cart',
     component: CartContent
   }
