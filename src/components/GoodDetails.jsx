@@ -2,28 +2,12 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card'
 import Button from 'material-ui/Button'
-import { NavLink } from 'react-router-dom'
 import Rating from './../components/Rating'
 import styles from './../styles/components/good.css'
 
 const Good = ({ onClick, img, name, vendor, price, rating }) => (
   <div>
-    <Card className={styles.card}>
-      <CardMedia className={styles.media} image={img} title={name} />
-      <CardContent>
-        <NavLink to={'/product'}>{name}</NavLink>
-        <span>{vendor}</span>
-        <span>${price}</span>
-        <Rating rating={rating} />
-      </CardContent>
-      <CardActions>
-        <div onClick={onClick}>
-          <Button raised={true} color={'contrast'}>
-            Add to Cart
-          </Button>
-        </div>
-      </CardActions>
-    </Card>
+    Good
   </div>
 )
 

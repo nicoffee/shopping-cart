@@ -5,6 +5,7 @@ import PropTypes from 'prop-types'
 import App from './App'
 import Header from './../containers/Header'
 import CartContent from './../containers/CartContent'
+import GoodDetails from './../components/GoodDetails'
 
 const routes = [
   {
@@ -27,6 +28,10 @@ const routes = [
   {
     path: '/cart',
     component: CartContent
+  },
+  {
+    path: '/product',
+    component: GoodDetails
   }
 ]
 
