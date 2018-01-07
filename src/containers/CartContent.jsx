@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import CartPage from './../components/CartPage'
+import CartPage from './../components/pages/CartPage'
 
 const mapStateToProps = state => ({
   allIds: state.goodsInCart.allIds,

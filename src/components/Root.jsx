@@ -2,10 +2,25 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import PropTypes from 'prop-types'
-import App from './App'
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
+import purple from 'material-ui/colors/purple'
+import green from 'material-ui/colors/green'
+import red from 'material-ui/colors/red'
 import Header from './../containers/Header'
 import CartContent from './../containers/CartContent'
-import GoodDetails from './../components/GoodDetails'
+import GoodDetails from './pages/GoodDetailsPage'
+import MainPage from './pages/MainPage'
+
+const theme = createMuiTheme({
+  palette: {
+    primary: purple, // Purple and green play nicely together.
+    secondary: {
+      ...green,
+      A400: '#00e677'
+    },
+    error: red
+  }
+})
 
 const routes = [
   {
@@ -38,7 +53,7 @@ const routes = [
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
-      <React.Fragment>
+      <MuiThemeProvider theme={theme}>
         <Header />
         {routes.map(
           (route, index) =>
@@ -48,7 +63,7 @@ const Root = ({ store }) => (
                 path={route.path}
                 exact={route.exact}
                 filter={route.filter}
-                render={() => <App {...route} />}
+                render={() => <MainPage {...route} />}
               />
             ) : (
               <Route
@@ -60,7 +75,7 @@ const Root = ({ store }) => (
               />
             )
         )}
-      </React.Fragment>
+      </MuiThemeProvider>
     </Router>
   </Provider>
 )
