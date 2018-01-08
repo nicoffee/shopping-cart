@@ -18,7 +18,7 @@ const Good = ({ onClick, img, name, vendor, price, rating }) => (
       </CardContent>
       <CardActions>
         <div onClick={onClick}>
-          <Button raised={true} color={'contrast'}>
+          <Button raised={true} color="accent">
             Add to Cart
           </Button>
         </div>

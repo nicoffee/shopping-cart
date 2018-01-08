@@ -13,7 +13,7 @@ const MenuAppBar = ({ goodsInCart }) => (
   <AppBar className={styles.container} position="static">
     <Toolbar className={styles.inner}>
       <Typography type="title">
-        <Link to="/">Shop</Link>
+        <Link to="/">Computer Shop</Link>
       </Typography>
       <Link to="/cart">
         <IconButton className={styles.cartIcon}>

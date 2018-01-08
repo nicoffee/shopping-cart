@@ -3,8 +3,8 @@ import { Provider } from 'react-redux'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles'
-import purple from 'material-ui/colors/purple'
-import green from 'material-ui/colors/green'
+import blueGrey from 'material-ui/colors/blueGrey'
+import amber from 'material-ui/colors/amber'
 import red from 'material-ui/colors/red'
 import Header from './../containers/Header'
 import CartContent from './../containers/CartContent'
@@ -13,11 +13,8 @@ import MainPage from './pages/MainPage'
 
 const theme = createMuiTheme({
   palette: {
-    primary: purple, // Purple and green play nicely together.
-    secondary: {
-      ...green,
-      A400: '#00e677'
-    },
+    primary: blueGrey,
+    secondary: amber,
     error: red
   }
 })
