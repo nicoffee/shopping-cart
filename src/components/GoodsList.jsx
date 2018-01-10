@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { array, func } from 'prop-types'
-import Good from './Good'
+import AddedGood from './../containers/AddedGood'
 import styles from './../styles/components/goods-list.css'
 
 class GoodsList extends Component {
@@ -15,7 +15,8 @@ class GoodsList extends Component {
     return (
       <div className={styles.inner}>
         {Object.keys(goods).map(id => (
-          <Good
+          <AddedGood
+            id={goods[id].id}
             img={goods[id].img}
             name={goods[id].name}
             vendor={goods[id].vendor}
