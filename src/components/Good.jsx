@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Typography } from 'material-ui'
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card'
 import Button from 'material-ui/Button'
 import { NavLink, Link } from 'react-router-dom'
@@ -19,28 +20,31 @@ const Good = ({
   const inCart = goodsInCart.allIds.includes(id) // Move to reducer
 
   return (
-    <div>
-      <Card className={styles.card}>
-        <CardMedia className={styles.media} image={img} title={name} />
-        <CardContent>
-          <NavLink to={'/product'}>{name}</NavLink>
-          <span>{vendor}</span>
-          <span>${price}</span>
-          <Rating rating={rating} />
-        </CardContent>
-        <CardActions>
-          {inCart ? (
-            <Link to="/cart">In Cart</Link>
-          ) : (
-            <div onClick={onClick}>
-              <Button raised={true} color="accent">
-                Add to Cart
-              </Button>
-            </div>
-          )}
-        </CardActions>
-      </Card>
-    </div>
+    <Card className={styles.card}>
+      <CardMedia className={styles.media} image={img} title={name} />
+      <CardContent>
+        <NavLink to={'/product'}>
+          <Typography type="subheading" gutterBottom>
+            {name}
+          </Typography>
+        </NavLink>
+        <Rating rating={rating} />
+        <Typography type="headline" gutterTop>
+          ${price}
+        </Typography>
+      </CardContent>
+      <CardActions>
+        {inCart ? (
+          <Link to="/cart">In Cart</Link>
+        ) : (
+          <div onClick={onClick}>
+            <Button raised={true} color="accent">
+              Add to Cart
+            </Button>
+          </div>
+        )}
+      </CardActions>
+    </Card>
   )
 }
 
