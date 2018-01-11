@@ -7,16 +7,7 @@ import { NavLink, Link } from 'react-router-dom'
 import Rating from './../components/Rating'
 import styles from './../styles/components/good.css'
 
-const Good = ({
-  onClick,
-  img,
-  name,
-  vendor,
-  price,
-  rating,
-  id,
-  goodsInCart
-}) => {
+const Good = ({ onClick, img, name, price, rating, id, goodsInCart }) => {
   const inCart = goodsInCart.allIds.includes(id) // Move to reducer
 
   return (
@@ -51,8 +42,10 @@ Good.propTypes = {
   img: PropTypes.string,
   name: PropTypes.string,
   vendor: PropTypes.string,
+  id: PropTypes.number,
   price: PropTypes.number,
-  rating: PropTypes.number
+  rating: PropTypes.number,
+  goodsInCart: PropTypes.array
 }
 
 export default Good
