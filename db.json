@@ -22,6 +22,16 @@
     {
       "id": 3,
       "img":
+        "https://dstatic.computeruniverse.net/images/1000/907055249603EE7D187C4A56AE6FC126.jpg",
+      "name": "Fractal Design Meshify C Tempered Glass",
+      "vendor": "Fractal Design",
+      "price": 73.02,
+      "rating": 5,
+      "vendor_code": 90705524
+    },
+    {
+      "id": 4,
+      "img":
         "https://images-na.ssl-images-amazon.com/images/I/71BuhRkFsYL._SL1500_.jpg",
       "name": "Dell Ultrasharp U2515H",
       "vendor": "Dell",
@@ -30,7 +40,7 @@
       "vendor_code": 90580806
     },
     {
-      "id": 4,
+      "id": 5,
       "img":
         "https://dstatic.computeruniverse.net/images/1000/90689781E1480488F8F941F6B55E79C9.jpg",
       "name": "ASUS GeForce GTX 1080 Ti Turbo-GTX1080TI11G",
@@ -59,6 +69,16 @@
       "price": 142.85,
       "rating": 5,
       "vendor_code": 90669793
+    },
+    {
+      "id": 3,
+      "img":
+        "https://dstatic.computeruniverse.net/images/1000/907055249603EE7D187C4A56AE6FC126.jpg",
+      "name": "Fractal Design Meshify C Tempered Glass",
+      "vendor": "Fractal Design",
+      "price": 73.02,
+      "rating": 5,
+      "vendor_code": 90705524
     }
   ],
   "monitors": [
@@ -84,6 +104,5 @@
       "rating": 4,
       "vendor_code": 90689781
     }
-  ],
-  "goodsInCart": []
+  ]
 }
