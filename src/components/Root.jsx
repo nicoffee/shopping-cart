@@ -10,6 +10,7 @@ import Header from './../containers/Header'
 import CartContent from './../containers/CartContent'
 import GoodDetails from './pages/GoodDetailsPage'
 import MainPage from './pages/MainPage'
+import CategoryPage from './pages/CategoryPage'
 
 const theme = createMuiTheme({
   palette: {
@@ -54,13 +55,21 @@ const Root = ({ store }) => (
         <Header />
         {routes.map(
           (route, index) =>
-            route.filter ? (
+            route.filter === 'all' ? (
               <Route
                 key={index}
                 path={route.path}
                 exact={route.exact}
                 filter={route.filter}
                 render={() => <MainPage {...route} />}
+              />
+            ) : route.filter ? (
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                filter={route.filter}
+                render={() => <CategoryPage {...route} />}
               />
             ) : (
               <Route

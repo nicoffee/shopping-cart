@@ -6,7 +6,9 @@ class Sidebar extends Component {
   constructor(props) {
     super(props)
 
-    this.state = { value: 11 }
+    this.state = {
+      value: { min: 0, max: 1500 }
+    }
   }
 
   render() {
@@ -15,7 +17,7 @@ class Sidebar extends Component {
         <div>
           <h4>Price</h4>
           <InputRange
-            maxValue={20}
+            maxValue={1500}
             minValue={0}
             value={this.state.value}
             onChange={value => this.setState({ value })}
