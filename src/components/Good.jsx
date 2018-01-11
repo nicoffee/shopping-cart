@@ -29,9 +29,7 @@ const Good = ({
           </Typography>
         </NavLink>
         <Rating rating={rating} />
-        <Typography type="headline" gutterTop>
-          ${price}
-        </Typography>
+        <Typography type="headline">${price}</Typography>
       </CardContent>
       <CardActions>
         {inCart ? (
