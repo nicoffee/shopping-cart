@@ -45,7 +45,7 @@ Good.propTypes = {
   id: PropTypes.number,
   price: PropTypes.number,
   rating: PropTypes.number,
-  goodsInCart: PropTypes.array
+  goodsInCart: PropTypes.object
 }
 
 export default Good
