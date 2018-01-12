@@ -1,5 +1,5 @@
-import React from 'react'
-import PropTypes from 'prop-types'
+import React from "react";
+import PropTypes from "prop-types";
 
 const CartPage = ({ allIds, byId, price }) => (
   <div>
@@ -13,12 +13,12 @@ const CartPage = ({ allIds, byId, price }) => (
       <div>No items in cart</div>
     )}
   </div>
-)
+);
 
 CartPage.propTypes = {
   allIds: PropTypes.array,
   byId: PropTypes.object,
   price: PropTypes.number
-}
+};
 
-export default CartPage
+export default CartPage;

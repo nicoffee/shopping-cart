@@ -1,20 +1,20 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Typography } from 'material-ui'
-import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card'
-import Button from 'material-ui/Button'
-import { NavLink, Link } from 'react-router-dom'
-import Rating from './../components/Rating'
-import styles from './../styles/components/good.css'
+import React from "react";
+import PropTypes from "prop-types";
+import { Typography } from "material-ui";
+import Card, { CardActions, CardContent, CardMedia } from "material-ui/Card";
+import Button from "material-ui/Button";
+import { NavLink, Link } from "react-router-dom";
+import Rating from "./../components/Rating";
+import styles from "./../styles/components/good.css";
 
 const Good = ({ onClick, img, name, price, rating, id, goodsInCart }) => {
-  const inCart = goodsInCart.allIds.includes(id) // Move to reducer
+  const inCart = goodsInCart.allIds.includes(id); // Move to reducer
 
   return (
     <Card className={styles.card}>
       <CardMedia className={styles.media} image={img} title={name} />
       <CardContent>
-        <NavLink to={'/product'}>
+        <NavLink to={"/product"}>
           <Typography type="subheading" gutterBottom>
             {name}
           </Typography>
@@ -36,8 +36,8 @@ const Good = ({ onClick, img, name, price, rating, id, goodsInCart }) => {
         )}
       </CardActions>
     </Card>
-  )
-}
+  );
+};
 
 Good.propTypes = {
   onClick: PropTypes.func.isRequired,
@@ -48,6 +48,6 @@ Good.propTypes = {
   price: PropTypes.number,
   rating: PropTypes.number,
   goodsInCart: PropTypes.object
-}
+};
 
-export default Good
+export default Good;

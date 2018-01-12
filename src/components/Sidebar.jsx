@@ -1,14 +1,14 @@
-import React, { Component } from 'react'
-import InputRange from 'react-input-range'
-import styles from './../styles/components/sidebar.css'
+import React, { Component } from "react";
+import InputRange from "react-input-range";
+import styles from "./../styles/components/sidebar.css";
 
 class Sidebar extends Component {
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       value: { min: 0, max: 1500 }
-    }
+    };
   }
 
   render() {
@@ -24,8 +24,8 @@ class Sidebar extends Component {
           />
         </div>
       </div>
-    )
+    );
   }
 }
 
-export default Sidebar
+export default Sidebar;

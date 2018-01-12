@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import { array, func } from 'prop-types'
-import AddedGood from './../containers/AddedGood'
-import styles from './../styles/components/goods-list.css'
+import React, { Component } from "react";
+import { array, func } from "prop-types";
+import AddedGood from "./../containers/AddedGood";
+import styles from "./../styles/components/goods-list.css";
 
 class GoodsList extends Component {
   static propTypes = {
     goods: array.isRequired,
     onAddGoodClick: func.isRequired
-  }
+  };
 
   render() {
-    const { goods, onAddGoodClick } = this.props
+    const { goods, onAddGoodClick } = this.props;
 
     return (
       <div className={styles.inner}>
@@ -28,8 +28,8 @@ class GoodsList extends Component {
           />
         ))}
       </div>
-    )
+    );
   }
 }
 
-export default GoodsList
+export default GoodsList;

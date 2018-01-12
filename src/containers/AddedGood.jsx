@@ -1,9 +1,9 @@
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 
-import Good from './../components/Good'
+import Good from "./../components/Good";
 
-const mapStateToProps = state => ({ goodsInCart: state.goodsInCart })
+const mapStateToProps = state => ({ goodsInCart: state.goodsInCart });
 
-const AddedGood = connect(mapStateToProps)(Good)
+const AddedGood = connect(mapStateToProps)(Good);
 
-export default AddedGood
+export default AddedGood;

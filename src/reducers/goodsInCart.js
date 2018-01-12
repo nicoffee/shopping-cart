@@ -1,5 +1,5 @@
-import { combineReducers } from 'redux'
-import { ADD_GOOD, REMOVE_GOOD } from './../types'
+import { combineReducers } from "redux";
+import { ADD_GOOD, REMOVE_GOOD } from "./../types";
 
 const byId = (
   state = {
@@ -19,30 +19,30 @@ const byId = (
           }
         },
         totalPrice: (+action.good.price + +state.totalPrice).toFixed(2)
-      }
+      };
     case REMOVE_GOOD:
-      return state
+      return state;
     default:
-      return state
+      return state;
   }
-}
+};
 
 const allIds = (state = [], action) => {
   switch (action.type) {
     case ADD_GOOD:
-      return [...state, action.good.id]
+      return [...state, action.good.id];
     default:
-      return state
+      return state;
   }
-}
+};
 
 const goodsInCart = combineReducers({
   byId,
   allIds
-})
+});
 
-export default goodsInCart
+export default goodsInCart;
 
 export const getGoodsInCart = state => {
-  return state.goodsInCart.byId.goods
-}
+  return state.goodsInCart.byId.goods;
+};

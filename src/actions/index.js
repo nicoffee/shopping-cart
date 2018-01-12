@@ -1,6 +1,6 @@
-import axios from 'axios'
-import { normalize } from 'normalizr'
-import * as schema from './schema'
+import axios from "axios";
+import { normalize } from "normalizr";
+import * as schema from "./schema";
 
 import {
   ADD_GOOD,
@@ -8,28 +8,28 @@ import {
   FETCH_GOODS_REQUEST,
   FETCH_GOODS_SUCCESS,
   FETCH_GOODS_FAILURE
-} from './../types'
-import { getIsFetching } from '../reducers/goods'
+} from "./../types";
+import { getIsFetching } from "../reducers/goods";
 
 export const addGoodInCart = good => ({
   type: ADD_GOOD,
   good
-})
+});
 
 export const removeGoodFromCart = id => ({
   type: REMOVE_GOOD,
   id
-})
+});
 
 export const fetchGoods = filter => (dispatch, getState) => {
   if (getIsFetching(getState(), filter)) {
-    return Promise.resolve()
+    return Promise.resolve();
   }
 
   dispatch({
     type: FETCH_GOODS_REQUEST,
     filter
-  })
+  });
 
   return axios.get(`http://localhost:3000/${filter}`).then(
     response => {
@@ -37,13 +37,13 @@ export const fetchGoods = filter => (dispatch, getState) => {
         type: FETCH_GOODS_SUCCESS,
         filter,
         response: normalize(response.data, schema.arrayOfGoods)
-      })
+      });
     },
     error =>
       dispatch({
         type: FETCH_GOODS_FAILURE,
         filter,
-        message: error.message || 'Something went wrong'
+        message: error.message || "Something went wrong"
       })
-  )
-}
+  );
+};

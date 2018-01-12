@@ -3,11 +3,11 @@ const byId = (state = {}, action) => {
     return {
       ...state,
       ...action.response.entities.goods
-    }
+    };
   }
-  return state
-}
+  return state;
+};
 
-export default byId
+export default byId;
 
-export const getGood = (state, id) => state[id]
+export const getGood = (state, id) => state[id];

@@ -1,64 +1,64 @@
-import { combineReducers } from 'redux'
+import { combineReducers } from "redux";
 import {
   FETCH_GOODS_REQUEST,
   FETCH_GOODS_SUCCESS,
   FETCH_GOODS_FAILURE
-} from './../types'
+} from "./../types";
 
 const createList = filter => {
   const ids = (state = [], action) => {
     if (action.filter !== filter) {
-      return state
+      return state;
     }
     switch (action.type) {
       case FETCH_GOODS_SUCCESS:
-        return action.response.result
+        return action.response.result;
       default:
-        return state
+        return state;
     }
-  }
+  };
 
   const isFetching = (state = false, action) => {
     if (action.filter !== filter) {
-      return state
+      return state;
     }
     switch (action.type) {
       case FETCH_GOODS_REQUEST:
-        return true
+        return true;
       case FETCH_GOODS_SUCCESS:
       case FETCH_GOODS_FAILURE:
-        return false
+        return false;
       default:
-        return state
+        return state;
     }
-  }
+  };
 
   const errorMessage = (state = null, action) => {
     if (action.filter !== filter) {
-      return state
+      return state;
     }
     switch (action.type) {
       case FETCH_GOODS_FAILURE:
-        return action.message
+        return action.message;
       case FETCH_GOODS_REQUEST:
       case FETCH_GOODS_SUCCESS:
-        return null
+        return null;
       default:
-        return state
+        return state;
     }
-  }
+  };
 
   return combineReducers({
     ids,
     isFetching,
     errorMessage
-  })
-}
+  });
+};
 
-export default createList
+export default createList;
 
 export const getIds = state => {
-  return state.ids
-}
-export const getIsFetching = state => state.isFetching
-export const getErrorMessage = state => state.errorMessage
+  return state.ids;
+};
+export const getIsFetching = state => state.isFetching;
+export const getErrorMessage = state => state.errorMessage;

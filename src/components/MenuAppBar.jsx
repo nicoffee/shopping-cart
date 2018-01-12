@@ -1,13 +1,13 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-import PropTypes from 'prop-types'
-import AppBar from 'material-ui/AppBar'
-import Toolbar from 'material-ui/Toolbar'
-import IconButton from 'material-ui/IconButton'
-import Typography from 'material-ui/Typography'
-import Divider from 'material-ui/Divider'
-import FilterLink from './../containers/FilterLink'
-import styles from './../styles/components/menu-app-bar.css'
+import React from "react";
+import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
+import AppBar from "material-ui/AppBar";
+import Toolbar from "material-ui/Toolbar";
+import IconButton from "material-ui/IconButton";
+import Typography from "material-ui/Typography";
+import Divider from "material-ui/Divider";
+import FilterLink from "./../containers/FilterLink";
+import styles from "./../styles/components/menu-app-bar.css";
 
 const MenuAppBar = ({ goodsInCart }) => (
   <AppBar className={styles.container} position="static">
@@ -21,7 +21,8 @@ const MenuAppBar = ({ goodsInCart }) => (
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 511.999 511.999"
             width="25"
-            height="25">
+            height="25"
+          >
             <path
               d="M214.685 402.828c-24.829 0-45.029 20.2-45.029 45.029 0 24.829 20.2 45.029 45.029 45.029s45.029-20.2 45.029-45.029c-.001-24.829-20.201-45.029-45.029-45.029zm0 64.914c-10.966 0-19.887-8.922-19.887-19.887 0-10.966 8.922-19.887 19.887-19.887s19.887 8.922 19.887 19.887c0 10.967-8.922 19.887-19.887 19.887zM372.63 402.828c-24.829 0-45.029 20.2-45.029 45.029 0 24.829 20.2 45.029 45.029 45.029s45.029-20.2 45.029-45.029c-.001-24.829-20.201-45.029-45.029-45.029zm0 64.914c-10.966 0-19.887-8.922-19.887-19.887 0-10.966 8.922-19.887 19.887-19.887 10.966 0 19.887 8.922 19.887 19.887 0 10.967-8.922 19.887-19.887 19.887zM383.716 165.755H203.567c-6.943 0-12.571 5.628-12.571 12.571s5.629 12.571 12.571 12.571h180.149c6.943 0 12.571-5.628 12.571-12.571 0-6.944-5.628-12.571-12.571-12.571zM373.911 231.035H213.373c-6.943 0-12.571 5.628-12.571 12.571s5.628 12.571 12.571 12.571H373.91c6.943 0 12.571-5.628 12.571-12.571 0-6.942-5.628-12.571-12.57-12.571z"
               fill="#FFF"
@@ -53,10 +54,10 @@ const MenuAppBar = ({ goodsInCart }) => (
       </FilterLink>
     </Toolbar>
   </AppBar>
-)
+);
 
 MenuAppBar.propTypes = {
   goodsInCart: PropTypes.object.isRequired
-}
+};
 
-export default MenuAppBar
+export default MenuAppBar;

@@ -1,9 +1,9 @@
-import { connect } from 'react-redux'
+import { connect } from "react-redux";
 
-import MenuAppBar from './../components/MenuAppBar'
+import MenuAppBar from "./../components/MenuAppBar";
 
-const mapStateToProps = state => ({ goodsInCart: state.goodsInCart })
+const mapStateToProps = state => ({ goodsInCart: state.goodsInCart });
 
-const Header = connect(mapStateToProps)(MenuAppBar)
+const Header = connect(mapStateToProps)(MenuAppBar);
 
-export default Header
+export default Header;
