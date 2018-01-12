@@ -24,7 +24,9 @@ const Good = ({ onClick, img, name, price, rating, id, goodsInCart }) => {
       </CardContent>
       <CardActions>
         {inCart ? (
-          <Link to="/cart">In Cart</Link>
+          <Link to="/cart">
+            <Button color="primary">In Cart</Button>
+          </Link>
         ) : (
           <div onClick={onClick}>
             <Button raised={true} color="accent">
