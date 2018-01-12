@@ -1,11 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
-import { Typography } from "material-ui";
-import Card, { CardActions, CardContent, CardMedia } from "material-ui/Card";
-import Button from "material-ui/Button";
-import { NavLink, Link } from "react-router-dom";
-import Rating from "./../components/Rating";
-import styles from "./../styles/components/good.css";
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Typography } from 'material-ui';
+import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
+import Button from 'material-ui/Button';
+import { NavLink, Link } from 'react-router-dom';
+import Rating from './Rating';
+import styles from './../styles/components/good.css';
 
 const Good = ({ onClick, img, name, price, rating, id, goodsInCart }) => {
   const inCart = goodsInCart.allIds.includes(id); // Move to reducer
@@ -14,7 +14,10 @@ const Good = ({ onClick, img, name, price, rating, id, goodsInCart }) => {
     <Card className={styles.card}>
       <CardMedia className={styles.media} image={img} title={name} />
       <CardContent>
-        <NavLink to={"/product"}>
+        <NavLink
+          to={{
+            pathname: `product/${id}`
+          }}>
           <Typography type="subheading" gutterBottom>
             {name}
           </Typography>

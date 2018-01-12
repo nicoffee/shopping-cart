@@ -1,16 +1,16 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import PropTypes from "prop-types";
-import { MuiThemeProvider, createMuiTheme } from "material-ui/styles";
-import blueGrey from "material-ui/colors/blueGrey";
-import amber from "material-ui/colors/amber";
-import red from "material-ui/colors/red";
-import Header from "./../containers/Header";
-import CartContent from "./../containers/CartContent";
-import GoodDetails from "./pages/GoodDetailsPage";
-import MainPage from "./pages/MainPage";
-import CategoryPage from "./pages/CategoryPage";
+import React from 'react';
+import { Provider } from 'react-redux';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
+import blueGrey from 'material-ui/colors/blueGrey';
+import amber from 'material-ui/colors/amber';
+import red from 'material-ui/colors/red';
+import Header from './../containers/Header';
+import CartContent from './../containers/CartContent';
+import GoodDetailsPage from './pages/GoodDetailsPage';
+import MainPage from './pages/MainPage';
+import CategoryPage from './pages/CategoryPage';
 
 const theme = createMuiTheme({
   palette: {
@@ -22,29 +22,29 @@ const theme = createMuiTheme({
 
 const routes = [
   {
-    path: "/",
+    path: '/',
     exact: true,
-    filter: "all"
+    filter: 'all'
   },
   {
-    path: "/monitors",
-    filter: "monitors"
+    path: '/monitors',
+    filter: 'monitors'
   },
   {
-    path: "/cases",
-    filter: "cases"
+    path: '/cases',
+    filter: 'cases'
   },
   {
-    path: "/videocards",
-    filter: "videocards"
+    path: '/videocards',
+    filter: 'videocards'
   },
   {
-    path: "/cart",
+    path: '/cart',
     component: CartContent
   },
   {
-    path: "/product",
-    component: GoodDetails
+    path: '/product/:id',
+    component: GoodDetailsPage
   }
 ];
 
@@ -55,7 +55,7 @@ const Root = ({ store }) => (
         <Header />
         {routes.map(
           (route, index) =>
-            route.filter === "all" ? (
+            route.filter === 'all' ? (
               <Route
                 key={index}
                 path={route.path}
@@ -75,8 +75,6 @@ const Root = ({ store }) => (
               <Route
                 key={index}
                 path={route.path}
-                exact={route.exact}
-                filter={route.filter}
                 component={route.component}
               />
             )
