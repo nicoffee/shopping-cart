@@ -1,11 +1,12 @@
-import { combineReducers } from "redux";
-import byId, * as fromById from "./byId";
-import createList, * as fromList from "./createList";
+import { combineReducers } from 'redux';
+import byId, * as fromById from './byId';
+import createList, * as fromList from './createList';
 
 const listByFilter = combineReducers({
-  all: createList("all"),
-  monitors: createList("monitors"),
-  cases: createList("cases")
+  all: createList('all'),
+  monitors: createList('monitors'),
+  cases: createList('cases'),
+  videocards: createList('videocards')
 });
 
 const goods = combineReducers({
