@@ -2,3 +2,11 @@
   width: 225px;
   margin-right: 30px;
 }
+
+.filter .input-range__track--active {
+  background: #ffc400;
+}
+
+.filter .input-range__slider {
+  background: #ffc400 !important;
+}

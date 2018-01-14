@@ -17,6 +17,7 @@ class Sidebar extends Component {
         <div>
           <h4>Price</h4>
           <InputRange
+          classNames={styles.filter}
             maxValue={1500}
             minValue={0}
             value={this.state.value}
