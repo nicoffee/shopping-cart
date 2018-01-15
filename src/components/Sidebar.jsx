@@ -1,6 +1,6 @@
-import React, { Component } from "react";
-import InputRange from "react-input-range";
-import styles from "./../styles/components/sidebar.css";
+import React, { Component } from 'react';
+import InputRange from 'react-input-range';
+import styles from './../styles/components/sidebar.css';
 
 class Sidebar extends Component {
   constructor(props) {
@@ -17,7 +17,7 @@ class Sidebar extends Component {
         <div>
           <h4>Price</h4>
           <InputRange
-          classNames={styles.filter}
+            // classNames={styles.filter}
             maxValue={1500}
             minValue={0}
             value={this.state.value}
