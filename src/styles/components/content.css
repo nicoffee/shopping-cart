@@ -1,6 +1,5 @@
 .inner {
   display: flex;
   flex-direction: row;
-  max-width: 1100px;
   padding: 20px;
 }

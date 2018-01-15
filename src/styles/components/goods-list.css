@@ -1,5 +1,5 @@
-.inner {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 10px;
+.goodsList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }

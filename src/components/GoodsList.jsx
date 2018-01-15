@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { array, func } from "prop-types";
-import AddedGood from "./../containers/AddedGood";
-import styles from "./../styles/components/goods-list.css";
+import React, { Component } from 'react';
+import { array, func } from 'prop-types';
+import AddedGood from './../containers/AddedGood';
+import styles from './../styles/components/goods-list.css';
 
 class GoodsList extends Component {
   static propTypes = {
@@ -13,7 +13,7 @@ class GoodsList extends Component {
     const { goods, onAddGoodClick } = this.props;
 
     return (
-      <div className={styles.inner}>
+      <div className={styles.goodsList}>
         {Object.keys(goods).map(id => (
           <AddedGood
             id={goods[id].id}

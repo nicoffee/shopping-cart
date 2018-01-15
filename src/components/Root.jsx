@@ -53,32 +53,34 @@ const Root = ({ store }) => (
     <Router>
       <MuiThemeProvider theme={theme}>
         <Header />
-        {routes.map(
-          (route, index) =>
-            route.filter === 'all' ? (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                filter={route.filter}
-                render={() => <MainPage {...route} />}
-              />
-            ) : route.filter ? (
-              <Route
-                key={index}
-                path={route.path}
-                exact={route.exact}
-                filter={route.filter}
-                render={() => <CategoryPage {...route} />}
-              />
-            ) : (
-              <Route
-                key={index}
-                path={route.path}
-                component={route.component}
-              />
-            )
-        )}
+        <div className="content">
+          {routes.map(
+            (route, index) =>
+              route.filter === 'all' ? (
+                <Route
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  filter={route.filter}
+                  render={() => <MainPage {...route} />}
+                />
+              ) : route.filter ? (
+                <Route
+                  key={index}
+                  path={route.path}
+                  exact={route.exact}
+                  filter={route.filter}
+                  render={() => <CategoryPage {...route} />}
+                />
+              ) : (
+                <Route
+                  key={index}
+                  path={route.path}
+                  component={route.component}
+                />
+              )
+          )}
+        </div>
       </MuiThemeProvider>
     </Router>
   </Provider>
