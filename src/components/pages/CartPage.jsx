@@ -9,7 +9,22 @@ const CartPage = props => {
       <h1>Cart</h1>
       {allIds.length ? (
         <div>
-          <ul>{allIds.map((id, idx) => <li key={idx}>{byId[id].name}</li>)}</ul>
+          <table>
+            <tbody>
+              {allIds.map((id, idx) => (
+                <tr key={idx}>
+                  <td>
+                    <img src={byId[id].img} alt="" />
+                  </td>
+                  <td>{byId[id].name}</td>
+                  <td>{byId[id].price}</td>
+                  <td>
+                    <input type="text" />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
           <h2>Price: ${price}</h2>
         </div>
       ) : (

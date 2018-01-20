@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
-import { ADD_GOOD, REMOVE_GOOD } from "./../types";
+import { combineReducers } from 'redux';
+import { ADD_GOOD, REMOVE_GOOD } from './../types';
 
 const byId = (
   state = {
@@ -14,8 +14,7 @@ const byId = (
         goods: {
           ...state.goods,
           [action.good.id]: {
-            name: action.good.name,
-            price: action.good.price
+            ...action.good
           }
         },
         totalPrice: (+action.good.price + +state.totalPrice).toFixed(2)
