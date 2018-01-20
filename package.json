@@ -10,7 +10,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "npm run server & npm run client & npm run test:watch",
+    "start": "npm run server & npm run client",
+    "start:test": "npm run server & npm run client & npm run test:watch",
     "server": "json-server --watch db.json",
     "client": "webpack-dev-server --open",
     "lint": "eslint --ext .jsx --ext .js src/",

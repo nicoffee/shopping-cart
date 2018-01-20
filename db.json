@@ -49,7 +49,6 @@
       "rating": 4,
       "vendor_code": 90689781
     },
-    [
       {
         "id": "5a6369df1031885193d66214",
         "img": "http://placehold.it/32x32",
@@ -3092,7 +3091,6 @@
         "rating": 0.97,
         "vendor_code": 93291300
       }
-    ]
   ],
   "cases": [
     {
@@ -3124,7 +3122,6 @@
       "rating": 5,
       "vendor_code": 90705524
     },
-    [
       {
         "id": "5a6369df1031885193d66214",
         "img": "http://placehold.it/32x32",
@@ -6167,7 +6164,6 @@
         "rating": 0.97,
         "vendor_code": 93291300
       }
-    ]
   ],
   "monitors": [
     {

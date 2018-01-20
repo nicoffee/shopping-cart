@@ -1,16 +1,17 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
-import { withRouter } from "react-router";
-import { string, func, bool, array } from "prop-types";
-import { addGoodInCart, removeGoodFromCart } from "./../actions";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router';
+import { string, func, bool, array } from 'prop-types';
+import { addGoodInCart, removeGoodFromCart } from './../actions';
 import {
   getVisibleGoods,
   getErrorMessage,
   getIsFetching
-} from "./../reducers/goods";
-import { fetchGoods } from "./../actions";
-import GoodsList from "./../components/GoodsList";
-import FetchError from "./../components/FetchError";
+} from './../reducers/goods';
+import { fetchGoods } from './../actions';
+import GoodsList from './../components/GoodsList';
+import FetchError from './../components/FetchError';
+import Loader from './../components/Loader';
 
 class VisibleGoodsList extends Component {
   static propTypes = {
@@ -40,7 +41,7 @@ class VisibleGoodsList extends Component {
     const { isFetching, errorMessage, goods } = this.props;
 
     if (isFetching && !goods.length) {
-      return <p>Loading...</p>;
+      return <Loader />;
     }
 
     if (errorMessage && !goods.length) {
