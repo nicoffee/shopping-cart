@@ -1,12 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import styles from './style.css';
 
 const CartPage = ({ allIds, byId, price }) => (
   <div>
-    <h1>Cart</h1>
     {allIds.length ? (
       <div>
-        <table>
+        <table className={styles.table}>
           <tbody>
             <tr>
               <th>Photo</th>
@@ -39,7 +39,7 @@ const CartPage = ({ allIds, byId, price }) => (
 CartPage.propTypes = {
   allIds: PropTypes.array,
   byId: PropTypes.object,
-  price: PropTypes.number
+  price: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
 export default CartPage;
