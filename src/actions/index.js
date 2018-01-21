@@ -16,9 +16,10 @@ export const addGoodInCart = good => ({
   good
 });
 
-export const removeGoodFromCart = id => ({
+export const removeGoodFromCart = (id, price) => ({
   type: REMOVE_GOOD,
-  id
+  id,
+  price
 });
 
 export const getGoodDetails = id => ({

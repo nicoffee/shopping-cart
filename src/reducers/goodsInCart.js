@@ -15,9 +15,11 @@ const byId = (
         totalPrice: (+action.good.price + +state.totalPrice).toFixed(2)
       };
     case REMOVE_GOOD:
+      console.log('state', state);
       return {
         ...state,
-        goods: state.goods.filter(good => good.id !== action.id)
+        goods: state.goods.filter(good => good.id !== action.id),
+        totalPrice: (state.totalPrice - action.price).toFixed(2)
       };
     default:
       return state;

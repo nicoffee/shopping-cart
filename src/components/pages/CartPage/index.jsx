@@ -18,7 +18,7 @@ const CartPage = ({ allIds, byId, price, removeGoodFromCart }) => (
             {byId.map((id, idx) => (
               <tr key={idx}>
                 <td>
-                  <button onClick={() => removeGoodFromCart(id.id)}>
+                  <button onClick={() => removeGoodFromCart(id.id, id.price)}>
                     Remove
                   </button>
                 </td>
