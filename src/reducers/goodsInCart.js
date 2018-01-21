@@ -10,19 +10,11 @@ const byId = (
 ) => {
   switch (action.type) {
     case ADD_GOOD:
-      console.log('action', action);
-      console.log('state', state);
-
       return {
         goods: [...state.goods, action.good],
         totalPrice: (+action.good.price + +state.totalPrice).toFixed(2)
       };
     case REMOVE_GOOD:
-      console.log(state);
-      console.log(action);
-      // const newObj = { ...state.goods };
-      // delete newObj[action.id];
-      // console.log('newObj', newObj);
       return {
         ...state,
         goods: state.goods.filter(good => good.id !== action.id)
