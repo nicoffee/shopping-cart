@@ -3,24 +3,30 @@ import { ADD_GOOD, REMOVE_GOOD } from './../types';
 
 const byId = (
   state = {
-    goods: {},
+    goods: [],
     totalPrice: 0
   },
   action
 ) => {
   switch (action.type) {
     case ADD_GOOD:
+      console.log('action', action);
+      console.log('state', state);
+
       return {
-        goods: {
-          ...state.goods,
-          [action.good.id]: {
-            ...action.good
-          }
-        },
+        goods: [...state.goods, action.good],
         totalPrice: (+action.good.price + +state.totalPrice).toFixed(2)
       };
     case REMOVE_GOOD:
-      return state;
+      console.log(state);
+      console.log(action);
+      // const newObj = { ...state.goods };
+      // delete newObj[action.id];
+      // console.log('newObj', newObj);
+      return {
+        ...state,
+        goods: state.goods.filter(good => good.id !== action.id)
+      };
     default:
       return state;
   }

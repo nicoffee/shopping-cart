@@ -1,5 +1,6 @@
-import { connect } from "react-redux";
-import CartPage from "./../components/pages/CartPage";
+import { connect } from 'react-redux';
+import CartPage from './../components/pages/CartPage';
+import { removeGoodFromCart } from './../actions';
 
 const mapStateToProps = state => ({
   allIds: state.goodsInCart.allIds,
@@ -7,6 +8,6 @@ const mapStateToProps = state => ({
   price: state.goodsInCart.byId.totalPrice
 });
 
-const CartContent = connect(mapStateToProps)(CartPage);
+const CartContent = connect(mapStateToProps, { removeGoodFromCart })(CartPage);
 
 export default CartContent;
