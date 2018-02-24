@@ -32,9 +32,7 @@ const Good = ({ onClick, img, name, price, rating, id, goodsInCart }) => {
           </Link>
         ) : (
           <div onClick={onClick}>
-            <Button raised={true} color="accent">
-              Add to Cart
-            </Button>
+            <Button color="secondary">Add to Cart</Button>
           </div>
         )}
       </CardActions>

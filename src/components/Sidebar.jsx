@@ -16,13 +16,14 @@ class Sidebar extends Component {
       <div className={styles.sidebar}>
         <div>
           <h4>Price</h4>
-          <InputRange
-            // classNames={styles.filter}
-            maxValue={1500}
-            minValue={0}
-            value={this.state.value}
-            onChange={value => this.setState({ value })}
-          />
+          <div className={styles.sidebar__filter}>
+            <InputRange
+              maxValue={1500}
+              minValue={0}
+              value={this.state.value}
+              onChange={value => this.setState({ value })}
+            />
+          </div>
         </div>
       </div>
     );

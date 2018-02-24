@@ -1,8 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './style.css';
+import injectSheet from 'react-jss';
 
-const CartPage = ({ allIds, byId, price, removeGoodFromCart }) => (
+const styles = {
+  image: {
+    width: '100px'
+  }
+};
+
+const CartPage = ({ classes, allIds, byId, price, removeGoodFromCart }) => (
   <div>
     {byId.length ? (
       <div>
@@ -23,7 +29,7 @@ const CartPage = ({ allIds, byId, price, removeGoodFromCart }) => (
                   </button>
                 </td>
                 <td>
-                  <img src={id.img} alt="" />
+                  <img className={classes.image} src={id.img} alt="" />
                 </td>
                 <td>{id.name}</td>
                 <td>{id.price}</td>
@@ -48,4 +54,4 @@ CartPage.propTypes = {
   price: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 };
 
-export default CartPage;
+export default injectSheet(styles)(CartPage);
