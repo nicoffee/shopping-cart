@@ -1,22 +1,23 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import IconButton from 'material-ui/IconButton';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import FilterLink from './../containers/FilterLink';
-import styles from './../styles/components/menu-app-bar.css';
+import styles from './style.js';
 
-const MenuAppBar = ({ goodsInCart }) => (
-  <AppBar className={styles.container} position="static">
-    <Toolbar className={styles.inner}>
+const MenuAppBar = ({ classes, goodsInCart }) => (
+  <AppBar className={classes.container} position="static">
+    <Toolbar className={classes.inner}>
       <Typography type="title">
         <Link to="/">Computer Shop</Link>
       </Typography>
       <Link to="/cart">
-        <IconButton className={styles.cartIcon}>
+        <IconButton className={classes.cartIcon}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 511.999 511.999"
@@ -31,24 +32,24 @@ const MenuAppBar = ({ goodsInCart }) => (
               fill="#FFF"
             />
           </svg>
-          <div className={styles.goodsCount}>
+          <div className={classes.goodsCount}>
             <span>{goodsInCart.allIds.length}</span>
           </div>
         </IconButton>
       </Link>
     </Toolbar>
-    <Divider className={styles.divider} />
-    <Toolbar className={styles.categories}>
+    <Divider className={classes.divider} />
+    <Toolbar className={classes.categories}>
       <FilterLink filter="monitors">
-        <div className={styles.monitorsIcon} />
+        <div className={classes.monitorsIcon} />
         Monitors
       </FilterLink>
       <FilterLink filter="cases">
-        <div className={styles.casesIcon} />
+        <div className={classes.casesIcon} />
         Cases
       </FilterLink>
       <FilterLink filter="videocards">
-        <div className={styles.videocardsIcon} />
+        <div className={classes.videocardsIcon} />
         Videocards
       </FilterLink>
     </Toolbar>
@@ -56,7 +57,8 @@ const MenuAppBar = ({ goodsInCart }) => (
 );
 
 MenuAppBar.propTypes = {
+  classes: PropTypes.object,
   goodsInCart: PropTypes.object.isRequired
 };
 
-export default MenuAppBar;
+export default injectSheet(styles)(MenuAppBar);

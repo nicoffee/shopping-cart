@@ -1,18 +1,41 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
+import { NavLink, Link } from 'react-router-dom';
 import { Typography } from 'material-ui';
 import Card, { CardActions, CardContent, CardMedia } from 'material-ui/Card';
 import Button from 'material-ui/Button';
-import { NavLink, Link } from 'react-router-dom';
 import Rating from './Rating';
-import styles from './../styles/components/good.css';
 
-const Good = ({ onClick, img, name, price, rating, id, goodsInCart }) => {
+const styles = {
+  card: {
+    width: '250px',
+    minHeight: '400px',
+    marginRight: '20px',
+    marginBottom: '20px',
+    padding: '10px 0'
+  },
+  media: {
+    height: '200px',
+    backgroundSize: '60%'
+  }
+};
+
+const Good = ({
+  classes,
+  onClick,
+  img,
+  name,
+  price,
+  rating,
+  id,
+  goodsInCart
+}) => {
   const inCart = goodsInCart.allIds.includes(id); // Move to reducer
 
   return (
-    <Card className={styles.card}>
-      <CardMedia className={styles.media} image={img} title={name} />
+    <Card className={classes.card}>
+      <CardMedia className={classes.media} image={img} title={name} />
       <CardContent>
         <NavLink
           to={{
@@ -41,6 +64,7 @@ const Good = ({ onClick, img, name, price, rating, id, goodsInCart }) => {
 };
 
 Good.propTypes = {
+  classes: PropTypes.object,
   onClick: PropTypes.func.isRequired,
   img: PropTypes.string,
   name: PropTypes.string,
@@ -51,4 +75,4 @@ Good.propTypes = {
   goodsInCart: PropTypes.object
 };
 
-export default Good;
+export default injectSheet(styles)(Good);

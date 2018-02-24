@@ -1,6 +1,18 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import InputRange from 'react-input-range';
-import styles from './../styles/components/sidebar.css';
+import injectSheet from 'react-jss';
+
+const styles = {
+  sidebar: {
+    width: '200px',
+    minWidth: '200px',
+    marginRight: '30px'
+  },
+  sidebar__filter: {
+    padding: '5px'
+  }
+};
 
 class Sidebar extends Component {
   constructor(props) {
@@ -12,11 +24,13 @@ class Sidebar extends Component {
   }
 
   render() {
+    const { classes } = this.props;
+
     return (
-      <div className={styles.sidebar}>
+      <div className={classes.sidebar}>
         <div>
           <h4>Price</h4>
-          <div className={styles.sidebar__filter}>
+          <div className={classes.sidebar__filter}>
             <InputRange
               maxValue={1500}
               minValue={0}
@@ -30,4 +44,8 @@ class Sidebar extends Component {
   }
 }
 
-export default Sidebar;
+Sidebar.propTypes = {
+  classes: PropTypes.object
+};
+
+export default injectSheet(styles)(Sidebar);

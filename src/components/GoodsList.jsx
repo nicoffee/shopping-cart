@@ -1,19 +1,29 @@
 import React, { Component } from 'react';
-import { array, func } from 'prop-types';
+import PropTypes from 'prop-types';
+import injectSheet from 'react-jss';
 import AddedGood from './../containers/AddedGood';
-import styles from './../styles/components/goods-list.css';
+
+const styles = {
+  goodsList: {
+    display: 'flex',
+    flexDirection: 'row',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between'
+  }
+};
 
 class GoodsList extends Component {
   static propTypes = {
-    goods: array.isRequired,
-    onAddGoodClick: func.isRequired
+    goods: PropTypes.array.isRequired,
+    onAddGoodClick: PropTypes.func.isRequired,
+    classes: PropTypes.object
   };
 
   render() {
-    const { goods, onAddGoodClick } = this.props;
+    const { goods, onAddGoodClick, classes } = this.props;
 
     return (
-      <div className={styles.goodsList}>
+      <div className={classes.goodsList}>
         {Object.keys(goods).map(id => (
           <AddedGood
             id={goods[id].id}
@@ -32,4 +42,4 @@ class GoodsList extends Component {
   }
 }
 
-export default GoodsList;
+export default injectSheet(styles)(GoodsList);
