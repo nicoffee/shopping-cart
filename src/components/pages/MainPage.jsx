@@ -1,9 +1,8 @@
-import React from "react";
-import VisibleGoodsList from "./../../containers/VisibleGoodsList";
-import styles from "./../../styles/components/content.css";
+import React from 'react';
+import VisibleGoodsList from './../../containers/VisibleGoodsList';
 
 const MainPage = props => (
-  <div className={styles.inner}>
+  <div className="inner">
     <VisibleGoodsList {...props} />
   </div>
 );

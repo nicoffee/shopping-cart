@@ -1,10 +1,9 @@
-import React from "react";
-import Sidebar from "./../Sidebar";
-import VisibleGoodsList from "./../../containers/VisibleGoodsList";
-import styles from "./../../styles/components/content.css";
+import React from 'react';
+import Sidebar from './../Sidebar';
+import VisibleGoodsList from './../../containers/VisibleGoodsList';
 
 const CategoryPage = props => (
-  <div className={styles.inner}>
+  <div className="inner">
     <Sidebar />
     <VisibleGoodsList {...props} />
   </div>

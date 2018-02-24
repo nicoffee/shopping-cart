@@ -7,7 +7,7 @@ import Toolbar from 'material-ui/Toolbar';
 import IconButton from 'material-ui/IconButton';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
-import FilterLink from './../containers/FilterLink';
+import FilterLink from './../../containers/FilterLink';
 import styles from './style.js';
 
 const MenuAppBar = ({ classes, goodsInCart }) => (
