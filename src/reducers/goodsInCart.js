@@ -53,6 +53,8 @@ const allIds = (state = [], action) => {
   switch (action.type) {
     case types.ADD_GOOD:
       return [...state, action.good.id];
+    case types.REMOVE_GOOD:
+      return [...state.filter(id => id !== action.id)];
     default:
       return state;
   }
