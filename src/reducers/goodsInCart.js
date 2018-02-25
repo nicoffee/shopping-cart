@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
-import { ADD_GOOD, REMOVE_GOOD } from './../types';
+import * as types from './../types';
 
 const byId = (
   state = {
@@ -9,16 +9,40 @@ const byId = (
   action
 ) => {
   switch (action.type) {
-    case ADD_GOOD:
+    case types.ADD_GOOD:
       return {
-        goods: [...state.goods, action.good],
+        goods: [
+          ...state.goods,
+          { ...action.good, count: 1, totalPrice: action.price }
+        ],
         totalPrice: (+action.good.price + +state.totalPrice).toFixed(2)
       };
-    case REMOVE_GOOD:
+    case types.REMOVE_GOOD:
       return {
         ...state,
         goods: state.goods.filter(good => good.id !== action.id),
         totalPrice: (state.totalPrice - action.price).toFixed(2)
+      };
+    case types.INCREASE_GOOD_AMOUNT:
+      const selectedGood = state.goods.filter(good => good.id === action.id)[0];
+      return {
+        ...state,
+        goods: [
+          {
+            ...selectedGood,
+            count: action.count,
+            totalPrice: (action.count * selectedGood.price).toFixed(2)
+          },
+          ...state.goods.filter(good => good.id !== action.id)
+        ]
+      };
+    case types.CALC_SUM:
+      return {
+        ...state,
+        totalPrice: state.goods.reduce(
+          (sum, item) => +sum + +item.totalPrice,
+          0
+        )
       };
     default:
       return state;
@@ -27,7 +51,7 @@ const byId = (
 
 const allIds = (state = [], action) => {
   switch (action.type) {
-    case ADD_GOOD:
+    case types.ADD_GOOD:
       return [...state, action.good.id];
     default:
       return state;

@@ -2,28 +2,32 @@ import axios from 'axios';
 import { normalize } from 'normalizr';
 import * as schema from './schema';
 
-import {
-  ADD_GOOD,
-  REMOVE_GOOD,
-  FETCH_GOODS_REQUEST,
-  FETCH_GOODS_SUCCESS,
-  FETCH_GOODS_FAILURE
-} from './../types';
+import * as types from './../types';
 import { getIsFetching } from '../reducers/goods';
 
 export const addGoodInCart = good => ({
-  type: ADD_GOOD,
+  type: types.ADD_GOOD,
   good
 });
 
 export const removeGoodFromCart = (id, price) => ({
-  type: REMOVE_GOOD,
+  type: types.REMOVE_GOOD,
   id,
   price
 });
 
+export const increaseGoodInCartAmount = (id, count) => dispatch => {
+  dispatch({
+    type: types.INCREASE_GOOD_AMOUNT,
+    id,
+    count
+  });
+
+  dispatch({ type: types.CALC_SUM });
+};
+
 export const getGoodDetails = id => ({
-  type: GET_GOOD_DETAILS,
+  type: types.GET_GOOD_DETAILS,
   id
 });
 
@@ -33,21 +37,21 @@ export const fetchGoods = filter => (dispatch, getState) => {
   }
 
   dispatch({
-    type: FETCH_GOODS_REQUEST,
+    type: types.FETCH_GOODS_REQUEST,
     filter
   });
 
   return axios.get(`http://localhost:3000/${filter}`).then(
     response => {
       dispatch({
-        type: FETCH_GOODS_SUCCESS,
+        type: types.FETCH_GOODS_SUCCESS,
         filter,
         response: normalize(response.data, schema.arrayOfGoods)
       });
     },
     error =>
       dispatch({
-        type: FETCH_GOODS_FAILURE,
+        type: types.FETCH_GOODS_FAILURE,
         filter,
         message: error.message || 'Something went wrong'
       })

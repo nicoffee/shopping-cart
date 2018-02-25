@@ -1,6 +1,9 @@
 export const ADD_GOOD = 'ADD_GOOD';
 export const REMOVE_GOOD = 'REMOVE_GOOD';
 export const GET_GOOD_DETAILS = 'GET_GOOD_DETAILS';
+export const INCREASE_GOOD_AMOUNT = 'INCREASE_GOOD_AMOUNT';
+
+export const CALC_SUM = 'CALC_SUM';
 
 export const FETCH_GOODS_REQUEST = 'FETCH_GOODS_REQUEST';
 export const FETCH_GOODS_SUCCESS = 'FETCH_GOODS_SUCCESS';
