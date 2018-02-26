@@ -1,16 +1,16 @@
-const path = require("path");
+const path = require('path');
 
 module.exports = {
-  entry: "./src/index.js",
-  devtool: "inline-source-map",
+  entry: './src/index.js',
+  devtool: 'inline-source-map',
   devServer: {
-    contentBase: "./public",
+    contentBase: './public',
     historyApiFallback: true
   },
   output: {
-    filename: "bundle.js",
-    path: path.resolve(__dirname, "public"),
-    publicPath: "/"
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, '../public'),
+    publicPath: '/'
   },
   module: {
     rules: [
@@ -18,20 +18,20 @@ module.exports = {
         test: /\.js$|\.jsx$/,
         exclude: /node_modules/,
         use: {
-          loader: "babel-loader"
+          loader: 'babel-loader'
         }
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader?modules", "postcss-loader"]
+        use: ['style-loader', 'css-loader?modules', 'postcss-loader']
       },
       {
         test: /\.svg$/,
-        loader: "url-loader"
+        loader: 'url-loader'
       }
     ]
   },
   resolve: {
-    extensions: [".js", ".jsx"]
+    extensions: ['.js', '.jsx']
   }
 };
