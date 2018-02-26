@@ -1,11 +1,11 @@
 import React from 'react';
 import Sidebar from './../Sidebar';
-import VisibleGoodsList from './../../containers/VisibleGoodsList';
+import GoodsListContainer from './../../containers/GoodsListContainer';
 
 const CategoryPage = props => (
   <div className="inner">
     <Sidebar />
-    <VisibleGoodsList {...props} />
+    <GoodsListContainer {...props} />
   </div>
 );
 

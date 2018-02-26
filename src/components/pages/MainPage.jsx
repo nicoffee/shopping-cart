@@ -1,9 +1,9 @@
 import React from 'react';
-import VisibleGoodsList from './../../containers/VisibleGoodsList';
+import GoodsListContainer from './../../containers/GoodsListContainer';
 
 const MainPage = props => (
   <div className="inner">
-    <VisibleGoodsList {...props} />
+    <GoodsListContainer {...props} />
   </div>
 );
 

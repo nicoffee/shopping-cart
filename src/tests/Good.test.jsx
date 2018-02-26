@@ -23,7 +23,7 @@ describe('LockScreen', () => {
 
   beforeEach(() => {
     props = {
-      onClick: () => {},
+      onClick: () => { },
       img: undefined,
       name: undefined,
       price: undefined,
@@ -48,19 +48,5 @@ describe('LockScreen', () => {
 
   it('always renders a `CardActions`', () => {
     expect(good().find(CardActions).length).toBe(1);
-  });
-
-  describe('rendered `CardContent`', () => {
-    it('does not receive any props', () => {
-      const CardContent = good().find(CardContent);
-      expect(Object.keys(CardContent.props()).length).toBe(0);
-    });
-  });
-
-  describe('rendered `CardActions`', () => {
-    it('does not receive any props', () => {
-      const CardActions = good().find(CardActions);
-      expect(Object.keys(CardActions.props()).length).toBe(0);
-    });
   });
 });

@@ -13,7 +13,7 @@ import GoodsList from './../components/GoodsList';
 import FetchError from './../components/FetchError';
 import Loader from './../components/Loader';
 
-class VisibleGoodsList extends Component {
+class GoodsListContainer extends Component {
   static propTypes = {
     filter: string,
     fetchGoods: func,
@@ -66,5 +66,5 @@ export default withRouter(
     onAddGoodClick: addGoodInCart,
     onRemoveGoodClick: removeGoodFromCart,
     fetchGoods
-  })(VisibleGoodsList)
+  })(GoodsListContainer)
 );
