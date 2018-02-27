@@ -1,5 +1,5 @@
 import React from 'react';
-import Enzyme, { shallow } from 'enzyme';
+import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import GoodsList from './../components/GoodsList';
 import AddedGood from './../containers/AddedGood';
@@ -38,6 +38,7 @@ it('should render a list of goods as an unordered list', () => {
       "vendor_code": 90705524
     }
   ];
-  const wrapper = shallow(<GoodsList goods={mockGoods} onAddGoodClick={() => void (0)} />);
-  expect(wrapper.find('div').length).toEqual(mockGoods.length); // 3
+
+  const wrapper = mount(<GoodsList goods={mockGoods} onAddGoodClick={() => void (0)} />);
+  expect(wrapper.find(AddedGood).length).toEqual(mockGoods.length);
 });
