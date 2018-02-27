@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import Good from './Good';
+import AddedGood from './../containers/AddedGood';
 
 const styles = {
   goodsList: {
@@ -25,7 +25,7 @@ class GoodsList extends Component {
     return (
       <div className={classes.goodsList}>
         {goods.map((good, index) => (
-          <Good
+          <AddedGood
             id={good.id}
             img={good.img}
             name={good.name}
