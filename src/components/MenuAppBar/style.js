@@ -73,17 +73,5 @@ export default {
     marginRight: '10px',
     backgroundRepeat: 'no-repeat',
     backgroundPosition: 'center'
-  },
-
-  monitorsIcon: {
-    backgroundImage: 'url(./../../images/001-screen.svg)'
-  },
-
-  casesIcon: {
-    backgroundImage: 'url(./../../images/005-null.svg)'
-  },
-
-  videocardsIcon: {
-    backgroundImage: 'url(./../../images/003-graphics-card.svg)'
   }
 };
