@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import AddedGood from './../containers/AddedGood';
+import Good from './Good';
 
 const styles = {
   goodsList: {
@@ -24,17 +24,17 @@ class GoodsList extends Component {
 
     return (
       <div className={classes.goodsList}>
-        {Object.keys(goods).map(id => (
-          <AddedGood
-            id={goods[id].id}
-            img={goods[id].img}
-            name={goods[id].name}
-            vendor={goods[id].vendor}
-            price={goods[id].price}
-            rating={goods[id].rating}
-            vendor_code={goods[id].vendor_code}
-            key={id}
-            onClick={() => onAddGoodClick(goods[id])}
+        {goods.map((good, index) => (
+          <Good
+            id={good.id}
+            img={good.img}
+            name={good.name}
+            vendor={good.vendor}
+            price={good.price}
+            rating={good.rating}
+            vendor_code={good.vendor_code}
+            key={index}
+            onClick={() => onAddGoodClick(good.id)}
           />
         ))}
       </div>
