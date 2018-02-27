@@ -34,7 +34,7 @@ class GoodsList extends Component {
             rating={good.rating}
             vendor_code={good.vendor_code}
             key={index}
-            onClick={() => onAddGoodClick(good.id)}
+            onClick={() => onAddGoodClick(good)}
           />
         ))}
       </div>

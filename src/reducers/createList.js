@@ -1,18 +1,17 @@
-import { combineReducers } from "redux";
-import {
-  FETCH_GOODS_REQUEST,
-  FETCH_GOODS_SUCCESS,
-  FETCH_GOODS_FAILURE
-} from "./../types";
+import { combineReducers } from 'redux';
+import * as types from './../types';
 
 const createList = filter => {
   const ids = (state = [], action) => {
-    if (action.filter !== filter) {
+    if (action.filter !== filter && action.type !== 'ADD_GOOD') {
       return state;
     }
     switch (action.type) {
-      case FETCH_GOODS_SUCCESS:
+      case types.FETCH_GOODS_SUCCESS:
         return action.response.result;
+      case types.ADD_GOOD:
+        console.log('state', state);
+        return state;
       default:
         return state;
     }
@@ -23,10 +22,10 @@ const createList = filter => {
       return state;
     }
     switch (action.type) {
-      case FETCH_GOODS_REQUEST:
+      case types.FETCH_GOODS_REQUEST:
         return true;
-      case FETCH_GOODS_SUCCESS:
-      case FETCH_GOODS_FAILURE:
+      case types.FETCH_GOODS_SUCCESS:
+      case types.FETCH_GOODS_FAILURE:
         return false;
       default:
         return state;
@@ -38,10 +37,10 @@ const createList = filter => {
       return state;
     }
     switch (action.type) {
-      case FETCH_GOODS_FAILURE:
+      case types.FETCH_GOODS_FAILURE:
         return action.message;
-      case FETCH_GOODS_REQUEST:
-      case FETCH_GOODS_SUCCESS:
+      case types.FETCH_GOODS_REQUEST:
+      case types.FETCH_GOODS_SUCCESS:
         return null;
       default:
         return state;
