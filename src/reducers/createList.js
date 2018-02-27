@@ -9,9 +9,6 @@ const createList = filter => {
     switch (action.type) {
       case types.FETCH_GOODS_SUCCESS:
         return action.response.result;
-      case types.ADD_GOOD:
-        console.log('state', state);
-        return state;
       default:
         return state;
     }

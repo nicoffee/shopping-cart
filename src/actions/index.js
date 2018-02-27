@@ -6,16 +6,31 @@ import * as types from './../types';
 import { getIsFetching } from '../reducers/goods';
 
 export const addGoodInCart = good => dispatch => {
-  // if (getIsFetching(getState(), filter)) {
-  //   return Promise.resolve();
-  // }
-
-  console.log('good', good);
-
   dispatch({
     type: types.ADD_GOOD_REQUEST_STARTED,
     good
   });
+
+  console.log('good', good);
+
+  axios
+    .put(`http://localhost:3000/all/${good.id}`, { ...good, inCart: true })
+    .then(
+      response => {
+        console.log('response', response);
+        // dispatch({
+        //   type: types.ADD_GOOD_SUCCESS,
+        //   filter,
+        //   response: normalize(response.data, schema.arrayOfGoods)
+        // });
+      },
+      error => console.log('error', error)
+      // dispatch({
+      // type: types.ADD_GOOD_FAILURE,
+      // filter,
+      // message: error.message || 'Something went wrong'
+      // })
+    );
 
   return axios.post(`http://localhost:3000/cart`, good).then(
     response => {
@@ -34,11 +49,6 @@ export const addGoodInCart = good => dispatch => {
     // })
   );
 };
-
-// ({
-// type: types.ADD_GOOD,
-// good
-// });
 
 export const removeGoodFromCart = (id, price) => ({
   type: types.REMOVE_GOOD,

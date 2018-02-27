@@ -92,6 +92,7 @@
     "redux-devtools-log-monitor": "^1.4.0",
     "redux-logger": "^3.0.6",
     "redux-mock-store": "^1.5.1",
+    "redux-saga-test-plan": "^3.5.0",
     "style-loader": "^0.20.2",
     "svg-inline-loader": "^0.8.0",
     "sw-precache-webpack-plugin": "^0.11.4",

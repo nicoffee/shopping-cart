@@ -1,4 +1,7 @@
 const byId = (state = {}, action) => {
+  console.log('state', state);
+  console.log('action', action);
+
   if (action.response) {
     return {
       ...state,

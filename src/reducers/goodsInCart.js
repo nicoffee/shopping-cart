@@ -9,14 +9,15 @@ const byId = (
   action
 ) => {
   switch (action.type) {
-    case types.ADD_GOOD:
-      return {
-        goods: [
-          ...state.goods,
-          { ...action.good, count: 1, totalPrice: action.price }
-        ],
-        totalPrice: (+action.good.price + +state.totalPrice).toFixed(2)
-      };
+    case types.ADD_GOOD_REQUEST_STARTED:
+      return state;
+    // return {
+    //   goods: [
+    //     ...state.goods,
+    //     { ...action.good, count: 1, totalPrice: action.price }
+    //   ],
+    //   totalPrice: (+action.good.price + +state.totalPrice).toFixed(2)
+    // };
     case types.REMOVE_GOOD:
       return {
         ...state,

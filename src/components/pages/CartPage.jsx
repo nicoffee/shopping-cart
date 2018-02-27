@@ -25,8 +25,6 @@ class CartPage extends Component {
       increaseGoodInCartAmount
     } = this.props;
 
-    console.log('this.state', this.state);
-
     return (
       <div>
         {byId.length ? (

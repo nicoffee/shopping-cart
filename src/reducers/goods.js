@@ -17,7 +17,12 @@ const goods = combineReducers({
 export default goods;
 
 export const getVisibleGoods = (state, filter) => {
+  console.log('STATE:::', state);
+  // console.log('filter', filter);
+  // console.log('state.goods', state.goods.listByFilter[filter]);
   const ids = fromList.getIds(state.goods.listByFilter[filter]);
+  // console.log('ids', ids);
+  // console.log('state.goods.byId', state.goods.byId);
   return ids.map(id => fromById.getGood(state.goods.byId, id));
 };
 
