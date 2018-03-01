@@ -1,37 +1,12 @@
-const path = require('path');
+const merge = require('webpack-merge');
+const webpack = require('webpack');
+const common = require('./webpack.common.js');
 
-module.exports = {
-  entry: './src/index.js',
-  devtool: 'inline-source-map',
-  devServer: {
-    contentBase: './public',
-    historyApiFallback: true
-  },
-  output: {
-    filename: 'bundle.js',
-    path: path.resolve(__dirname, 'public'),
-    publicPath: '/'
-  },
-  module: {
-    rules: [
-      {
-        test: /\.js$|\.jsx$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader?modules', 'postcss-loader']
-      },
-      {
-        test: /\.svg$/,
-        loader: 'url-loader'
-      }
-    ]
-  },
-  resolve: {
-    extensions: ['.js', '.jsx']
-  }
-};
+module.exports = merge(common, {
+  devtool: 'source-map',
+  plugins: [
+    new webpack.NamedModulesPlugin(),
+    new webpack.HotModuleReplacementPlugin()
+  ]
+});
+

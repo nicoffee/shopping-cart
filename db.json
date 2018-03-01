@@ -17,7 +17,8 @@
       "vendor": "Corsair",
       "price": 142.85,
       "rating": 5,
-      "vendor_code": 90669793
+      "vendor_code": 90669793,
+      "inCart": true
     },
     {
       "id": 3,
@@ -87,6 +88,15 @@
       "price": 99.99,
       "rating": 4.5,
       "vendor_code": 90222793
+    },
+    {
+      "id": 2,
+      "img": "http://corsair.com/~/media/E09D7B8EFCE0461FAA13133F2D312EE7.ashx",
+      "name": "Corsair Crystal 570x RGB-Edition",
+      "vendor": "Corsair",
+      "price": 142.85,
+      "rating": 5,
+      "vendor_code": 90669793
     }
   ]
 }

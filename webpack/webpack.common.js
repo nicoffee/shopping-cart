@@ -5,7 +5,8 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './public',
-    historyApiFallback: true
+    historyApiFallback: true,
+    hot: true
   },
   output: {
     filename: 'bundle.js',
