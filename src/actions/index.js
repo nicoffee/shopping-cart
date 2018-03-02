@@ -11,18 +11,16 @@ export const addGoodInCart = good => dispatch => {
     good
   });
 
-  console.log('good', good);
+  // console.log('good', good);
 
   axios
     .put(`http://localhost:3000/all/${good.id}`, { ...good, inCart: true })
     .then(
       response => {
-        console.log('response', response);
-        // dispatch({
-        //   type: types.ADD_GOOD_SUCCESS,
-        //   filter,
-        //   response: normalize(response.data, schema.arrayOfGoods)
-        // });
+        dispatch({
+          type: types.ADD_GOOD_SUCCESS,
+          response: response.data
+        });
       },
       error => console.log('error', error)
       // dispatch({
