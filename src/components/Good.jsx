@@ -21,47 +21,34 @@ const styles = {
   }
 };
 
-const Good = ({
-  classes,
-  onClick,
-  img,
-  name,
-  price,
-  rating,
-  id,
-  goodsInCart
-}) => {
-  const inCart = goodsInCart.allIds.includes(id); // Move to reducer
-
-  return (
-    <Card className={classes.card}>
-      <CardMedia className={classes.media} image={img} title={name} />
-      <CardContent>
-        <NavLink
-          to={{
-            pathname: `product/${id}`
-          }}>
-          <Typography type="subheading" gutterBottom>
-            {name}
-          </Typography>
-        </NavLink>
-        <Rating rating={rating} />
-        <Typography type="headline">${price}</Typography>
-      </CardContent>
-      <CardActions>
-        {inCart ? (
-          <Link to="/cart">
-            <Button color="primary">In Cart</Button>
-          </Link>
-        ) : (
-          <div onClick={onClick}>
-            <Button color="secondary">Add to Cart</Button>
-          </div>
-        )}
-      </CardActions>
-    </Card>
-  );
-};
+const Good = ({ classes, onClick, img, name, price, rating, id, inCart }) => (
+  <Card className={classes.card}>
+    <CardMedia className={classes.media} image={img} title={name} />
+    <CardContent>
+      <NavLink
+        to={{
+          pathname: `product/${id}`
+        }}>
+        <Typography type="subheading" gutterBottom>
+          {name}
+        </Typography>
+      </NavLink>
+      <Rating rating={rating} />
+      <Typography type="headline">${price}</Typography>
+    </CardContent>
+    <CardActions>
+      {inCart ? (
+        <Link to="/cart">
+          <Button color="primary">In Cart</Button>
+        </Link>
+      ) : (
+        <div onClick={onClick}>
+          <Button color="secondary">Add to Cart</Button>
+        </div>
+      )}
+    </CardActions>
+  </Card>
+);
 
 Good.propTypes = {
   classes: PropTypes.object,

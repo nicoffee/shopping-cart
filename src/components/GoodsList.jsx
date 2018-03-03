@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import AddedGood from './../containers/AddedGood';
+import Good from './../components/Good';
 
 const styles = {
   goodsList: {
@@ -25,9 +25,10 @@ class GoodsList extends Component {
     return (
       <div className={classes.goodsList}>
         {goods.map((good, index) => (
-          <AddedGood
+          <Good
             id={good.id}
             img={good.img}
+            inCart={good.inCart}
             name={good.name}
             vendor={good.vendor}
             price={good.price}

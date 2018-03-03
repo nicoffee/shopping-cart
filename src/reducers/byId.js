@@ -1,33 +1,21 @@
 const byId = (state = {}, action) => {
-  console.log('state', state);
-  console.log('action', action);
+  if (action.type === 'ADD_GOOD_SUCCESS') {
+    const newState = Object.assign({}, state);
+    newState[action.response.id] = action.response;
 
-  switch (action.type) {
-    case 'ADD_GOOD_SUCCESS':
-      const newObj = Object.assign({}, state);
-      newObj[action.response.id] = Object.assign({}, {...newObj[action.response.id], action.response});
-      return newObj;
+    return newState;
   }
 
   if (action.response) {
     return {
       ...state,
-      ...action.response.entities.goods || action.response
+      ...action.response.entities.goods
     };
   }
+
   return state;
 };
 
 export default byId;
 
 export const getGood = (state, id) => state[id];
-
-// const updateGoods = (state = {}, action) => {
-//   switch (action.type) {
-//     case 'ADD_GOOD_SUCCESS':
-//       console.log('action', action);
-//       return state;
-//     default:
-//       return state;
-//   }
-// };

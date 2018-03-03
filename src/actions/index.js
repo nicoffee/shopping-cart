@@ -6,12 +6,12 @@ import * as types from './../types';
 import { getIsFetching } from '../reducers/goods';
 
 export const addGoodInCart = good => dispatch => {
+  console.log('asfasf');
+
   dispatch({
     type: types.ADD_GOOD_REQUEST_STARTED,
     good
   });
-
-  // console.log('good', good);
 
   axios
     .put(`http://localhost:3000/all/${good.id}`, { ...good, inCart: true })
@@ -32,7 +32,6 @@ export const addGoodInCart = good => dispatch => {
 
   return axios.post(`http://localhost:3000/cart`, good).then(
     response => {
-      console.log('response', response);
       // dispatch({
       //   type: types.ADD_GOOD_SUCCESS,
       //   filter,
