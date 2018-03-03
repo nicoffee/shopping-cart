@@ -3,14 +3,13 @@ import CartPage from './../components/pages/CartPage';
 import { removeGoodFromCart, increaseGoodInCartAmount } from './../actions';
 
 const mapStateToProps = state => ({
-  allIds: state.goodsInCart.allIds,
-  byId: state.goodsInCart.byId.goods,
-  price: state.goodsInCart.byId.totalPrice
+  goods: state.goodsInCart.goods,
+  price: state.goodsInCart.totalPrice
 });
 
-const CartContent = connect(mapStateToProps, {
+const CartPageContainer = connect(mapStateToProps, {
   removeGoodFromCart,
   increaseGoodInCartAmount
 })(CartPage);
 
-export default CartContent;
+export default CartPageContainer;

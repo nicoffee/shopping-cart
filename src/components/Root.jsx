@@ -6,8 +6,8 @@ import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
 import blueGrey from 'material-ui/colors/blueGrey';
 import amber from 'material-ui/colors/amber';
 import red from 'material-ui/colors/red';
-import Header from './../containers/Header';
-import CartContent from './../containers/CartContent';
+import HeaderContainer from './../containers/HeaderContainer';
+import CartPageContainer from './../containers/CartPageContainer';
 import GoodDetailsPage from './pages/GoodDetailsPage';
 import MainPage from './pages/MainPage';
 import CategoryPage from './pages/CategoryPage';
@@ -40,7 +40,7 @@ const routes = [
   },
   {
     path: '/cart',
-    component: CartContent
+    component: CartPageContainer
   },
   {
     path: '/product/:id',
@@ -52,7 +52,7 @@ const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
       <MuiThemeProvider theme={theme}>
-        <Header />
+        <HeaderContainer />
         <div className="content">
           {routes.map(
             (route, index) =>

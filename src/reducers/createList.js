@@ -3,7 +3,7 @@ import * as types from './../types';
 
 const createList = filter => {
   const ids = (state = [], action) => {
-    if (action.filter !== filter && action.type !== 'ADD_GOOD') {
+    if (action.filter !== filter) {
       return state;
     }
     switch (action.type) {

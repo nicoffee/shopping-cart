@@ -6,7 +6,9 @@ const byId = (state = {}, action) => {
     return newState;
   }
 
-  if (action.response) {
+  console.log('action', action);
+
+  if (action.response && action.response.entities) {
     return {
       ...state,
       ...action.response.entities.goods

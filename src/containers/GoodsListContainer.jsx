@@ -8,7 +8,8 @@ import {
   getErrorMessage,
   getIsFetching
 } from './../reducers/goods';
-import { fetchGoods } from './../actions';
+import { getGoodsInCart } from './../reducers/goodsInCart';
+import { fetchGoods, fetchGoodsInCart } from './../actions';
 import GoodsList from './../components/GoodsList';
 import FetchError from './../components/FetchError';
 import Loader from './../components/Loader';
@@ -17,6 +18,7 @@ class GoodsListContainer extends Component {
   static propTypes = {
     filter: string,
     fetchGoods: func,
+    fetchGoodsInCart: func,
     isFetching: bool.isRequired,
     errorMessage: string,
     goods: array
@@ -33,8 +35,9 @@ class GoodsListContainer extends Component {
   }
 
   fetchData() {
-    const { filter, fetchGoods } = this.props;
+    const { filter, fetchGoods, fetchGoodsInCart } = this.props;
     fetchGoods(filter);
+    fetchGoodsInCart();
   }
 
   render() {
@@ -58,6 +61,7 @@ const mapStateToProps = (state, ownProps) => ({
   isFetching: getIsFetching(state, ownProps.filter),
   errorMessage: getErrorMessage(state, ownProps.filter),
   goods: getVisibleGoods(state, ownProps.filter),
+  goodsInCart: getGoodsInCart(state),
   filter: ownProps.filter
 });
 
@@ -65,6 +69,7 @@ export default withRouter(
   connect(mapStateToProps, {
     onAddGoodClick: addGoodInCart,
     onRemoveGoodClick: removeGoodFromCart,
-    fetchGoods
+    fetchGoods,
+    fetchGoodsInCart
   })(GoodsListContainer)
 );

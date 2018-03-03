@@ -6,8 +6,6 @@ import * as types from './../types';
 import { getIsFetching } from '../reducers/goods';
 
 export const addGoodInCart = good => dispatch => {
-  console.log('asfasf');
-
   dispatch({
     type: types.ADD_GOOD_REQUEST_STARTED,
     good
@@ -16,34 +14,29 @@ export const addGoodInCart = good => dispatch => {
   axios
     .put(`http://localhost:3000/all/${good.id}`, { ...good, inCart: true })
     .then(
-      response => {
+      response =>
         dispatch({
           type: types.ADD_GOOD_SUCCESS,
           response: response.data
-        });
-      },
-      error => console.log('error', error)
-      // dispatch({
-      // type: types.ADD_GOOD_FAILURE,
-      // filter,
-      // message: error.message || 'Something went wrong'
-      // })
+        }),
+      error =>
+        dispatch({
+          type: types.ADD_GOOD_FAILURE,
+          message: error.message || 'Something went wrong'
+        })
     );
 
   return axios.post(`http://localhost:3000/cart`, good).then(
-    response => {
-      // dispatch({
-      //   type: types.ADD_GOOD_SUCCESS,
-      //   filter,
-      //   response: normalize(response.data, schema.arrayOfGoods)
-      // });
-    },
-    error => console.log('error', error)
-    // dispatch({
-    // type: types.ADD_GOOD_FAILURE,
-    // filter,
-    // message: error.message || 'Something went wrong'
-    // })
+    response =>
+      dispatch({
+        type: types.ADD_GOOD_SUCCESS,
+        response: response.data
+      }),
+    error =>
+      dispatch({
+        type: types.ADD_GOOD_FAILURE,
+        message: error.message || 'Something went wrong'
+      })
   );
 };
 
@@ -90,6 +83,26 @@ export const fetchGoods = filter => (dispatch, getState) => {
       dispatch({
         type: types.FETCH_GOODS_FAILURE,
         filter,
+        message: error.message || 'Something went wrong'
+      })
+  );
+};
+
+export const fetchGoodsInCart = () => dispatch => {
+  dispatch({
+    type: types.FETCH_GOODS_IN_CART_REQUEST_STARTED
+  });
+
+  return axios.get(`http://localhost:3000/cart`).then(
+    response => {
+      dispatch({
+        type: types.FETCH_GOODS_IN_CART_REQUEST_SUCCESS,
+        response: response.data
+      });
+    },
+    error =>
+      dispatch({
+        type: types.FETCH_GOODS_IN_CART_REQUEST_FAILURE,
         message: error.message || 'Something went wrong'
       })
   );

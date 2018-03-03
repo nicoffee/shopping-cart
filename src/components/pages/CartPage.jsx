@@ -20,14 +20,17 @@ class CartPage extends Component {
       classes,
       allIds,
       byId,
+      goods,
       price,
       removeGoodFromCart,
       increaseGoodInCartAmount
     } = this.props;
 
+    console.log('thisprops', this.props);
+
     return (
       <div>
-        {byId.length ? (
+        {goods.length ? (
           <div>
             <table className={styles.table}>
               <tbody>
@@ -39,7 +42,7 @@ class CartPage extends Component {
                   <th>Amount</th>
                   <th />
                 </tr>
-                {byId.map((id, idx) => (
+                {goods.map((id, idx) => (
                   <tr key={idx}>
                     <td>
                       <button
