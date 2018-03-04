@@ -1,10 +1,28 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import Table, {
+  TableBody,
+  TableCell,
+  TableHead,
+  TableRow
+} from 'material-ui/Table';
+import Input from 'material-ui/Input';
+import Button from 'material-ui/Button';
+import DeleteIcon from 'material-ui-icons/Delete';
 
 const styles = {
   image: {
     width: '100px'
+  },
+
+  trashImage: {
+    width: '20px',
+    height: '20px'
+  },
+
+  buttonCell: {
+    width: '30px'
   }
 };
 
@@ -18,61 +36,70 @@ class CartPage extends Component {
   render() {
     const {
       classes,
-      allIds,
-      byId,
       goods,
       price,
       removeGoodFromCart,
       increaseGoodInCartAmount
     } = this.props;
 
-    console.log('thisprops', this.props);
-
     return (
       <div>
         {goods.length ? (
           <div>
-            <table className={styles.table}>
-              <tbody>
-                <tr>
-                  <th />
-                  <th>Photo</th>
-                  <th>Product name</th>
-                  <th>Price per item</th>
-                  <th>Amount</th>
-                  <th />
-                </tr>
-                {goods.map((id, idx) => (
-                  <tr key={idx}>
-                    <td>
-                      <button
-                        onClick={() => removeGoodFromCart(id.id, id.price)}>
-                        Remove
-                      </button>
-                    </td>
-                    <td>
-                      <img className={classes.image} src={id.img} alt="" />
-                    </td>
-                    <td>{id.name}</td>
-                    <td>{id.price}</td>
-                    <td>{id.count}</td>
-                    <td>
-                      <input
-                        type="text"
+            <Table className={classes.table}>
+              <TableHead>
+                <TableRow>
+                  <TableCell />
+                  <TableCell>Photo</TableCell>
+                  <TableCell>Product name</TableCell>
+                  <TableCell>Price per item</TableCell>
+                  <TableCell numeric />
+                  <TableCell />
+                </TableRow>
+              </TableHead>
+              <TableBody>
+                {goods.map((good, idx) => (
+                  <TableRow key={idx}>
+                    <TableCell>
+                      <Button
+                        variant="fab"
+                        disabled
+                        aria-label="delete"
+                        className={classes.button}
+                        onClick={() => removeGoodFromCart(good.id, good.price)}>
+                        <DeleteIcon />
+                      </Button>
+                    </TableCell>
+                    <TableCell>
+                      <img className={classes.image} src={good.img} />
+                    </TableCell>
+                    <TableCell>{good.name}</TableCell>
+                    <TableCell>{good.price}</TableCell>
+                    <TableCell numeric>{good.count}</TableCell>
+                    <TableCell>
+                      <Input
                         value={this.state.inputValue}
+                        defaultValue="0"
+                        className={classes.input}
+                        inputProps={{
+                          'aria-label': 'Description'
+                        }}
                         onChange={this.handleInput}
                       />
-                      <button
+                      <Button
                         onClick={() =>
-                          increaseGoodInCartAmount(id.id, this.state.inputValue)
+                          increaseGoodInCartAmount(
+                            good.id,
+                            this.state.inputValue
+                          )
                         }>
                         Apply
-                      </button>
-                    </td>
-                  </tr>
+                      </Button>
+                    </TableCell>
+                  </TableRow>
                 ))}
-              </tbody>
-            </table>
+              </TableBody>
+            </Table>
             <h2>Price: ${price}</h2>
           </div>
         ) : (
@@ -84,9 +111,11 @@ class CartPage extends Component {
 }
 
 CartPage.propTypes = {
-  allIds: PropTypes.array,
-  byId: PropTypes.array,
-  price: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  classes: PropTypes.object,
+  goods: PropTypes.array,
+  price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  removeGoodFromCart: PropTypes.func,
+  increaseGoodInCartAmount: PropTypes.number
 };
 
 export default injectSheet(styles)(CartPage);

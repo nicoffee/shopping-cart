@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux';
 import * as types from './../types';
-import createList, * as fromList from './createList';
 
 const goods = (state = [], action) => {
   switch (action.type) {
@@ -18,12 +17,11 @@ const goods = (state = [], action) => {
         // totalPrice: (state.totalPrice - action.price).toFixed(2)
       };
     case types.INCREASE_GOOD_AMOUNT:
-      const selectedGood = state.goods.filter(good => good.id === action.id)[0];
       return {
         ...state,
         goods: [
           {
-            ...selectedGood,
+            ...state.goods.filter(good => good.id === action.id)[0],
             count: action.count
             // totalPrice: (action.count * selectedGood.price).toFixed(2)
           },
@@ -45,6 +43,8 @@ const goods = (state = [], action) => {
 
 const totalPrice = (state = 0, action) => {
   switch (action.type) {
+    case types.FETCH_GOODS_IN_CART_REQUEST_SUCCESS:
+      return action.response.reduce((acc, item) => acc + item.price);
     default:
       return state;
   }
@@ -57,7 +57,4 @@ const goodsInCart = combineReducers({
 
 export default goodsInCart;
 
-export const getGoodsInCart = state => {
-  console.log('state', state);
-  return state.goodsInCart.goods;
-};
+export const getGoodsInCart = state => state.goodsInCart.goods;

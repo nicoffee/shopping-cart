@@ -59,7 +59,8 @@ Good.propTypes = {
   id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   rating: PropTypes.number,
-  goodsInCart: PropTypes.object
+  goodsInCart: PropTypes.object,
+  inCart: PropTypes.bool
 };
 
 export default injectSheet(styles)(Good);

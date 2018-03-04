@@ -6,8 +6,8 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
-import CartLinkContainer from './../../containers/CartLinkContainer';
-import FilterLink from './../../containers/FilterLink';
+import CartLinkContainer from './../containers/CartLinkContainer';
+import FilterLink from './../containers/FilterLink';
 
 const styles = {
   container: {
@@ -47,10 +47,6 @@ const styles = {
     }
   },
 
-  cartIcon: {
-    position: 'relative'
-  },
-
   icon: {
     width: '20px',
     height: '20px',
@@ -71,7 +67,7 @@ const styles = {
   }
 };
 
-const Header = ({ classes, goodsInCart }) => (
+const Header = ({ classes }) => (
   <AppBar className={classes.container} position="static">
     <Toolbar className={classes.inner}>
       <Typography type="title">
@@ -107,8 +103,7 @@ const Header = ({ classes, goodsInCart }) => (
 );
 
 Header.propTypes = {
-  classes: PropTypes.object,
-  goodsInCart: PropTypes.object.isRequired
+  classes: PropTypes.object
 };
 
 export default injectSheet(styles)(Header);

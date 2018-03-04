@@ -6,8 +6,6 @@ const byId = (state = {}, action) => {
     return newState;
   }
 
-  console.log('action', action);
-
   if (action.response && action.response.entities) {
     return {
       ...state,
