@@ -9,7 +9,7 @@ const goods = (state = [], action) => {
     case types.ADD_GOOD_REQUEST_STARTED:
       return state;
     case types.ADD_GOOD_SUCCESS:
-      return [...state, action.response];
+      return [...state, action.payload];
     case types.REMOVE_GOOD:
       return {
         ...state,

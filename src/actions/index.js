@@ -11,33 +11,54 @@ export const addGoodInCart = good => dispatch => {
     good
   });
 
-  axios
-    .put(`http://localhost:3000/all/${good.id}`, { ...good, inCart: true })
+  return axios
+    .all([
+      axios.put(`http://localhost:3000/all/${good.id}`, {
+        ...good,
+        inCart: true
+      }),
+      axios.post(`http://localhost:3000/cart`, good)
+    ])
     .then(
-      response =>
+      axios.spread((acct, perms) => {
+        console.log('acct', acct);
+        console.log('perms', perms);
+
         dispatch({
           type: types.ADD_GOOD_SUCCESS,
-          response: response.data
-        }),
-      error =>
-        dispatch({
-          type: types.ADD_GOOD_FAILURE,
-          message: error.message || 'Something went wrong'
-        })
+          payload: acct.data
+        });
+        // Both requests are now complete
+      })
     );
 
-  return axios.post(`http://localhost:3000/cart`, good).then(
-    response =>
-      dispatch({
-        type: types.ADD_GOOD_SUCCESS,
-        response: response.data
-      }),
-    error =>
-      dispatch({
-        type: types.ADD_GOOD_FAILURE,
-        message: error.message || 'Something went wrong'
-      })
-  );
+  // axios
+  //   .put(`http://localhost:3000/all/${good.id}`, { ...good, inCart: true })
+  //   .then(
+  //     response =>
+  //       dispatch({
+  //         type: types.ADD_GOOD_SUCCESS,
+  //         payload: response.data.id
+  //       }),
+  //     error =>
+  //       dispatch({
+  //         type: types.ADD_GOOD_FAILURE,
+  //         message: error.message || 'Something went wrong'
+  //       })
+  //   );
+
+  // return axios.post(`http://localhost:3000/cart`, good).then(
+  //   response =>
+  //     dispatch({
+  //       type: types.ADD_GOOD_SUCCESS,
+  //       response: response.data
+  //     }),
+  //   error =>
+  //     dispatch({
+  //       type: types.ADD_GOOD_FAILURE,
+  //       message: error.message || 'Something went wrong'
+  //     })
+  // );
 };
 
 export const removeGoodFromCart = (id, price) => ({

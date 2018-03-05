@@ -1,7 +1,7 @@
 const byId = (state = {}, action) => {
   if (action.type === 'ADD_GOOD_SUCCESS') {
     const newState = Object.assign({}, state);
-    newState[action.response.id] = action.response;
+    newState[action.payload.id] = action.payload;
 
     return newState;
   }

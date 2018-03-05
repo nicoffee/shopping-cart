@@ -115,7 +115,7 @@ CartPage.propTypes = {
   goods: PropTypes.array,
   price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   removeGoodFromCart: PropTypes.func,
-  increaseGoodInCartAmount: PropTypes.number
+  increaseGoodInCartAmount: PropTypes.func
 };
 
 export default injectSheet(styles)(CartPage);
