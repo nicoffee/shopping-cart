@@ -11,8 +11,6 @@ const styles = {
   card: {
     width: '250px',
     minHeight: '400px',
-    marginRight: '20px',
-    marginBottom: '20px',
     padding: '10px 0'
   },
   media: {

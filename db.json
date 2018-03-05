@@ -7,7 +7,8 @@
       "vendor": "Phanteks",
       "price": 99.99,
       "rating": 4.5,
-      "vendor_code": 90222793
+      "vendor_code": 90222793,
+      "inCart": true
     },
     {
       "id": 2,
@@ -46,7 +47,8 @@
       "vendor": "Asus",
       "price": 707.56,
       "rating": 4,
-      "vendor_code": 90689781
+      "vendor_code": 90689781,
+      "inCart": true
     }
   ],
   "monitors": [
@@ -98,6 +100,24 @@
       "price": 142.85,
       "rating": 5,
       "vendor_code": 90669793
+    },
+    {
+      "id": 5,
+      "img": "https://dstatic.computeruniverse.net/images/1000/90689781E1480488F8F941F6B55E79C9.jpg",
+      "name": "ASUS GeForce GTX 1080 Ti Turbo-GTX1080TI11G",
+      "vendor": "Asus",
+      "price": 707.56,
+      "rating": 4,
+      "vendor_code": 90689781
+    },
+    {
+      "id": 1,
+      "img": "https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646",
+      "name": "Phanteks Enthoo Pro Chassis White",
+      "vendor": "Phanteks",
+      "price": 99.99,
+      "rating": 4.5,
+      "vendor_code": 90222793
     }
   ]
 }

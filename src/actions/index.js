@@ -7,7 +7,7 @@ import { getIsFetching } from '../reducers/goods';
 
 export const addGoodInCart = good => dispatch => {
   dispatch({
-    type: types.ADD_GOOD_REQUEST_STARTED,
+    type: types.ADD_GOOD_REQUEST,
     good
   });
 
@@ -90,19 +90,19 @@ export const fetchGoods = filter => (dispatch, getState) => {
 
 export const fetchGoodsInCart = () => dispatch => {
   dispatch({
-    type: types.FETCH_GOODS_IN_CART_REQUEST_STARTED
+    type: types.FETCH_GOODS_IN_CART_REQUEST
   });
 
   return axios.get(`http://localhost:3000/cart`).then(
     response => {
       dispatch({
-        type: types.FETCH_GOODS_IN_CART_REQUEST_SUCCESS,
+        type: types.FETCH_GOODS_IN_CART_SUCCESS,
         response: response.data
       });
     },
     error =>
       dispatch({
-        type: types.FETCH_GOODS_IN_CART_REQUEST_FAILURE,
+        type: types.FETCH_GOODS_IN_CART_FAILURE,
         message: error.message || 'Something went wrong'
       })
   );
