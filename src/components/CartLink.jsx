@@ -45,7 +45,7 @@ const CartLink = ({ classes, goodsInCartCount }) => (
 
 CartLink.propTypes = {
   classes: PropTypes.object,
-  goodsInCartCount: PropTypes.number.isRequired
+  goodsInCartCount: PropTypes.number
 };
 
 export default injectSheet(styles)(CartLink);

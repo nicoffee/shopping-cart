@@ -10,10 +10,13 @@ const goods = (state = [], action) => {
       return state;
     case types.ADD_GOOD_SUCCESS:
       return [...state, action.payload];
-    case types.REMOVE_GOOD:
+    case types.REMOVE_GOOD_SUCCESS:
+      console.log('state', state);
+      console.log('action', state);
+
       return {
         ...state,
-        goods: state.goods.filter(good => good.id !== action.id)
+        goods: state.filter(good => good.id !== action.payload)
         // totalPrice: (state.totalPrice - action.price).toFixed(2)
       };
     case types.INCREASE_GOOD_AMOUNT:
@@ -44,7 +47,8 @@ const goods = (state = [], action) => {
 const totalPrice = (state = 0, action) => {
   switch (action.type) {
     case types.FETCH_GOODS_IN_CART_SUCCESS:
-      return action.response.reduce((acc, item) => acc + item.price);
+      console.log('action', action);
+      return action.response.reduce((acc, item) => acc + item.price, 0);
     default:
       return state;
   }

@@ -17,7 +17,9 @@
       "vendor": "Corsair",
       "price": 142.85,
       "rating": 5,
-      "vendor_code": 90669793
+      "vendor_code": 90669793,
+      "inCart": true,
+      "count": 1
     },
     {
       "id": 3,
@@ -26,7 +28,8 @@
       "vendor": "Fractal Design",
       "price": 73.02,
       "rating": 5,
-      "vendor_code": 90705524
+      "vendor_code": 90705524,
+      "inCart": true
     },
     {
       "id": 4,
@@ -69,15 +72,5 @@
       "vendor_code": 90689781
     }
   ],
-  "cart": [
-    {
-      "id": 1,
-      "img": "https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646",
-      "name": "Phanteks Enthoo Pro Chassis White",
-      "vendor": "Phanteks",
-      "price": 99.99,
-      "rating": 4.5,
-      "vendor_code": 90222793
-    }
-  ]
+  "cart": []
 }

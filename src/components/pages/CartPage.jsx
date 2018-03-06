@@ -31,6 +31,14 @@ class CartPage extends Component {
     inputValue: ''
   };
 
+  // constructor(props) {
+  //   super(props);
+
+  //   this.state = {
+  //     inputValue: props.
+  //   }
+  // }
+
   handleInput = e => this.setState({ inputValue: e.target.value });
 
   render() {
@@ -49,12 +57,12 @@ class CartPage extends Component {
             <Table className={classes.table}>
               <TableHead>
                 <TableRow>
-                  <TableCell />
+                  <TableCell>Count</TableCell>
                   <TableCell>Photo</TableCell>
                   <TableCell>Product name</TableCell>
                   <TableCell>Price per item</TableCell>
-                  <TableCell numeric />
-                  <TableCell />
+                  <TableCell>Count</TableCell>
+                  <TableCell>Change count</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -63,19 +71,25 @@ class CartPage extends Component {
                     <TableCell>
                       <Button
                         variant="fab"
-                        disabled
-                        aria-label="delete"
-                        className={classes.button}
                         onClick={() => removeGoodFromCart(good.id, good.price)}>
                         <DeleteIcon />
                       </Button>
+                      <Input
+                        value={good.count}
+                        defaultValue="0"
+                        className={classes.input}
+                        inputProps={{
+                          'aria-label': 'Description'
+                        }}
+                        onChange={this.handleInput}
+                      />
                     </TableCell>
                     <TableCell>
                       <img className={classes.image} src={good.img} />
                     </TableCell>
                     <TableCell>{good.name}</TableCell>
                     <TableCell>{good.price}</TableCell>
-                    <TableCell numeric>{good.count}</TableCell>
+                    <TableCell>{good.count}</TableCell>
                     <TableCell>
                       <Input
                         value={this.state.inputValue}

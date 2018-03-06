@@ -15,7 +15,8 @@ export const addGoodInCart = good => dispatch => {
     .all([
       axios.put(`http://localhost:3000/all/${good.id}`, {
         ...good,
-        inCart: true
+        inCart: true,
+        count: 1
       }),
       axios.post(`http://localhost:3000/cart`, good)
     ])
@@ -61,11 +62,26 @@ export const addGoodInCart = good => dispatch => {
   // );
 };
 
-export const removeGoodFromCart = (id, price) => ({
-  type: types.REMOVE_GOOD,
-  id,
-  price
-});
+export const removeGoodFromCart = (id, price) => dispatch => {
+  dispatch({
+    type: types.REMOVE_GOOD_STARTED,
+    id,
+    price
+  });
+
+  return axios.delete(`http://localhost:3000/cart/${id}`).then(
+    response =>
+      dispatch({
+        type: types.REMOVE_GOOD_SUCCESS,
+        payload: id
+      }),
+    error =>
+      dispatch({
+        type: types.REMOVE_GOOD_FAILURE,
+        message: error.message || 'Something went wrong'
+      })
+  );
+};
 
 export const increaseGoodInCartAmount = (id, count) => dispatch => {
   dispatch({
