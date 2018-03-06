@@ -71,7 +71,7 @@ class CartPage extends Component {
                     <TableCell>
                       <Button
                         variant="fab"
-                        onClick={() => removeGoodFromCart(good.id, good.price)}>
+                        onClick={() => removeGoodFromCart(good)}>
                         <DeleteIcon />
                       </Button>
                       <Input

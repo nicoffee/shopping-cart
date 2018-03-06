@@ -7,8 +7,7 @@
       "vendor": "Phanteks",
       "price": 99.99,
       "rating": 4.5,
-      "vendor_code": 90222793,
-      "inCart": true
+      "vendor_code": 90222793
     },
     {
       "id": 2,
@@ -18,8 +17,7 @@
       "price": 142.85,
       "rating": 5,
       "vendor_code": 90669793,
-      "inCart": true,
-      "count": 1
+      "inCart": false
     },
     {
       "id": 3,
@@ -28,8 +26,7 @@
       "vendor": "Fractal Design",
       "price": 73.02,
       "rating": 5,
-      "vendor_code": 90705524,
-      "inCart": true
+      "vendor_code": 90705524
     },
     {
       "id": 4,
