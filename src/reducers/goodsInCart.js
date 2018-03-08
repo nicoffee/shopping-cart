@@ -11,9 +11,6 @@ const goods = (state = [], action) => {
     case types.ADD_GOOD_SUCCESS:
       return [...state, action.payload];
     case types.REMOVE_GOOD_SUCCESS:
-      console.log('state', state);
-      console.log('action', state);
-
       return {
         ...state,
         goods: state.filter(good => good.id !== action.payload)
@@ -47,7 +44,6 @@ const goods = (state = [], action) => {
 const totalPrice = (state = 0, action) => {
   switch (action.type) {
     case types.FETCH_GOODS_IN_CART_SUCCESS:
-      console.log('action', action);
       return action.response.reduce((acc, item) => acc + item.price, 0);
     default:
       return state;

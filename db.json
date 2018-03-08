@@ -8,7 +8,8 @@
       "vendor": "Phanteks",
       "price": 99.99,
       "rating": 4.5,
-      "vendor_code": 90222793
+      "vendor_code": 90222793,
+      "type": "case"
     },
     {
       "id": 2,
@@ -17,7 +18,8 @@
       "vendor": "Corsair",
       "price": 142.85,
       "rating": 5,
-      "vendor_code": 90669793
+      "vendor_code": 90669793,
+      "type": "case"
     },
     {
       "id": 3,
@@ -27,7 +29,8 @@
       "vendor": "Fractal Design",
       "price": 73.02,
       "rating": 5,
-      "vendor_code": 90705524
+      "vendor_code": 90705524,
+      "type": "case"
     },
     {
       "id": 4,
@@ -37,8 +40,23 @@
       "vendor": "Dell",
       "price": 259.66,
       "rating": 4.5,
-      "vendor_code": 90580806
+      "vendor_code": 90580806,
+      "type": "monitor"
     },
+    {
+      "id": 5,
+      "img":
+        "https://dstatic.computeruniverse.net/images/1000/90689781E1480488F8F941F6B55E79C9.jpg",
+      "name": "ASUS GeForce GTX 1080 Ti Turbo-GTX1080TI11G",
+      "vendor": "Asus",
+      "price": 707.56,
+      "rating": 4,
+      "vendor_code": 90689781,
+      "inCart": true,
+      "type": "videocard"
+    }
+  ],
+  "cart": [
     {
       "id": 5,
       "img":
@@ -49,30 +67,5 @@
       "rating": 4,
       "vendor_code": 90689781
     }
-  ],
-  "monitors": [
-    {
-      "id": 3,
-      "img":
-        "https://images-na.ssl-images-amazon.com/images/I/71BuhRkFsYL._SL1500_.jpg",
-      "name": "Dell Ultrasharp U2515H",
-      "vendor": "Dell",
-      "price": 259.66,
-      "rating": 4.5,
-      "vendor_code": 90580806
-    }
-  ],
-  "videocards": [
-    {
-      "id": 4,
-      "img":
-        "https://dstatic.computeruniverse.net/images/1000/90689781E1480488F8F941F6B55E79C9.jpg",
-      "name": "ASUS GeForce GTX 1080 Ti Turbo-GTX1080TI11G",
-      "vendor": "Asus",
-      "price": 707.56,
-      "rating": 4,
-      "vendor_code": 90689781
-    }
-  ],
-  "cart": []
+  ]
 }

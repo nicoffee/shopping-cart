@@ -21,53 +21,19 @@ export const addGoodInCart = good => dispatch => {
     ])
     .then(
       axios.spread((acct, perms) => {
-        console.log('acct', acct);
-        console.log('perms', perms);
-
         dispatch({
           type: types.ADD_GOOD_SUCCESS,
           payload: acct.data,
           count: 1
         });
-        // Both requests are now complete
       })
     );
-
-  // axios
-  //   .put(`http://localhost:3000/all/${good.id}`, { ...good, inCart: true })
-  //   .then(
-  //     response =>
-  //       dispatch({
-  //         type: types.ADD_GOOD_SUCCESS,
-  //         payload: response.data.id
-  //       }),
-  //     error =>
-  //       dispatch({
-  //         type: types.ADD_GOOD_FAILURE,
-  //         message: error.message || 'Something went wrong'
-  //       })
-  //   );
-
-  // return axios.post(`http://localhost:3000/cart`, good).then(
-  //   response =>
-  //     dispatch({
-  //       type: types.ADD_GOOD_SUCCESS,
-  //       response: response.data
-  //     }),
-  //   error =>
-  //     dispatch({
-  //       type: types.ADD_GOOD_FAILURE,
-  //       message: error.message || 'Something went wrong'
-  //     })
-  // );
 };
 
 export const removeGoodFromCart = good => dispatch => {
   dispatch({
     type: types.REMOVE_GOOD_STARTED
   });
-
-  console.log('good', good);
 
   return axios
     .all([
@@ -79,29 +45,12 @@ export const removeGoodFromCart = good => dispatch => {
     ])
     .then(
       axios.spread((acct, perms) => {
-        console.log('delete acct', acct);
-        console.log('delete perms', perms);
-
         dispatch({
           type: types.REMOVE_GOOD_SUCCESS,
           payload: acct.data
         });
-        // Both requests are now complete
       })
     );
-
-  // return axios.delete(`http://localhost:3000/cart/${id}`).then(
-  //   response =>
-  //     dispatch({
-  //       type: types.REMOVE_GOOD_SUCCESS,
-  //       payload: id
-  //     }),
-  //   error =>
-  //     dispatch({
-  //       type: types.REMOVE_GOOD_FAILURE,
-  //       message: error.message || 'Something went wrong'
-  //     })
-  // );
 };
 
 export const increaseGoodInCartAmount = (id, count) => dispatch => {

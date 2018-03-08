@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import { NavLink, Link } from 'react-router-dom';
 import Table, {
   TableBody,
   TableCell,
@@ -9,7 +10,10 @@ import Table, {
 } from 'material-ui/Table';
 import Input from 'material-ui/Input';
 import Button from 'material-ui/Button';
+import Typography from 'material-ui/Typography';
+import Icon from 'material-ui/Icon';
 import DeleteIcon from 'material-ui-icons/Delete';
+import ArrowBack from 'material-ui-icons/ArrowBack';
 
 const styles = {
   image: {
@@ -23,6 +27,13 @@ const styles = {
 
   buttonCell: {
     width: '30px'
+  },
+
+  emptyView: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    padding: '150px'
   }
 };
 
@@ -117,7 +128,12 @@ class CartPage extends Component {
             <h2>Price: ${price}</h2>
           </div>
         ) : (
-          <div>No items in cart</div>
+          <div className={classes.emptyView}>
+            <Typography variant="display1" gutterBottom>
+              No items in cart
+            </Typography>
+            <Link to="/">Back to the store</Link>
+          </div>
         )}
       </div>
     );
