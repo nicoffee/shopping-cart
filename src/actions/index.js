@@ -5,7 +5,7 @@ import * as schema from './schema';
 import * as types from './../types';
 import { getIsFetching } from '../reducers/goods';
 
-export const addGoodInCart = good => dispatch => {
+export const addGoodInCart = (good, filter) => dispatch => {
   dispatch({
     type: types.ADD_GOOD_REQUEST,
     good
@@ -13,7 +13,7 @@ export const addGoodInCart = good => dispatch => {
 
   return axios
     .all([
-      axios.put(`http://localhost:3000/all/${good.id}`, {
+      axios.put(`http://localhost:3000/${filter}/${good.id}`, {
         ...good,
         inCart: true
       }),
@@ -37,7 +37,7 @@ export const removeGoodFromCart = good => dispatch => {
 
   return axios
     .all([
-      axios.put(`http://localhost:3000/all/${good.id}`, {
+      axios.put(`http://localhost:3000/popular/${good.id}`, {
         ...good,
         inCart: false
       }),

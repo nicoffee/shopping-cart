@@ -2,29 +2,17 @@ import React from 'react';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { MuiThemeProvider, createMuiTheme } from 'material-ui/styles';
-import blueGrey from 'material-ui/colors/blueGrey';
-import amber from 'material-ui/colors/amber';
-import red from 'material-ui/colors/red';
-import HeaderContainer from './../containers/HeaderContainer';
-import CartPageContainer from './../containers/CartPageContainer';
 import GoodDetailsPage from './pages/GoodDetailsPage';
 import MainPage from './pages/MainPage';
 import CategoryPage from './pages/CategoryPage';
-
-const theme = createMuiTheme({
-  palette: {
-    primary: blueGrey,
-    secondary: amber,
-    error: red
-  }
-});
+import Layout from './Layout';
+import CartPageContainer from './../containers/CartPageContainer';
 
 const routes = [
   {
     path: '/',
     exact: true,
-    filter: 'all'
+    filter: 'popular'
   },
   {
     path: '/monitors',
@@ -51,37 +39,34 @@ const routes = [
 const Root = ({ store }) => (
   <Provider store={store}>
     <Router>
-      <MuiThemeProvider theme={theme}>
-        <HeaderContainer />
-        <div className="content">
-          {routes.map(
-            (route, index) =>
-              route.filter === 'all' ? (
-                <Route
-                  key={index}
-                  path={route.path}
-                  exact={route.exact}
-                  filter={route.filter}
-                  render={() => <MainPage {...route} />}
-                />
-              ) : route.filter ? (
-                <Route
-                  key={index}
-                  path={route.path}
-                  exact={route.exact}
-                  filter={route.filter}
-                  render={() => <CategoryPage {...route} />}
-                />
-              ) : (
-                <Route
-                  key={index}
-                  path={route.path}
-                  component={route.component}
-                />
-              )
-          )}
-        </div>
-      </MuiThemeProvider>
+      <Layout>
+        {routes.map(
+          (route, index) =>
+            route.filter === 'popular' ? (
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                filter={route.filter}
+                render={() => <MainPage {...route} />}
+              />
+            ) : route.filter ? (
+              <Route
+                key={index}
+                path={route.path}
+                exact={route.exact}
+                filter={route.filter}
+                render={() => <CategoryPage {...route} />}
+              />
+            ) : (
+              <Route
+                key={index}
+                path={route.path}
+                component={route.component}
+              />
+            )
+        )}
+      </Layout>
     </Router>
   </Provider>
 );

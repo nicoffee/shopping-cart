@@ -1,19 +1,45 @@
-import React, { Component } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
+import Drawer from 'material-ui/Drawer';
+import { InputLabel } from 'material-ui/Input';
+import { MenuItem } from 'material-ui/Menu';
+import { FormControl } from 'material-ui/Form';
+import Select from 'material-ui/Select';
 
 const styles = {
-  sidebar: {
+  drawerPaper: {
+    position: 'relative',
     width: '200px',
-    minWidth: '200px',
-    marginRight: '30px'
+    height: 'auto',
+    marginRight: '30px',
+    padding: '20px'
   }
 };
 
 const Sidebar = ({ classes }) => (
-  <div className={classes.sidebar}>
-    <div />
-  </div>
+  <Drawer
+    variant="permanent"
+    classes={{
+      paper: classes.drawerPaper
+    }}>
+    <FormControl className={classes.formControl}>
+      <InputLabel htmlFor="vendor">Vendor</InputLabel>
+      <Select
+        value="test"
+        inputProps={{
+          name: 'vendor',
+          id: 'vendor'
+        }}>
+        <MenuItem value="">
+          <em>None</em>
+        </MenuItem>
+        <MenuItem value={10}>Ten</MenuItem>
+        <MenuItem value={20}>Twenty</MenuItem>
+        <MenuItem value={30}>Thirty</MenuItem>
+      </Select>
+    </FormControl>
+  </Drawer>
 );
 
 Sidebar.propTypes = {

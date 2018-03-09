@@ -9,8 +9,10 @@ import Rating from './Rating';
 
 const styles = {
   card: {
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-between',
     width: '250px',
-    minHeight: '400px',
     padding: '10px 0'
   },
   media: {
@@ -19,7 +21,17 @@ const styles = {
   }
 };
 
-const Good = ({ classes, onClick, img, name, price, rating, id, inCart }) => (
+const Good = ({
+  classes,
+  onClick,
+  img,
+  name,
+  price,
+  rating,
+  id,
+  inCart,
+  actions
+}) => (
   <Card className={classes.card}>
     <CardMedia className={classes.media} image={img} title={name} />
     <CardContent>
@@ -34,17 +46,21 @@ const Good = ({ classes, onClick, img, name, price, rating, id, inCart }) => (
       <Rating rating={rating} />
       <Typography type="headline">${price}</Typography>
     </CardContent>
-    <CardActions>
-      {inCart ? (
-        <Link to="/cart">
-          <Button color="primary">In Cart</Button>
-        </Link>
-      ) : (
-        <div onClick={onClick}>
-          <Button color="secondary">Add to Cart</Button>
-        </div>
-      )}
-    </CardActions>
+    {actions && (
+      <CardActions>
+        {inCart ? (
+          <Link to="/cart">
+            <Button color="primary">In Cart</Button>
+          </Link>
+        ) : (
+          <div onClick={onClick}>
+            <Button color="secondary" variant="raised">
+              Add to Cart
+            </Button>
+          </div>
+        )}
+      </CardActions>
+    )}
   </Card>
 );
 
@@ -58,7 +74,8 @@ Good.propTypes = {
   price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   rating: PropTypes.number,
   goodsInCart: PropTypes.object,
-  inCart: PropTypes.bool
+  inCart: PropTypes.bool,
+  actions: PropTypes.bool
 };
 
 export default injectSheet(styles)(Good);

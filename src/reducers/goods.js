@@ -3,7 +3,7 @@ import byId, * as fromById from './byId';
 import createList, * as fromList from './createList';
 
 const listByFilter = combineReducers({
-  all: createList('all'),
+  popular: createList('popular'),
   monitors: createList('monitors'),
   cases: createList('cases'),
   videocards: createList('videocards')

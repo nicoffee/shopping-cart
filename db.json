@@ -1,37 +1,270 @@
 {
-  "all": [
+  "popular": [
     {
-      "id": 1,
+      "id": "5aa234177b357285378151ff",
       "img":
         "https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646",
       "name": "Phanteks Enthoo Pro Chassis White",
       "vendor": "Phanteks",
       "price": 99.99,
       "rating": 4.5,
-      "vendor_code": 90222793,
-      "type": "case"
+      "vendor_code": 90222793
+    }
+  ],
+  "cases": [
+    {
+      "id": "5aa234177b357285378151ff",
+      "img":
+        "https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646",
+      "name": "Phanteks Enthoo Pro Chassis White",
+      "vendor": "Phanteks",
+      "price": 99.99,
+      "rating": 4.5,
+      "vendor_code": 90222793
     },
     {
-      "id": 2,
+      "id": "5aa144177b357125371058xa",
       "img": "http://corsair.com/~/media/E09D7B8EFCE0461FAA13133F2D312EE7.ashx",
       "name": "Corsair Crystal 570x RGB-Edition",
       "vendor": "Corsair",
       "price": 142.85,
       "rating": 5,
-      "vendor_code": 90669793,
-      "type": "case"
+      "vendor_code": 90669793
     },
     {
-      "id": 3,
+      "id": "5aa244157b357585371158fg",
       "img":
         "https://dstatic.computeruniverse.net/images/1000/907055249603EE7D187C4A56AE6FC126.jpg",
       "name": "Fractal Design Meshify C Tempered Glass",
       "vendor": "Fractal Design",
       "price": 73.02,
       "rating": 5,
-      "vendor_code": 90705524,
-      "type": "case"
+      "vendor_code": 90705524
     },
+    [
+      {
+        "id": "5aa244177b337585371158fa",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Salazar",
+        "vendor": "Phanteks",
+        "price": 735.74,
+        "rating": 3.17,
+        "vendor_code": 86314408
+      },
+      {
+        "id": "5aa244172a199081dbb9488f",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Carlson",
+        "vendor": "Corsair",
+        "price": "2,140.14",
+        "rating": 3.77,
+        "vendor_code": 24093233
+      },
+      {
+        "id": "5aa24417eb77ce6878517293",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Conway",
+        "vendor": "Corsair",
+        "price": "3,908.55",
+        "rating": 4.5,
+        "vendor_code": 56558369
+      },
+      {
+        "id": "5aa24417d33bd57179d9eeb0",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Cunningham",
+        "vendor": "Phanteks",
+        "price": 941.64,
+        "rating": 4.63,
+        "vendor_code": 15797525
+      },
+      {
+        "id": "5aa24417194bbeb55b53cf1a",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Carver",
+        "vendor": "Corsair",
+        "price": "1,045.97",
+        "rating": 4.03,
+        "vendor_code": 46227639
+      },
+      {
+        "id": "5aa24417482ca7b1eaf566b2",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Enid",
+        "vendor": "Corsair",
+        "price": "2,561.36",
+        "rating": 1.51,
+        "vendor_code": 22900100
+      },
+      {
+        "id": "5aa24417dbb5a007de1a0794",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Oneal",
+        "vendor": "Phanteks",
+        "price": "3,692.53",
+        "rating": 4.61,
+        "vendor_code": 96652936
+      },
+      {
+        "id": "5aa24417cfd9b2ca68adae2c",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Leonard",
+        "vendor": "Phanteks",
+        "price": 930.59,
+        "rating": 0.17,
+        "vendor_code": 48148204
+      },
+      {
+        "id": "5aa24417f2a89e92a4d9a222",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Erna",
+        "vendor": "Corsair",
+        "price": "3,108.42",
+        "rating": 1.87,
+        "vendor_code": 32195221
+      },
+      {
+        "id": "5aa244172a3ad9e59a1dcb04",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Steele",
+        "vendor": "Corsair",
+        "price": "2,882.78",
+        "rating": 2.55,
+        "vendor_code": 76986915
+      },
+      {
+        "id": "5aa24417bcaaab180650ce5a",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Bentley",
+        "vendor": "Phanteks",
+        "price": "3,623.83",
+        "rating": 2.97,
+        "vendor_code": 71372074
+      },
+      {
+        "id": "5aa244172b2ec3c82e143345",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Kristin",
+        "vendor": "Corsair",
+        "price": "3,392.56",
+        "rating": 3.06,
+        "vendor_code": 40339600
+      },
+      {
+        "id": "5aa2441751707cd3d8daa6f4",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Debbie",
+        "vendor": "Fractal Design",
+        "price": "2,313.50",
+        "rating": 0.33,
+        "vendor_code": 14692390
+      },
+      {
+        "id": "5aa24417fb59c0cd7169e73f",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Alfreda",
+        "vendor": "Fractal Design",
+        "price": "1,737.05",
+        "rating": 1.25,
+        "vendor_code": 11714610
+      },
+      {
+        "id": "5aa24417a6d1c3b94d2001f4",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Collins",
+        "vendor": "Fractal Design",
+        "price": "3,611.74",
+        "rating": 0.67,
+        "vendor_code": 45789660
+      },
+      {
+        "id": "5aa244171eebdf8d579a0ba8",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Cara",
+        "vendor": "Corsair",
+        "price": "3,035.14",
+        "rating": 2.51,
+        "vendor_code": 27624587
+      },
+      {
+        "id": "5aa244178ae01e6d5ab9feb1",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Holden",
+        "vendor": "Fractal Design",
+        "price": "2,859.03",
+        "rating": 3.16,
+        "vendor_code": 89647006
+      },
+      {
+        "id": "5aa2441725a4af388924fd15",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Chandra",
+        "vendor": "Corsair",
+        "price": 248.73,
+        "rating": 2.22,
+        "vendor_code": 78524205
+      },
+      {
+        "id": "5aa24417b8bd069d722045b3",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Jacquelyn",
+        "vendor": "Phanteks",
+        "price": 590.16,
+        "rating": 3.69,
+        "vendor_code": 97750067
+      },
+      {
+        "id": "5aa24417322cfdc91c416b0a",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Reyna",
+        "vendor": "Fractal Design",
+        "price": "2,212.95",
+        "rating": 0.95,
+        "vendor_code": 32711127
+      },
+      {
+        "id": "5aa244171dfc489f25c57798",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Larson",
+        "vendor": "Phanteks",
+        "price": "3,556.72",
+        "rating": 4.76,
+        "vendor_code": 58409940
+      },
+      {
+        "id": "5aa24417fe9716da3e5c3793",
+        "img":
+          "https://images-na.ssl-images-amazon.com/images/I/41Wq97Jk20L._SL500_AC_SS350_.jpg",
+        "name": "Willie",
+        "vendor": "Corsair",
+        "price": "3,306.68",
+        "rating": 2.12,
+        "vendor_code": 67731511
+      }
+    ]
+  ],
+  "monitors": [
     {
       "id": 4,
       "img":
@@ -41,22 +274,10 @@
       "price": 259.66,
       "rating": 4.5,
       "vendor_code": 90580806,
-      "type": "monitor"
-    },
-    {
-      "id": 5,
-      "img":
-        "https://dstatic.computeruniverse.net/images/1000/90689781E1480488F8F941F6B55E79C9.jpg",
-      "name": "ASUS GeForce GTX 1080 Ti Turbo-GTX1080TI11G",
-      "vendor": "Asus",
-      "price": 707.56,
-      "rating": 4,
-      "vendor_code": 90689781,
-      "inCart": true,
-      "type": "videocard"
+      "inCart": true
     }
   ],
-  "cart": [
+  "videocards": [
     {
       "id": 5,
       "img":
@@ -66,6 +287,18 @@
       "price": 707.56,
       "rating": 4,
       "vendor_code": 90689781
+    }
+  ],
+  "cart": [
+    {
+      "id": 4,
+      "img":
+        "https://images-na.ssl-images-amazon.com/images/I/71BuhRkFsYL._SL1500_.jpg",
+      "name": "Dell Ultrasharp U2515H",
+      "vendor": "Dell",
+      "price": 259.66,
+      "rating": 4.5,
+      "vendor_code": 90580806
     }
   ]
 }

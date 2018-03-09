@@ -72,8 +72,7 @@ class CartPage extends Component {
                   <TableCell>Photo</TableCell>
                   <TableCell>Product name</TableCell>
                   <TableCell>Price per item</TableCell>
-                  <TableCell>Count</TableCell>
-                  <TableCell>Change count</TableCell>
+                  <TableCell>Price</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>
@@ -100,27 +99,7 @@ class CartPage extends Component {
                     </TableCell>
                     <TableCell>{good.name}</TableCell>
                     <TableCell>{good.price}</TableCell>
-                    <TableCell>{good.count}</TableCell>
-                    <TableCell>
-                      <Input
-                        value={this.state.inputValue}
-                        defaultValue="0"
-                        className={classes.input}
-                        inputProps={{
-                          'aria-label': 'Description'
-                        }}
-                        onChange={this.handleInput}
-                      />
-                      <Button
-                        onClick={() =>
-                          increaseGoodInCartAmount(
-                            good.id,
-                            this.state.inputValue
-                          )
-                        }>
-                        Apply
-                      </Button>
-                    </TableCell>
+                    <TableCell>totalPrice</TableCell>
                   </TableRow>
                 ))}
               </TableBody>

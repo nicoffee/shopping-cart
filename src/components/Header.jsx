@@ -17,7 +17,7 @@ const styles = {
     display: 'flex',
     flexDirection: 'column',
     alignItems: 'center',
-    padding: '0 20px'
+    padding: '0 30px'
   },
 
   divider: {

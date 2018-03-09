@@ -18,8 +18,14 @@ class GoodsList extends Component {
     classes: PropTypes.object
   };
 
+  static defaultProps = {
+    actions: true
+  };
+
   render() {
-    const { goods, onAddGoodClick, classes } = this.props;
+    console.log('this.props', this.props);
+
+    const { goods, onAddGoodClick, classes, actions, filter } = this.props;
 
     return (
       <div className={classes.goodsList}>
@@ -34,7 +40,8 @@ class GoodsList extends Component {
             rating={good.rating}
             vendor_code={good.vendor_code}
             key={index}
-            onClick={() => onAddGoodClick(good)}
+            onClick={() => onAddGoodClick(good, filter)}
+            actions={actions}
           />
         ))}
       </div>
