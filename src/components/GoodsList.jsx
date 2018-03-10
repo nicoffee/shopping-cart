@@ -23,8 +23,6 @@ class GoodsList extends Component {
   };
 
   render() {
-    console.log('this.props', this.props);
-
     const { goods, onAddGoodClick, classes, actions, filter } = this.props;
 
     return (

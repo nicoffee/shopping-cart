@@ -8,7 +8,7 @@ import { getIsFetching } from '../reducers/goods';
 export const addGoodInCart = (good, filter) => dispatch => {
   dispatch({
     type: types.ADD_GOOD_REQUEST,
-    good
+    good: { ...good, count: 1 }
   });
 
   return axios
@@ -17,14 +17,21 @@ export const addGoodInCart = (good, filter) => dispatch => {
         ...good,
         inCart: true
       }),
-      axios.post(`http://localhost:3000/cart`, good)
+      axios.post(`http://localhost:3000/cart`, {
+        ...good,
+        count: 1
+      })
     ])
     .then(
       axios.spread((acct, perms) => {
         dispatch({
           type: types.ADD_GOOD_SUCCESS,
-          payload: acct.data,
-          count: 1
+          payload: acct.data
+        });
+
+        dispatch({
+          type: types.ADD_GOOD_CART_SUCCESS,
+          payload: perms.data
         });
       })
     );
@@ -53,14 +60,15 @@ export const removeGoodFromCart = good => dispatch => {
     );
 };
 
-export const increaseGoodInCartAmount = (id, count) => dispatch => {
-  dispatch({
-    type: types.INCREASE_GOOD_AMOUNT,
-    id,
-    count
-  });
-
-  dispatch({ type: types.CALC_SUM });
+export const changeGoodInCartAmount = (id, count) => dispatch => {
+  return axios
+    .patch(`http://localhost:3000/cart/${id}`, { count })
+    .then(res => {
+      dispatch({
+        type: types.CHANGE_GOOD_AMOUNT,
+        payload: res.data
+      });
+    });
 };
 
 export const getGoodDetails = id => ({

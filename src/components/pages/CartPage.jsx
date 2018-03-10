@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { NavLink, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Table, {
   TableBody,
   TableCell,
@@ -11,9 +11,7 @@ import Table, {
 import Input from 'material-ui/Input';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
-import Icon from 'material-ui/Icon';
 import DeleteIcon from 'material-ui-icons/Delete';
-import ArrowBack from 'material-ui-icons/ArrowBack';
 
 const styles = {
   image: {
@@ -29,6 +27,19 @@ const styles = {
     width: '30px'
   },
 
+  button: {
+    width: '36px',
+    height: '36px',
+    marginRight: '20px'
+  },
+
+  input: {
+    width: '50px',
+    '& input': {
+      textAlign: 'center'
+    }
+  },
+
   emptyView: {
     display: 'flex',
     flexDirection: 'column',
@@ -38,28 +49,28 @@ const styles = {
 };
 
 class CartPage extends Component {
-  state = {
-    inputValue: ''
+  static propTypes = {
+    classes: PropTypes.object,
+    goods: PropTypes.array,
+    price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    removeGoodFromCart: PropTypes.func,
+    changeGoodInCartAmount: PropTypes.func
   };
 
-  // constructor(props) {
-  //   super(props);
+  state = {
+    inputValue: null
+  };
 
-  //   this.state = {
-  //     inputValue: props.
-  //   }
-  // }
+  handleInputBlur = id =>
+    this.props.changeGoodInCartAmount(
+      id,
+      Number.parseInt(this.state.inputValue)
+    );
 
-  handleInput = e => this.setState({ inputValue: e.target.value });
+  handleInputChange = e => this.setState({ inputValue: e.target.value });
 
   render() {
-    const {
-      classes,
-      goods,
-      price,
-      removeGoodFromCart,
-      increaseGoodInCartAmount
-    } = this.props;
+    const { classes, goods, price, removeGoodFromCart } = this.props;
 
     return (
       <div>
@@ -80,18 +91,20 @@ class CartPage extends Component {
                   <TableRow key={idx}>
                     <TableCell>
                       <Button
+                        className={classes.button}
                         variant="fab"
                         onClick={() => removeGoodFromCart(good)}>
                         <DeleteIcon />
                       </Button>
                       <Input
-                        value={good.count}
+                        value={this.state.inputValue || good.count}
                         defaultValue="0"
                         className={classes.input}
                         inputProps={{
                           'aria-label': 'Description'
                         }}
-                        onChange={this.handleInput}
+                        onChange={e => this.handleInputChange(e)}
+                        onBlur={e => this.handleInputBlur(good.id, e)}
                       />
                     </TableCell>
                     <TableCell>
@@ -99,7 +112,9 @@ class CartPage extends Component {
                     </TableCell>
                     <TableCell>{good.name}</TableCell>
                     <TableCell>{good.price}</TableCell>
-                    <TableCell>totalPrice</TableCell>
+                    <TableCell>
+                      {(good.price * good.count).toFixed(2)}
+                    </TableCell>
                   </TableRow>
                 ))}
               </TableBody>
@@ -119,12 +134,6 @@ class CartPage extends Component {
   }
 }
 
-CartPage.propTypes = {
-  classes: PropTypes.object,
-  goods: PropTypes.array,
-  price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  removeGoodFromCart: PropTypes.func,
-  increaseGoodInCartAmount: PropTypes.func
-};
+// export default withStyles(styles)(ButtonSizes);
 
 export default injectSheet(styles)(CartPage);

@@ -1,6 +1,17 @@
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import CartPage from './../components/pages/CartPage';
-import { removeGoodFromCart, increaseGoodInCartAmount } from './../actions';
+import {
+  removeGoodFromCart,
+  changeGoodInCartAmount,
+  fetchGoodsInCart
+} from './../actions';
+
+class CartPageContainer extends Component {
+  componentDidMount() {
+    this.fetchData();
+  }
+}
 
 const mapStateToProps = state => ({
   goods: state.goodsInCart.goods,
@@ -9,7 +20,8 @@ const mapStateToProps = state => ({
 
 const CartPageContainer = connect(mapStateToProps, {
   removeGoodFromCart,
-  increaseGoodInCartAmount
+  changeGoodInCartAmount,
+  fetchGoodsInCart
 })(CartPage);
 
 export default CartPageContainer;
