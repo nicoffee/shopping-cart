@@ -71,6 +71,7 @@ class CartPage extends Component {
 
   render() {
     const { classes, goods, price, removeGoodFromCart } = this.props;
+    console.log('this.props', this.props);
 
     return (
       <div>

@@ -13,7 +13,7 @@ export const addGoodInCart = (good, filter) => dispatch => {
 
   return axios
     .all([
-      axios.put(`http://localhost:3000/${filter}/${good.id}`, {
+      axios.patch(`http://localhost:3000/${filter}/${good.id}`, {
         ...good,
         inCart: true
       }),
@@ -30,7 +30,7 @@ export const addGoodInCart = (good, filter) => dispatch => {
         });
 
         dispatch({
-          type: types.ADD_GOOD_CART_SUCCESS,
+          type: types.ADD_GOOD_IN_CART_SUCCESS,
           payload: perms.data
         });
       })
@@ -44,8 +44,7 @@ export const removeGoodFromCart = good => dispatch => {
 
   return axios
     .all([
-      axios.put(`http://localhost:3000/popular/${good.id}`, {
-        ...good,
+      axios.patch(`http://localhost:3000/${good.category}/${good.id}`, {
         inCart: false
       }),
       axios.delete(`http://localhost:3000/cart/${good.id}`)
