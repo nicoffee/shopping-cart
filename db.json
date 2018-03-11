@@ -257,7 +257,8 @@
       "vendor": "Asus",
       "price": 707.56,
       "rating": 4,
-      "vendor_code": 90689781
+      "vendor_code": 90689781,
+      "inCart": true
     }
   ],
   "cart": [
@@ -269,7 +270,17 @@
       "price": 259.66,
       "rating": 4.5,
       "vendor_code": 90580806,
-      "count": 3
+      "count": 4
+    },
+    {
+      "id": 5,
+      "img": "https://dstatic.computeruniverse.net/images/1000/90689781E1480488F8F941F6B55E79C9.jpg",
+      "name": "ASUS GeForce GTX 1080 Ti Turbo-GTX1080TI11G",
+      "vendor": "Asus",
+      "price": 707.56,
+      "rating": 4,
+      "vendor_code": 90689781,
+      "count": 1
     }
   ]
 }

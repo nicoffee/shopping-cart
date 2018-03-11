@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
-import { string, func, bool, array } from 'prop-types';
+import PropTypes from 'prop-types';
 import { addGoodInCart, removeGoodFromCart } from './../actions';
 import {
   getVisibleGoods,
@@ -16,12 +16,12 @@ import Loader from './../components/Loader';
 
 class GoodsListContainer extends Component {
   static propTypes = {
-    filter: string,
-    fetchGoods: func,
-    fetchGoodsInCart: func,
-    isFetching: bool.isRequired,
-    errorMessage: string,
-    goods: array
+    filter: PropTypes.string,
+    fetchGoods: PropTypes.func,
+    fetchGoodsInCart: PropTypes.func,
+    isFetching: PropTypes.bool.isRequired,
+    errorMessage: PropTypes.string,
+    goods: PropTypes.array
   };
 
   componentDidMount() {

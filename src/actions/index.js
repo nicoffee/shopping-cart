@@ -104,6 +104,7 @@ export const fetchGoods = filter => (dispatch, getState) => {
 };
 
 export const fetchGoodsInCart = () => dispatch => {
+  console.log('123');
   dispatch({
     type: types.FETCH_GOODS_IN_CART_REQUEST
   });

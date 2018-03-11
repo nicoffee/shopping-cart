@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import CartPage from './../components/pages/CartPage';
 import {
   removeGoodFromCart,
@@ -8,8 +9,16 @@ import {
 } from './../actions';
 
 class CartPageContainer extends Component {
+  static propTypes = {
+    fetchGoodsInCart: PropTypes.func
+  };
+
   componentDidMount() {
-    this.fetchData();
+    this.props.fetchGoodsInCart();
+  }
+
+  render() {
+    return <CartPage {...this.props} />;
   }
 }
 
@@ -18,10 +27,8 @@ const mapStateToProps = state => ({
   price: state.goodsInCart.totalPrice
 });
 
-const CartPageContainer = connect(mapStateToProps, {
+export default connect(mapStateToProps, {
   removeGoodFromCart,
   changeGoodInCartAmount,
   fetchGoodsInCart
-})(CartPage);
-
-export default CartPageContainer;
+})(CartPageContainer);
