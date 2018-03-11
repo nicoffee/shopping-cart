@@ -69,11 +69,9 @@ Good.propTypes = {
   onClick: PropTypes.func.isRequired,
   img: PropTypes.string,
   name: PropTypes.string,
-  vendor: PropTypes.string,
-  id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  id: PropTypes.PropTypes.string,
   price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   rating: PropTypes.number,
-  goodsInCart: PropTypes.object,
   inCart: PropTypes.bool,
   actions: PropTypes.bool
 };

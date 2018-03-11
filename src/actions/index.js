@@ -50,7 +50,7 @@ export const removeGoodFromCart = good => dispatch => {
       axios.delete(`http://localhost:3000/cart/${good.id}`)
     ])
     .then(
-      axios.spread((acct, perms) => {
+      axios.spread((acct) => {
         dispatch({
           type: types.REMOVE_GOOD_SUCCESS,
           payload: acct.data
@@ -103,7 +103,6 @@ export const fetchGoods = filter => (dispatch, getState) => {
 };
 
 export const fetchGoodsInCart = () => dispatch => {
-  console.log('123');
   dispatch({
     type: types.FETCH_GOODS_IN_CART_REQUEST
   });

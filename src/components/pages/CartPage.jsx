@@ -1,46 +1,11 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import injectSheet from 'react-jss';
 import { Link } from 'react-router-dom';
-import Table, {
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow
-} from 'material-ui/Table';
-import Input from 'material-ui/Input';
-import Button from 'material-ui/Button';
+import injectSheet from 'react-jss';
+import PropTypes from 'prop-types';
 import Typography from 'material-ui/Typography';
-import DeleteIcon from 'material-ui-icons/Delete';
 import CartTable from './../CartTable';
 
 const styles = {
-  image: {
-    width: '100px'
-  },
-
-  trashImage: {
-    width: '20px',
-    height: '20px'
-  },
-
-  buttonCell: {
-    width: '30px'
-  },
-
-  button: {
-    width: '36px',
-    height: '36px',
-    marginRight: '20px'
-  },
-
-  input: {
-    width: '50px',
-    '& input': {
-      textAlign: 'center'
-    }
-  },
-
   emptyView: {
     display: 'flex',
     flexDirection: 'column',
@@ -78,7 +43,6 @@ class CartPage extends Component {
       removeGoodFromCart,
       changeGoodInCartAmount
     } = this.props;
-    console.log('this.props', this.props);
 
     return (
       <div>
@@ -103,7 +67,5 @@ class CartPage extends Component {
     );
   }
 }
-
-// export default withStyles(styles)(ButtonSizes);
 
 export default injectSheet(styles)(CartPage);

@@ -15,7 +15,9 @@ class GoodsList extends Component {
   static propTypes = {
     goods: PropTypes.array.isRequired,
     onAddGoodClick: PropTypes.func.isRequired,
-    classes: PropTypes.object
+    classes: PropTypes.object,
+    actions: PropTypes.bool,
+    filter: PropTypes.string
   };
 
   static defaultProps = {

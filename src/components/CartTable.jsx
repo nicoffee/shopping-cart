@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import { Link } from 'react-router-dom';
 import Table, {
   TableBody,
   TableCell,
@@ -10,21 +9,11 @@ import Table, {
 } from 'material-ui/Table';
 import Input from 'material-ui/Input';
 import Button from 'material-ui/Button';
-import Typography from 'material-ui/Typography';
 import DeleteIcon from 'material-ui-icons/Delete';
 
 const styles = {
   image: {
     width: '100px'
-  },
-
-  trashImage: {
-    width: '20px',
-    height: '20px'
-  },
-
-  buttonCell: {
-    width: '30px'
   },
 
   button: {
@@ -38,13 +27,6 @@ const styles = {
     '& input': {
       textAlign: 'center'
     }
-  },
-
-  emptyView: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'center',
-    padding: '150px'
   }
 };
 
@@ -52,7 +34,6 @@ class CartTable extends Component {
   static propTypes = {
     classes: PropTypes.object,
     goods: PropTypes.array,
-    price: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     removeGoodFromCart: PropTypes.func,
     changeGoodInCartAmount: PropTypes.func
   };
@@ -70,7 +51,8 @@ class CartTable extends Component {
   handleInputChange = e => this.setState({ inputValue: e.target.value });
 
   render() {
-    const { classes, goods, price, removeGoodFromCart } = this.props;
+    const { classes, goods, removeGoodFromCart } = this.props;
+    const { inputValue } = this.state;
 
     return (
       <Table className={classes.table}>
@@ -94,7 +76,7 @@ class CartTable extends Component {
                   <DeleteIcon />
                 </Button>
                 <Input
-                  value={this.state.inputValue || good.count}
+                  value={inputValue || good.count}
                   defaultValue="0"
                   className={classes.input}
                   inputProps={{
