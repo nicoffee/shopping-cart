@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router';
 import PropTypes from 'prop-types';
-import { addGoodInCart, removeGoodFromCart } from './../actions';
+import { addGoodToCart, removeGoodFromCart } from './../actions';
 import {
   getVisibleGoods,
   getErrorMessage,
@@ -67,7 +67,7 @@ const mapStateToProps = (state, ownProps) => ({
 
 export default withRouter(
   connect(mapStateToProps, {
-    onAddGoodClick: addGoodInCart,
+    onAddGoodClick: addGoodToCart,
     onRemoveGoodClick: removeGoodFromCart,
     fetchGoods,
     fetchGoodsInCart

@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import injectSheet from 'react-jss';
-import Table, {
-  TableBody,
-  TableCell,
-  TableHead,
-  TableRow
-} from 'material-ui/Table';
+import { TableCell, TableRow } from 'material-ui/Table';
 import Input from 'material-ui/Input';
 import Button from 'material-ui/Button';
 import DeleteIcon from 'material-ui-icons/Delete';
@@ -33,7 +28,7 @@ const styles = {
 class CartTableRow extends Component {
   static propTypes = {
     classes: PropTypes.object,
-    goods: PropTypes.array,
+    good: PropTypes.object,
     removeGoodFromCart: PropTypes.func,
     changeGoodInCartAmount: PropTypes.func
   };
@@ -52,7 +47,6 @@ class CartTableRow extends Component {
 
   render() {
     const { classes, good, removeGoodFromCart } = this.props;
-    console.log('good', good);
     const { inputValue } = this.state;
 
     return (
@@ -84,7 +78,5 @@ class CartTableRow extends Component {
     );
   }
 }
-
-// export default withStyles(styles)(ButtonSizes);
 
 export default injectSheet(styles)(CartTableRow);

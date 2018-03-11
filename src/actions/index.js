@@ -1,20 +1,17 @@
 import axios from 'axios';
 import { normalize } from 'normalizr';
 import * as schema from './schema';
-
 import * as types from './../types';
 import { getIsFetching } from '../reducers/goods';
 
-export const addGoodInCart = (good, filter) => dispatch => {
+export const addGoodToCart = (good, filter) => dispatch => {
   dispatch({
-    type: types.ADD_GOOD_REQUEST,
-    good: { ...good, count: 1 }
+    type: types.ADD_GOOD_REQUEST_STARTED
   });
 
   return axios
     .all([
       axios.patch(`http://localhost:3000/${filter}/${good.id}`, {
-        ...good,
         inCart: true
       }),
       axios.post(`http://localhost:3000/cart`, {
@@ -23,15 +20,15 @@ export const addGoodInCart = (good, filter) => dispatch => {
       })
     ])
     .then(
-      axios.spread((acct, perms) => {
+      axios.spread((patchRes, postRes) => {
         dispatch({
-          type: types.ADD_GOOD_SUCCESS,
-          payload: acct.data
+          type: types.ADD_GOOD_REQUEST_SUCCESS,
+          payload: patchRes.data
         });
 
         dispatch({
-          type: types.ADD_GOOD_IN_CART_SUCCESS,
-          payload: perms.data
+          type: types.ADD_GOOD_CART_SUCCESS,
+          payload: postRes.data
         });
       })
     );
@@ -63,7 +60,6 @@ export const changeGoodInCartAmount = (id, count) => (dispatch, getState) => {
   return axios
     .patch(`http://localhost:3000/cart/${id}`, { count })
     .then(res => {
-      console.log('STORE', getState());
       dispatch({
         type: types.CHANGE_GOOD_AMOUNT,
         payload: res.data

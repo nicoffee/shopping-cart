@@ -1,5 +1,5 @@
 const byId = (state = {}, action) => {
-  if (action.type === 'ADD_GOOD_SUCCESS') {
+  if (action.type === 'ADD_GOOD_REQUEST_SUCCESS') {
     const newState = Object.assign({}, state);
     newState[action.payload.id] = action.payload;
 
