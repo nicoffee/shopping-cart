@@ -53,7 +53,7 @@
       "rating": 4.5,
       "vendor_code": 90580806,
       "category": "monitors",
-      "inCart": false
+      "inCart": true
     }
   ],
   "videocards": [
@@ -68,5 +68,18 @@
       "category": "videocards"
     }
   ],
-  "cart": []
+  "cart": [
+    {
+      "id": "5ac24117fa9206da3e2c3193",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/71BuhRkFsYL._SL1500_.jpg",
+      "name": "Dell Ultrasharp U2515H",
+      "vendor": "Dell",
+      "price": 259.66,
+      "rating": 4.5,
+      "vendor_code": 90580806,
+      "category": "monitors",
+      "inCart": false,
+      "count": 3
+    }
+  ]
 }

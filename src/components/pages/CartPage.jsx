@@ -12,6 +12,7 @@ import Input from 'material-ui/Input';
 import Button from 'material-ui/Button';
 import Typography from 'material-ui/Typography';
 import DeleteIcon from 'material-ui-icons/Delete';
+import CartTable from './../CartTable';
 
 const styles = {
   image: {
@@ -70,56 +71,24 @@ class CartPage extends Component {
   handleInputChange = e => this.setState({ inputValue: e.target.value });
 
   render() {
-    const { classes, goods, price, removeGoodFromCart } = this.props;
+    const {
+      classes,
+      goods,
+      price,
+      removeGoodFromCart,
+      changeGoodInCartAmount
+    } = this.props;
     console.log('this.props', this.props);
 
     return (
       <div>
         {goods.length ? (
           <div>
-            <Table className={classes.table}>
-              <TableHead>
-                <TableRow>
-                  <TableCell>Count</TableCell>
-                  <TableCell>Photo</TableCell>
-                  <TableCell>Product name</TableCell>
-                  <TableCell>Price per item</TableCell>
-                  <TableCell>Price</TableCell>
-                </TableRow>
-              </TableHead>
-              <TableBody>
-                {goods.map((good, idx) => (
-                  <TableRow key={idx}>
-                    <TableCell>
-                      <Button
-                        className={classes.button}
-                        variant="fab"
-                        onClick={() => removeGoodFromCart(good)}>
-                        <DeleteIcon />
-                      </Button>
-                      <Input
-                        value={this.state.inputValue || good.count}
-                        defaultValue="0"
-                        className={classes.input}
-                        inputProps={{
-                          'aria-label': 'Description'
-                        }}
-                        onChange={e => this.handleInputChange(e)}
-                        onBlur={e => this.handleInputBlur(good.id, e)}
-                      />
-                    </TableCell>
-                    <TableCell>
-                      <img className={classes.image} src={good.img} />
-                    </TableCell>
-                    <TableCell>{good.name}</TableCell>
-                    <TableCell>{good.price}</TableCell>
-                    <TableCell>
-                      {(good.price * good.count).toFixed(2)}
-                    </TableCell>
-                  </TableRow>
-                ))}
-              </TableBody>
-            </Table>
+            <CartTable
+              goods={goods}
+              removeGoodFromCart={removeGoodFromCart}
+              changeGoodInCartAmount={changeGoodInCartAmount}
+            />
             <h2>Price: ${price}</h2>
           </div>
         ) : (
