@@ -21,7 +21,6 @@ const goods = (state = [], action) => {
 
 const totalPrice = (state = 0, action) => {
   switch (action.type) {
-    case types.FETCH_GOODS_IN_CART_SUCCESS:
     case types.CALC_SUM:
       return action.payload.reduce(
         (acc, item) =>
