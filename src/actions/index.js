@@ -73,7 +73,7 @@ export const changeGoodInCartAmount = (id, count) => (dispatch, getState) => {
 };
 
 export const getGoodDetails = id => ({
-  type: types.GET_GOOD_DETAILS,
+  type: types.GET_GOOD_DETAILS_REQUEST,
   id
 });
 

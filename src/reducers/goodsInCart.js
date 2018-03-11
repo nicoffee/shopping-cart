@@ -5,7 +5,7 @@ const goods = (state = [], action) => {
   switch (action.type) {
     case types.FETCH_GOODS_IN_CART_SUCCESS:
       return action.payload;
-    case types.addGoodToCartADD_GOOD_CART_SUCCESS:
+    case types.ADD_GOOD_CART_SUCCESS:
       return [...state, action.payload];
     case types.REMOVE_GOOD_SUCCESS:
       return state.filter(good => good.id !== action.payload.id);

@@ -1,5 +1,7 @@
+import * as types from './../types';
+
 const byId = (state = {}, action) => {
-  if (action.type === 'ADD_GOOD_REQUEST_SUCCESS') {
+  if (action.type === types.ADD_GOOD_SUCCESS) {
     const newState = Object.assign({}, state);
     newState[action.payload.id] = action.payload;
 

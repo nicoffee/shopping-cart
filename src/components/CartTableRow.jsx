@@ -33,9 +33,13 @@ class CartTableRow extends Component {
     changeGoodInCartAmount: PropTypes.func
   };
 
-  state = {
-    inputValue: ''
-  };
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      inputValue: props.good.count
+    };
+  }
 
   handleInputBlur = id =>
     this.props.changeGoodInCartAmount(
@@ -59,7 +63,7 @@ class CartTableRow extends Component {
             <DeleteIcon />
           </Button>
           <Input
-            value={inputValue || good.count}
+            value={inputValue}
             className={classes.input}
             inputProps={{
               'aria-label': 'Description'
