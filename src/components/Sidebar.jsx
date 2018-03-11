@@ -39,6 +39,36 @@ const Sidebar = ({ classes }) => (
         <MenuItem value={30}>Thirty</MenuItem>
       </Select>
     </FormControl>
+    <FormControl className={classes.formControl}>
+      <InputLabel htmlFor="minPrice">Min-price</InputLabel>
+      <Select
+        value="test"
+        inputProps={{
+          name: 'minPrice',
+          id: 'vendor'
+        }}>
+        <MenuItem value="">
+          <em>None</em>
+        </MenuItem>
+        <MenuItem value={10}>Ten</MenuItem>
+        <MenuItem value={20}>Twenty</MenuItem>
+        <MenuItem value={30}>Thirty</MenuItem>
+      </Select>
+      <InputLabel htmlFor="maxPrice">Max-price</InputLabel>
+      <Select
+        value="test"
+        inputProps={{
+          name: 'maxPrice',
+          id: 'vendor'
+        }}>
+        <MenuItem value="">
+          <em>None</em>
+        </MenuItem>
+        <MenuItem value={10}>Ten</MenuItem>
+        <MenuItem value={20}>Twenty</MenuItem>
+        <MenuItem value={30}>Thirty</MenuItem>
+      </Select>
+    </FormControl>
   </Drawer>
 );
 

@@ -10,7 +10,6 @@ import Table, {
 import Input from 'material-ui/Input';
 import Button from 'material-ui/Button';
 import DeleteIcon from 'material-ui-icons/Delete';
-import CartTableRow from './CartTableRow';
 
 const styles = {
   image: {
@@ -31,7 +30,7 @@ const styles = {
   }
 };
 
-class CartTable extends Component {
+class CartTableRow extends Component {
   static propTypes = {
     classes: PropTypes.object,
     goods: PropTypes.array,
@@ -40,7 +39,7 @@ class CartTable extends Component {
   };
 
   state = {
-    inputValue: null
+    inputValue: ''
   };
 
   handleInputBlur = id =>
@@ -52,40 +51,40 @@ class CartTable extends Component {
   handleInputChange = e => this.setState({ inputValue: e.target.value });
 
   render() {
-    const {
-      classes,
-      goods,
-      removeGoodFromCart,
-      changeGoodInCartAmount
-    } = this.props;
+    const { classes, good, removeGoodFromCart } = this.props;
+    console.log('good', good);
     const { inputValue } = this.state;
 
     return (
-      <Table className={classes.table}>
-        <TableHead>
-          <TableRow>
-            <TableCell>Count</TableCell>
-            <TableCell>Photo</TableCell>
-            <TableCell>Product name</TableCell>
-            <TableCell>Price per item</TableCell>
-            <TableCell>Price</TableCell>
-          </TableRow>
-        </TableHead>
-        <TableBody>
-          {goods.map((good, idx) => (
-            <CartTableRow
-              key={idx}
-              good={good}
-              removeGoodFromCart={removeGoodFromCart}
-              changeGoodInCartAmount={changeGoodInCartAmount}
-            />
-          ))}
-        </TableBody>
-      </Table>
+      <TableRow>
+        <TableCell>
+          <Button
+            className={classes.button}
+            variant="fab"
+            onClick={() => removeGoodFromCart(good)}>
+            <DeleteIcon />
+          </Button>
+          <Input
+            value={inputValue || good.count}
+            className={classes.input}
+            inputProps={{
+              'aria-label': 'Description'
+            }}
+            onChange={e => this.handleInputChange(e)}
+            onBlur={e => this.handleInputBlur(good.id, e)}
+          />
+        </TableCell>
+        <TableCell>
+          <img className={classes.image} src={good.img} />
+        </TableCell>
+        <TableCell>{good.name}</TableCell>
+        <TableCell>{good.price}</TableCell>
+        <TableCell>{(good.price * good.count).toFixed(2)}</TableCell>
+      </TableRow>
     );
   }
 }
 
 // export default withStyles(styles)(ButtonSizes);
 
-export default injectSheet(styles)(CartTable);
+export default injectSheet(styles)(CartTableRow);

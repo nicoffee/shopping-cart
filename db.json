@@ -20,7 +20,7 @@
       "rating": 4.5,
       "vendor_code": 90222793,
       "category": "cases",
-      "inCart": false
+      "inCart": true
     },
     {
       "id": "5aa144177b357125371058xa",
@@ -30,7 +30,8 @@
       "price": 142.85,
       "rating": 5,
       "vendor_code": 90669793,
-      "category": "cases"
+      "category": "cases",
+      "inCart": true
     },
     {
       "id": "5aa244157b357585371158fg",
@@ -79,7 +80,18 @@
       "vendor_code": 90580806,
       "category": "monitors",
       "inCart": false,
-      "count": 3
+      "count": 2
+    },
+    {
+      "id": "5aa144177b357125371058xa",
+      "img": "http://corsair.com/~/media/E09D7B8EFCE0461FAA13133F2D312EE7.ashx",
+      "name": "Corsair Crystal 570x RGB-Edition",
+      "vendor": "Corsair",
+      "price": 142.85,
+      "rating": 5,
+      "vendor_code": 90669793,
+      "category": "cases",
+      "count": 1
     }
   ]
 }
