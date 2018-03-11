@@ -12,13 +12,9 @@ const goods = (state = [], action) => {
     case types.REMOVE_GOOD_SUCCESS:
       return state.filter(good => good.id !== action.payload.id);
     case types.CHANGE_GOOD_AMOUNT:
-      const filteredGood = state.filter(
-        good => good.id === action.payload.id
-      )[0];
-      filteredGood.count = action.count;
       return [
         ...state.filter(good => good.id !== action.payload.id),
-        filteredGood
+        action.payload
       ];
     default:
       return state;
