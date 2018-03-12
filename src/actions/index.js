@@ -128,3 +128,23 @@ export const fetchGoodsInCart = () => dispatch => {
       })
   );
 };
+
+export const filterGoods = vendor => dispatch => {
+  dispatch({
+    type: types.FILTER_GOODS_REQUEST
+  });
+
+  return axios.get(`http://localhost:3000/cases?vendor=${vendor}`).then(
+    response => {
+      dispatch({
+        type: types.FILTER_GOODS_SUCCESS,
+        payload: response.data
+      });
+    },
+    error =>
+      dispatch({
+        type: types.FILTER_GOODS_FAILURE,
+        message: error.message || 'Something went wrong'
+      })
+  );
+};
