@@ -2,21 +2,12 @@ import * as actions from './../actions';
 import * as types from './../types';
 
 describe('actions', () => {
-  it('should create an action to add good in cart', () => {
-    const good = 'Monitor';
+  it('should create an action to get good details', () => {
+    const id = '123';
     const expectedAction = {
-      type: types.ADD_GOOD,
-      good
-    };
-    expect(actions.addGoodToCart(good)).toEqual(expectedAction);
-  });
-
-  it('should create an action to remove good from cart', () => {
-    const id = '4';
-    const expectedAction = {
-      type: types.REMOVE_GOOD,
+      type: types.GET_GOOD_DETAILS_REQUEST,
       id
     };
-    expect(actions.removeGoodFromCart(id)).toEqual(expectedAction);
+    expect(actions.getGoodDetails(id)).toEqual(expectedAction);
   });
 });

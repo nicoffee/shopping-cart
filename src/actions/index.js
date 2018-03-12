@@ -2,7 +2,7 @@ import axios from 'axios';
 import { normalize } from 'normalizr';
 import * as schema from './schema';
 import * as types from './../types';
-import { getIsFetching } from '../reducers/goods';
+import { getIsFetching } from './../reducers/goods';
 
 export const addGoodToCart = (good, filter) => dispatch => {
   dispatch({
@@ -78,9 +78,9 @@ export const getGoodDetails = id => ({
 });
 
 export const fetchGoods = filter => (dispatch, getState) => {
-  if (getIsFetching(getState(), filter)) {
-    return Promise.resolve();
-  }
+  // if (getIsFetching(getState(), filter)) {
+  //   return Promise.resolve();
+  // }
 
   dispatch({
     type: types.FETCH_GOODS_REQUEST,

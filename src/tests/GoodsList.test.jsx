@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import GoodsList from './../components/GoodsList';
@@ -9,7 +10,7 @@ Enzyme.configure({ adapter: new Adapter() });
 it('should render a list of goods as an unordered list', () => {
   const mockGoods = [
     {
-      id: 1,
+      id: '1',
       img:
         'https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646',
       name: 'Phanteks Enthoo Pro Chassis White',
@@ -19,7 +20,7 @@ it('should render a list of goods as an unordered list', () => {
       vendor_code: 90222793
     },
     {
-      id: 2,
+      id: '2',
       img: 'http://corsair.com/~/media/E09D7B8EFCE0461FAA13133F2D312EE7.ashx',
       name: 'Corsair Crystal 570x RGB-Edition',
       vendor: 'Corsair',
@@ -28,7 +29,7 @@ it('should render a list of goods as an unordered list', () => {
       vendor_code: 90669793
     },
     {
-      id: 3,
+      id: '3',
       img:
         'https://dstatic.computeruniverse.net/images/1000/907055249603EE7D187C4A56AE6FC126.jpg',
       name: 'Fractal Design Meshify C Tempered Glass',
@@ -40,7 +41,9 @@ it('should render a list of goods as an unordered list', () => {
   ];
 
   const wrapper = mount(
-    <GoodsList goods={mockGoods} onAddGoodClick={() => void 0} />
+    <Router>
+      <GoodsList goods={mockGoods} onAddGoodClick={() => void 0} />
+    </Router>
   );
   expect(wrapper.find(Good).length).toEqual(mockGoods.length);
 });

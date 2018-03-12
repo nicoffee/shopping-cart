@@ -37,6 +37,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^8.0.0",
+    "axios-mock-adapter": "^1.14.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-eslint": "^8.2.2",

@@ -29,7 +29,8 @@ describe('LockScreen', () => {
       price: undefined,
       rating: undefined,
       id: undefined,
-      goodsInCart: { allIds: [] }
+      goodsInCart: { allIds: [] },
+      actions: true
     };
     mountedGood = undefined;
   });
