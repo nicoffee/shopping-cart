@@ -1,10 +1,10 @@
 import React from 'react';
-import Sidebar from './../Sidebar';
+import SidebarContainer from './../../containers/SidebarContainer';
 import GoodsListContainer from './../../containers/GoodsListContainer';
 
 const CategoryPage = props => (
   <div className="inner">
-    <Sidebar />
+    <SidebarContainer />
     <GoodsListContainer {...props} />
   </div>
 );

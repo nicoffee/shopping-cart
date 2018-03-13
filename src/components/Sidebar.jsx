@@ -22,7 +22,10 @@ class Sidebar extends React.Component {
     selectValue: ''
   };
 
-  handleVendorSelect = () => {};
+  handleVendorSelect = e => {
+    this.setState({ selectValue: e.target.value });
+    this.props.filterGoods(e.target.value);
+  };
 
   render() {
     const { classes } = this.props;
@@ -41,7 +44,7 @@ class Sidebar extends React.Component {
               name: 'vendor',
               id: 'vendor'
             }}
-            onChange={e => this.setState({ selectValue: e.target.value })}>
+            onChange={this.handleVendorSelect}>
             <MenuItem value="Phanteks">Phanteks</MenuItem>
             <MenuItem value="Corsair">Corsair</MenuItem>
             <MenuItem value="Fractal Design">Fractal Design</MenuItem>

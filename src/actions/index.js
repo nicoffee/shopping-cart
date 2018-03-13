@@ -131,19 +131,22 @@ export const fetchGoodsInCart = () => dispatch => {
 
 export const filterGoods = vendor => dispatch => {
   dispatch({
-    type: types.FILTER_GOODS_REQUEST
+    type: types.FETCH_GOODS_REQUEST,
+    filter: 'cases'
   });
 
   return axios.get(`http://localhost:3000/cases?vendor=${vendor}`).then(
     response => {
       dispatch({
-        type: types.FILTER_GOODS_SUCCESS,
-        payload: response.data
+        type: types.FETCH_GOODS_SUCCESS,
+        filter: 'cases',
+        response: normalize(response.data, schema.arrayOfGoods)
       });
     },
     error =>
       dispatch({
-        type: types.FILTER_GOODS_FAILURE,
+        type: types.FETCH_GOODS_FAILURE,
+        filter: 'cases',
         message: error.message || 'Something went wrong'
       })
   );
