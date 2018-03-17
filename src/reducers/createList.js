@@ -8,6 +8,9 @@ const createList = filter => {
     }
     switch (action.type) {
       case types.FETCH_GOODS_SUCCESS:
+      console.log('action', action);
+      console.log('state', state);
+      
         return action.response.result;
       default:
         return state;

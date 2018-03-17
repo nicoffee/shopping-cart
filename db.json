@@ -20,7 +20,7 @@
       "rating": 4.5,
       "vendor_code": 90222793,
       "category": "cases",
-      "inCart": true
+      "inCart": false
     },
     {
       "id": "5aa144177b357125371058xa",
@@ -55,7 +55,7 @@
       "rating": 4.5,
       "vendor_code": 90580806,
       "category": "monitors",
-      "inCart": false
+      "inCart": true
     }
   ],
   "videocards": [
@@ -73,16 +73,16 @@
   ],
   "cart": [
     {
-      "id": "5aa234177b357285378151ff",
-      "img": "https://cdn.shopify.com/s/files/1/0232/4705/products/Enthoo_Pro_White.png?v=1405467646",
-      "name": "Phanteks Enthoo Pro Chassis White",
-      "vendor": "Phanteks",
-      "price": 99.99,
+      "id": "5ac24117fa9206da3e2c3193",
+      "img": "https://images-na.ssl-images-amazon.com/images/I/71BuhRkFsYL._SL1500_.jpg",
+      "name": "Dell Ultrasharp U2515H",
+      "vendor": "Dell",
+      "price": 259.66,
       "rating": 4.5,
-      "vendor_code": 90222793,
-      "category": "cases",
+      "vendor_code": 90580806,
+      "category": "monitors",
       "inCart": false,
-      "count": 1
+      "count": null
     }
   ]
 }

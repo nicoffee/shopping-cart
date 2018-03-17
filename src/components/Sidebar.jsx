@@ -6,6 +6,7 @@ import { InputLabel } from 'material-ui/Input';
 import { MenuItem } from 'material-ui/Menu';
 import { FormControl } from 'material-ui/Form';
 import Select from 'material-ui/Select';
+import Slider, { Range } from 'rc-slider';
 
 const styles = {
   drawerPaper: {
@@ -16,6 +17,12 @@ const styles = {
     padding: '20px'
   }
 };
+
+const style = { width: 400, margin: 50 };
+
+function log(value) {
+  console.log(value); //eslint-disable-line
+}
 
 class Sidebar extends React.Component {
   state = {
@@ -51,34 +58,7 @@ class Sidebar extends React.Component {
           </Select>
         </FormControl>
         <FormControl className={classes.formControl}>
-          <InputLabel htmlFor="minPrice">Min-price</InputLabel>
-          <Select
-            value="test"
-            inputProps={{
-              name: 'minPrice',
-              id: 'minPrice'
-            }}>
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value={10}>Ten</MenuItem>
-            <MenuItem value={20}>Twenty</MenuItem>
-            <MenuItem value={30}>Thirty</MenuItem>
-          </Select>
-          <InputLabel htmlFor="maxPrice">Max-price</InputLabel>
-          <Select
-            value="test"
-            inputProps={{
-              name: 'maxPrice',
-              id: 'maxPrice'
-            }}>
-            <MenuItem value="">
-              <em>None</em>
-            </MenuItem>
-            <MenuItem value="Phanteks">Phanteks</MenuItem>
-            <MenuItem value="Corsair">Corsair</MenuItem>
-            <MenuItem value="Fractal Design">Fractal Design</MenuItem>
-          </Select>
+          <Range allowCross={false} defaultValue={[0, 20]} onChange={log} />
         </FormControl>
       </Drawer>
     );
