@@ -6,8 +6,13 @@ import Good from './../components/Good';
 const styles = {
   goodsList: {
     display: 'grid',
-    gridTemplateColumns: '1fr 1fr 1fr',
+    gridTemplateColumns: 'repeat(3, 1fr)',
     gridGap: '20px'
+  },
+  '@media (max-width: 1100px)': {
+    goodsList: {
+      gridTemplateColumns: 'repeat(2, 1fr)'
+    }
   }
 };
 

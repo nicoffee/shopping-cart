@@ -19,8 +19,7 @@ const theme = createMuiTheme({
 const styles = {
   paper: {
     width: '100%',
-    maxWidth: '1100px',
-    padding: '0 30px'
+    maxWidth: '1100px'
   }
 };
 
