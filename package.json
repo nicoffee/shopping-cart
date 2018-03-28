@@ -9,9 +9,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "npm run server & npm run dev",
+    "start": "node index.js",
+    "start:dev": "npm run server & npm run dev",
     "start:test": "npm run server & npm run client & npm run test:watch",
-    "build": "webpack --mode production --profile --json > stats.json --config webpack/webpack.prod.js",
+    "build": "./node_modules/.bin/webpack --mode production --profile --json > stats.json --config webpack/webpack.prod.js",
     "server": "json-server --watch db.json",
     "dev": "webpack-dev-server --mode development --open --config webpack/webpack.dev.js",
     "lint": "eslint --ext .jsx --ext .js src/",
@@ -20,6 +21,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "express": "^4.16.3",
     "material-ui": "^1.0.0-beta.34",
     "material-ui-icons": "^1.0.0-beta.17",
     "normalizr": "^3.2.4",
